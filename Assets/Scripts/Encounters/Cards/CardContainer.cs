@@ -9,7 +9,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
                                 , IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private CardVisual cardVisual;
-        [SerializeField] private float moveSpeed = 15;
+        [SerializeField] private float dragSpeed = 15;
 
         public Card Card {get; private set;}
 
@@ -38,7 +38,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
             if (IsDragging)
             {
                 TargetPosition = InputManager.Instance.GetPointInput();
-                transform.position = Vector3.Lerp(transform.position, TargetPosition, moveSpeed * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, TargetPosition, dragSpeed * Time.deltaTime);
             }
         }
 
@@ -56,7 +56,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
             if ((Vector2)transform.position != TargetPosition)
             {
-                Tween.Position(transform, TargetPosition, 0.5f);
+                Tween.Position(transform, TargetPosition, 0.25f);
             }
         }
 

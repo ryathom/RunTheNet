@@ -10,12 +10,10 @@ namespace ryathom.RunTheNet.Encounters.Zones
 
     public class HandView : ZoneView, IPointerEnterHandler, IPointerExitHandler
     {
-        private readonly float cardSpacing = 48;
+        private readonly float cardSpacing = 128;
         private int yScale = 60;
         private int zRotationFactor = -5;
         private Vector3 handScale = new(1f, 1f, 1f);
-
-        [SerializeField] private bool isPlayer1;
 
         private Vector3 mouseOverOffset = new(0f, 20f);
 
@@ -23,18 +21,6 @@ namespace ryathom.RunTheNet.Encounters.Zones
 
         // Methods
         //---------------------------------------------------------------------------------------------------------
-        public override void SetZone(Zone zone)
-        {
-            base.SetZone(zone);
-
-            if (isPlayer1 == false)
-            {
-                yScale = -yScale;
-                zRotationFactor = -zRotationFactor;
-                mouseOverOffset = -mouseOverOffset;
-            }
-        }
-
         public override void UpdateVisuals()
         {
             for (int i = 0; i < containers.Count; i++)
