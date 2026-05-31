@@ -6,12 +6,6 @@ namespace ryathom.RunTheNet
     {
         public void Start()
         {
-            InputManager.Instance.OnClickAction += Log;
-        }
-
-        public void Log()
-        {
-            Debug.Log(InputManager.Instance.GetPointInput());
         }
     }
 }
