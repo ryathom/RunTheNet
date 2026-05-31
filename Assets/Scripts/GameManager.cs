@@ -6,7 +6,12 @@ namespace ryathom.RunTheNet
     {
         public void Start()
         {
-            Debug.Log("Hello world.");
+            InputManager.Instance.OnClickAction += Log;
+        }
+
+        public void Log()
+        {
+            Debug.Log(InputManager.Instance.GetPointInput());
         }
     }
 }
