@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-// using PrimeTween;
+using PrimeTween;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
@@ -56,7 +56,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
             if ((Vector2)transform.position != TargetPosition)
             {
-                // Tween.Position(transform, TargetPosition, 0.5f);
+                Tween.Position(transform, TargetPosition, 0.5f);
             }
         }
 
@@ -64,7 +64,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
         {
             if (transform.localScale != scale)
             {
-                // Tween.Scale(transform, scale, 0.5f);
+                Tween.Scale(transform, scale, 0.1f);
             }
         }
 
@@ -83,11 +83,15 @@ namespace ryathom.RunTheNet.Encounters.Cards
         public void OnPointerEnter(PointerEventData eventData)
         {
             OnEnterContainer?.Invoke(this);
+
+            SetScale(new Vector3(1.25f, 1.25f, 1f));
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             OnExitContainer?.Invoke(this);
+
+            SetScale(new Vector3(1f, 1f, 1f));
         }
 
         public void OnPointerUp(PointerEventData eventData)
