@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using PrimeTween;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
@@ -13,6 +15,13 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public bool IsDragging {get; private set;}
         public Vector2 TargetPosition {get; private set;}
+        public Vector2 ReturnPosition {get; private set;}
+
+        public Action<Card> OnClickCard;
+        public Action<CardContainer> OnBeginDragContainer;
+        public Action<CardContainer> OnEndDragContainer;
+        public Action<CardContainer> OnEnterContainer;
+        public Action<CardContainer> OnExitContainer;
 
         public void SetCard(Card card)
         {
@@ -33,29 +42,66 @@ namespace ryathom.RunTheNet.Encounters.Cards
             }
         }
 
+        // UX methods
+        // -------------------------------------------------------
+        public void ShowVisual(bool enabled)
+        {
+            cardVisual.gameObject.SetActive(enabled);
+        }
+
+        public void SetTargetPosition(Vector2 pos)
+        {
+            TargetPosition = pos;
+            ReturnPosition = pos;
+
+            if ((Vector2)transform.position != TargetPosition)
+            {
+                // Tween.Position(transform, TargetPosition, 0.5f);
+            }
+        }
+
+        public void SetScale(Vector3 scale)
+        {
+            if (transform.localScale != scale)
+            {
+                // Tween.Scale(transform, scale, 0.5f);
+            }
+        }
+
+        public void SetDragging(bool dragging)
+        {
+            IsDragging = dragging;
+        }
+
 
         // Interface methods
         // -------------------------------------------------------
         public void OnPointerDown(PointerEventData eventData)
         {
-            
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            OnEnterContainer?.Invoke(this);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            OnExitContainer?.Invoke(this);
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            if (IsDragging == false && eventData.button == PointerEventData.InputButton.Left)
+            {
+                OnClickCard?.Invoke(Card);
+            }
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
             IsDragging = true;
+            OnBeginDragContainer?.Invoke(this);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -65,6 +111,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
         public void OnEndDrag(PointerEventData eventData)
         {
             IsDragging = false;
+            OnEndDragContainer?.Invoke(this);
         }
     }
 }
