@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &172950389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.CardContainer
   cardVisual: {fileID: 1669389931}
-  moveSpeed: 15
+  dragSpeed: 15
 --- !u!1 &309273364
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 15f1a6fdc765f6b47ad79dd64f415773, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cadf583a8c01f214794331128975ada2, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
