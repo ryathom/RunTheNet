@@ -1,21 +1,19 @@
 using System;
-// using PrimeTween;
 using ryathom.RunTheNet.Encounters.Cards;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 namespace ryathom.RunTheNet.Encounters.Zones
 {
 
     public class HandView : ZoneView, IPointerEnterHandler, IPointerExitHandler
     {
-        private readonly float cardSpacing = 128;
+        private readonly float cardSpacing = 244;
         private int yScale = 60;
         private int zRotationFactor = -5;
         private Vector3 handScale = new(1f, 1f, 1f);
 
-        private Vector3 mouseOverOffset = new(0f, 20f);
+        private Vector3 mouseOverOffset = new(0f, 60f);
 
         public Action<Card> OnClickCardInHand;
 
@@ -68,12 +66,15 @@ namespace ryathom.RunTheNet.Encounters.Zones
         {
             if (container.IsDragging) return;
 
+            container.transform.SetAsLastSibling();
+            container.SetTargetPosition(container.transform.position + mouseOverOffset);
+            container.SetScale(new Vector3(1.25f, 1.25f, 1f));
+            container.transform.eulerAngles = Vector3.zero;
         }
 
         protected override void ExitContainer(CardContainer container)
         {
             if (container.IsDragging) return;
-
             
             UpdateVisuals();
         }

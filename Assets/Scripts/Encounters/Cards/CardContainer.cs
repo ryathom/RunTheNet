@@ -83,8 +83,6 @@ namespace ryathom.RunTheNet.Encounters.Cards
         public void OnPointerEnter(PointerEventData eventData)
         {
             OnEnterContainer?.Invoke(this);
-
-            SetScale(new Vector3(1.25f, 1.25f, 1f));
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -104,7 +102,6 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            IsDragging = true;
             OnBeginDragContainer?.Invoke(this);
         }
 
@@ -114,7 +111,6 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            IsDragging = false;
             OnEndDragContainer?.Invoke(this);
         }
     }
