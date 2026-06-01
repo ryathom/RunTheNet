@@ -58,7 +58,7 @@ namespace ryathom.RunTheNet.Encounters.System
 
             foreach (CardSO cardSO in tempServerDecklist)
             {
-                CardContainer container = Instantiate(corpCardPrefab, serverView.transform);
+                CardContainer container = Instantiate(cardPrefab, serverView.transform);
                 Card card = new(cardSO);
 
                 container.SetCard(card);
@@ -70,6 +70,11 @@ namespace ryathom.RunTheNet.Encounters.System
         public void DrawCard()
         {
             Runner.DrawCard();
+        }
+
+        public void EndTurn()
+        {
+            Debug.Log("End turn");
         }
     }
 }

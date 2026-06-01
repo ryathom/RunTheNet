@@ -12,8 +12,11 @@ namespace ryathom.RunTheNet.Encounters.Zones {
         {
             for (int i = 0; i < containers.Count; i++)
             {
-                float y = i * cardSpacing;
-                Vector2 targetPosition = new (0, y + offset);
+                // float y = i * cardSpacing;
+                // Vector2 targetPosition = new (0, y + offset);
+                float x = i * cardSpacing;
+                Vector2 targetPosition = new (x + offset, 0);
+
 
                 containers[i].SetTargetPosition(this.transform.position + (Vector3)targetPosition);
                 containers[i].ShowVisual(true);

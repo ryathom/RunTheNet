@@ -14,5 +14,6 @@ namespace ryathom.RunTheNet.Encounters.Cards
     public enum CardType
     {
         Program,
+        Directory,
     }
 }
