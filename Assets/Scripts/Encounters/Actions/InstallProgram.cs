@@ -1,26 +1,30 @@
 using System.Collections;
+using ryathom.RunTheNet.Encounters.Cards;
 using ryathom.RunTheNet.Encounters.Player;
 using ryathom.RunTheNet.Encounters.System;
 
 namespace ryathom.RunTheNet.Encounters.Actions
 {
-    public class DrawCard : IAction
+    public class InstallProgram : IAction
     {
+        public Card Program {get; private set;}
         private Runner runner;
+
+        public InstallProgram(Card program)
+        {
+            Program = program;
+        }
+
 
         public IEnumerator Execute()
         {
             runner = EncounterManager.Instance.Runner;
 
             if (runner.Clicks <= 0) yield break;
-            if (runner.Repository.Cards.Count <= 0) yield break;
-
             runner.SpendClicks(1);
 
-            runner.Repository.RemoveCard(runner.Repository.Cards[0]);
-            runner.Hand.AddCard(runner.Repository.Cards[0]);
-
-            yield return null;
+            Program.Zone.RemoveCard(Program);
+            runner.Rig.AddCard(Program);
         }
     }
 }

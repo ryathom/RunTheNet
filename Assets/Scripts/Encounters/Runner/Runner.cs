@@ -1,6 +1,9 @@
+using UnityEngine;
 using System.Collections.Generic;
 using ryathom.RunTheNet.Encounters.Cards;
 using ryathom.RunTheNet.Encounters.Zones;
+using ryathom.RunTheNet.Encounters.System;
+using ryathom.RunTheNet.Encounters.Actions;
 
 namespace ryathom.RunTheNet.Encounters.Player
 {
@@ -31,20 +34,17 @@ namespace ryathom.RunTheNet.Encounters.Player
 
         public void AddCardToRig(Card card)
         {
-            card.Zone.RemoveCard(card);
-            Rig.AddCard(card);
+            EncounterManager.Instance.Actions.AddAction(new InstallProgram(card));
         }
 
-        public void DrawCard()
+        public void SpendClicks(int clicks)
         {
-            if (Clicks <= 0) return;
-            if (Repository.Cards.Count <= 0) return;
+            if (clicks > Clicks)
+            {
+                Debug.Log("Tried to spend more clicks than available");
+            }
 
-            Clicks -= 1;
-
-            Repository.RemoveCard(Repository.Cards[0]);
-            Hand.AddCard(Repository.Cards[0]);
-            playArea.HandView.UpdateVisuals();
+            Clicks -= clicks;
         }
     }
 }
