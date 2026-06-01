@@ -896,7 +896,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2118727999}
         m_TargetAssemblyTypeName: ryathom.RunTheNet.Encounters.System.EncounterManager,
           Assembly-CSharp
-        m_MethodName: DrawCard
+        m_MethodName: RunnerDrawCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

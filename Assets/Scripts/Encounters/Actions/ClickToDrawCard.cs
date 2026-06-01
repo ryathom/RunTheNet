@@ -1,20 +1,23 @@
 using System.Collections;
-using UnityEngine;
 using ryathom.RunTheNet.Encounters.Player;
 using ryathom.RunTheNet.Encounters.System;
 
 namespace ryathom.RunTheNet.Encounters.Actions
 {
-    public class DrawCard : IAction
+    public class ClickToDrawCard : IAction
     {
         private Runner runner;
 
         public IEnumerator Execute()
         {
             runner = EncounterManager.Instance.Runner;
+
+            if (runner.Clicks <= 0) yield break;
             if (runner.Repository.Cards.Count <= 0) yield break;
-            
-            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ChangeZone(runner.Repository.Cards[0], runner.Hand));
+
+            runner.SpendClicks(1);
+
+            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new DrawCard());
         }
     }
 }

@@ -96,9 +96,9 @@ namespace ryathom.RunTheNet.Encounters.System
             }
         }
 
-        public void DrawCard()
+        public void RunnerDrawCard()
         {
-            Actions.AddAction(new DrawCard());
+            Actions.AddAction(new ClickToDrawCard());
         }
 
         public void EndTurn()

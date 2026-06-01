@@ -33,5 +33,10 @@ namespace ryathom.RunTheNet.Encounters.System
                 Busy = false;
             }
         }
+
+        public IEnumerator ExecuteImmediate(IAction action)
+        {
+            yield return action.Execute();
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
             foreach (Card card in programs)
             {
                 Cards.Add(card);
+                card.SetZone(this);
             }
         }
 
