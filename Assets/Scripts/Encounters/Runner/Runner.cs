@@ -12,6 +12,8 @@ namespace ryathom.RunTheNet.Encounters.Player
         public Hand Hand {get; private set;}
         public Rig Rig {get; private set;}
 
+        public int Clicks {get; private set;}
+
         public void SetupRunner(RunnerPlayArea playArea, List<Card> programs)
         {
             this.playArea = playArea;
@@ -19,6 +21,8 @@ namespace ryathom.RunTheNet.Encounters.Player
             Repository = new(programs);
             Hand = new();
             Rig = new();
+
+            Clicks = 3;
 
             playArea.SetupPlayArea(this);
 
@@ -33,7 +37,10 @@ namespace ryathom.RunTheNet.Encounters.Player
 
         public void DrawCard()
         {
+            if (Clicks <= 0) return;
             if (Repository.Cards.Count <= 0) return;
+
+            Clicks -= 1;
 
             Repository.RemoveCard(Repository.Cards[0]);
             Hand.AddCard(Repository.Cards[0]);
