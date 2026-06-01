@@ -58,7 +58,7 @@ namespace ryathom.RunTheNet.Encounters.System
 
             foreach (CardSO cardSO in tempServerDecklist)
             {
-                CardContainer container = Instantiate(corpCardPrefab, cardCanvas.transform);
+                CardContainer container = Instantiate(corpCardPrefab, serverView.transform);
                 Card card = new(cardSO);
 
                 container.SetCard(card);
