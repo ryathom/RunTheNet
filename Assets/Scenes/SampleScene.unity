@@ -1465,7 +1465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &860075649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1517,6 +1517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1223250620}
+  - component: {fileID: 1223250621}
   m_Layer: 5
   m_Name: ServerView
   m_TagString: Untagged
@@ -1544,6 +1545,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 355}
   m_SizeDelta: {x: 2560, y: 730}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1223250621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223250619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a7fff99132d4866ab2eef51e6ab08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Zones.ServerView
 --- !u!1 &1347166751
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,9 +2878,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 482cf8bdc26bd445eb1a42f57c9a7199, type: 2}
   - {fileID: 11400000, guid: 482cf8bdc26bd445eb1a42f57c9a7199, type: 2}
   - {fileID: 11400000, guid: 482cf8bdc26bd445eb1a42f57c9a7199, type: 2}
+  tempServerDecklist:
+  - {fileID: 11400000, guid: 175f4a0b4982a40cf88b10de05020de5, type: 2}
+  - {fileID: 11400000, guid: 175f4a0b4982a40cf88b10de05020de5, type: 2}
+  - {fileID: 11400000, guid: 175f4a0b4982a40cf88b10de05020de5, type: 2}
   cardPrefab: {fileID: 172950392}
+  corpCardPrefab: {fileID: 860075650}
   cardCanvas: {fileID: 504251143}
   playArea: {fileID: 1689558772}
+  serverView: {fileID: 1223250621}
 --- !u!4 &2118728000
 Transform:
   m_ObjectHideFlags: 0
