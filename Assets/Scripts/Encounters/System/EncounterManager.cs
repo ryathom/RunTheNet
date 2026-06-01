@@ -4,11 +4,14 @@ using ryathom.RunTheNet.Encounters.Zones;
 using ryathom.RunTheNet.Encounters.Player;
 using UnityEngine;
 using System;
+using ryathom.RunTheNet.Encounters.Actions;
 
 namespace ryathom.RunTheNet.Encounters.System
 {
     public class EncounterManager : MonoBehaviour
     {
+        public static EncounterManager Instance {get; private set;}
+
         [SerializeField] private List<CardSO> tempPlayerDecklist;
         [SerializeField] private List<CardSO> tempServerDecklist;
         [SerializeField] private CardContainer cardPrefab;
@@ -17,18 +20,44 @@ namespace ryathom.RunTheNet.Encounters.System
 
         private List<Card> programs;
 
+        public ActionSystem Actions {get; private set;}
         public Runner Runner {get; private set;}
         public Server Server {get; private set;}
         
         [SerializeField] private RunnerPlayArea playArea;
         [SerializeField] private ServerView serverView;
 
+        // Unity Messages
+        //---------------------------------------------------------------------------------------------------------
+        private void Awake() 
+        {
+            if (Instance == null) {
+                Instance = this;
+            } else
+            {
+                Destroy(gameObject);
+            }
+        }
+
         public void Start()
         {
+            Actions = new();
             SetupRunner();
             SetupServer();
         }
 
+        public void Update()
+        {
+            if (Actions == null) return;
+
+            if (Actions.Busy == false)
+            {
+                StartCoroutine(Actions.ExecuteNextAction());
+            }
+        }
+
+        // Game flow
+        //---------------------------------------------------------------------------------------------------------
         private void SetupRunner()
         {
             programs = new();
@@ -69,7 +98,7 @@ namespace ryathom.RunTheNet.Encounters.System
 
         public void DrawCard()
         {
-            Runner.DrawCard();
+            Actions.AddAction(new DrawCard());
         }
 
         public void EndTurn()
