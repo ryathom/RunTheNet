@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Decoder
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.CardSO
   BackgroundImage: {fileID: 21300000, guid: c93dbf91c45e28d4aafdd6f5a906f41f, type: 3}
+  cardType: 0
+  cardText: '<>: Decrypt one ICE Program.'

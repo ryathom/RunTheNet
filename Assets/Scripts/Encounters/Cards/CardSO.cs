@@ -6,5 +6,13 @@ namespace ryathom.RunTheNet.Encounters.Cards
     public class CardSO : ScriptableObject
     {
         public Sprite BackgroundImage;
+        
+        public CardType cardType;
+        public string cardText;
+    }
+
+    public enum CardType
+    {
+        Program,
     }
 }

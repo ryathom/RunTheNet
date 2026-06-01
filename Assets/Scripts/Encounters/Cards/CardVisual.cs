@@ -8,6 +8,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
     {
         [SerializeField] private Image background;
         [SerializeField] private TextMeshProUGUI title;
+        [SerializeField] private TextMeshProUGUI type;
+        [SerializeField] private TextMeshProUGUI text;
 
         private Card card;
 
@@ -22,6 +24,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
         {
             background.sprite = card.CardSO.BackgroundImage;
             title.text = card.CardSO.name;
+            type.text = card.CardSO.cardType.ToString();
+            text.text = card.CardSO.cardText;
         }
     }
 }
