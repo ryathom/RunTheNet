@@ -24,6 +24,8 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
             Program.Zone.RemoveCard(Program);
             runner.Rig.AddCard(Program);
+
+            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ChangeZone(Program, runner.Rig));
         }
     }
 }

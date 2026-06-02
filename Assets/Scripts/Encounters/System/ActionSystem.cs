@@ -54,7 +54,7 @@ namespace ryathom.RunTheNet.Encounters
                     {
                         if (triggeredAbility.Trigger.HasTriggered(action, card))
                         {
-                            triggeredAbility.Execute();
+                            AddAction(new ResolveAbility(triggeredAbility, card));
                         }
                     }
                 }
