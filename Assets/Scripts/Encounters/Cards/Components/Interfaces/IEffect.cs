@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ryathom.RunTheNet.Encounters.Cards
 {
     public interface IEffect
