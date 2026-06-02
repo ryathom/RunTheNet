@@ -24,8 +24,23 @@ namespace ryathom.RunTheNet.Encounters.Cards
         {
             background.sprite = card.CardSO.BackgroundImage;
             title.text = card.CardSO.name;
-            type.text = card.CardSO.GetType().ToString();
             text.text = card.CardSO.cardText;
+            
+            SetTypeText();
+        }
+
+        public void SetTypeText()
+        {
+            if (card.CardSO is ProgramSO)
+            {
+                type.text = "Program";
+            } else if (card.CardSO is IceSO)
+            {
+                type.text = "ICE";
+            } else if (card.CardSO is ServerAssetSO)
+            {
+                type.text = "Asset";
+            }
         }
     }
 }
