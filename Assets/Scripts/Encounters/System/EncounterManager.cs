@@ -1,12 +1,12 @@
+using UnityEngine;
+using System;
 using System.Collections.Generic;
 using ryathom.RunTheNet.Encounters.Cards;
 using ryathom.RunTheNet.Encounters.Zones;
 using ryathom.RunTheNet.Encounters.Player;
-using UnityEngine;
-using System;
 using ryathom.RunTheNet.Encounters.Actions;
 
-namespace ryathom.RunTheNet.Encounters.System
+namespace ryathom.RunTheNet.Encounters
 {
     public class EncounterManager : MonoBehaviour
     {

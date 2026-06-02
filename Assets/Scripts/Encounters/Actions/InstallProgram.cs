@@ -1,7 +1,6 @@
 using System.Collections;
 using ryathom.RunTheNet.Encounters.Cards;
 using ryathom.RunTheNet.Encounters.Player;
-using ryathom.RunTheNet.Encounters.System;
 
 namespace ryathom.RunTheNet.Encounters.Actions
 {

@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using ryathom.RunTheNet.Encounters.Player;
-using ryathom.RunTheNet.Encounters.System;
 
 namespace ryathom.RunTheNet.Encounters.Actions
 {

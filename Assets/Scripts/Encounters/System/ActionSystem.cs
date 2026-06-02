@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using ryathom.RunTheNet.Encounters.Actions;
+using ryathom.RunTheNet.Encounters.Cards;
 
-namespace ryathom.RunTheNet.Encounters.System
+namespace ryathom.RunTheNet.Encounters
 {
     public class ActionSystem
     {
@@ -30,6 +31,8 @@ namespace ryathom.RunTheNet.Encounters.System
                 CurrentAction = ActionQueue.Dequeue();
                 yield return CurrentAction.Execute();
 
+                CheckTriggeredAbilities(CurrentAction);
+
                 Busy = false;
             }
         }
@@ -37,6 +40,25 @@ namespace ryathom.RunTheNet.Encounters.System
         public IEnumerator ExecuteImmediate(IAction action)
         {
             yield return action.Execute();
+
+            CheckTriggeredAbilities(action);
+        }
+
+        public void CheckTriggeredAbilities(IAction action)
+        {
+            foreach (Card card in EncounterManager.Instance.Runner.Rig.Cards)
+            {
+                foreach (IAbility ability in card.Abilities)
+                {
+                    if (ability is TriggeredAbility triggeredAbility)
+                    {
+                        if (triggeredAbility.Trigger.HasTriggered(action, card))
+                        {
+                            triggeredAbility.Execute();
+                        }
+                    }
+                }
+            }
         }
     }
 }

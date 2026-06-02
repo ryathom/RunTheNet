@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using ryathom.RunTheNet.Encounters.Cards;
 using ryathom.RunTheNet.Encounters.Zones;
-using ryathom.RunTheNet.Encounters.System;
 using ryathom.RunTheNet.Encounters.Actions;
 
 namespace ryathom.RunTheNet.Encounters.Player

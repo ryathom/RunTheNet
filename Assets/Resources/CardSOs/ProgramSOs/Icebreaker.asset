@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Icebreaker
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   BackgroundImage: {fileID: 21300000, guid: c93dbf91c45e28d4aafdd6f5a906f41f, type: 3}
+  Abilities: []
   cardText: Placeholder icebreaker program.
+  references:
+    version: 2
+    RefIds: []
