@@ -49,7 +49,7 @@ namespace ryathom.RunTheNet.Encounters
             SetupServer();
 
             Trace = 0;
-            MaxTrace = 10;
+            MaxTrace = 3;
         }
 
         public void Update()
@@ -132,7 +132,7 @@ namespace ryathom.RunTheNet.Encounters
 
             if (Trace >= MaxTrace)
             {
-                Debug.Log("Game over");
+                Actions.AddAction(new EndEncounter());
             }
         }
     }
