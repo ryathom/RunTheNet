@@ -1,4 +1,3 @@
-using System;
 using ryathom.RunTheNet.Encounters.Actions;
 
 namespace ryathom.RunTheNet.Encounters.Cards

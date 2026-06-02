@@ -13,4 +13,23 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ServerAssetSO
   BackgroundImage: {fileID: 21300000, guid: 6c74b97fc4ed3a341bac15f0a03b6689, type: 3}
-  cardText: Placeholder server root.
+  Abilities:
+  - rid: 2674383532039078272
+  cardText: Trace 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 2674383532039078272
+      type: {class: TriggeredAbility, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Trigger:
+          rid: 2674383532039078273
+        Effect:
+          rid: 2674383532039078274
+    - rid: 2674383532039078273
+      type: {class: OnEndTurn, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 2674383532039078274
+      type: {class: IncreaseTraceEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: 1

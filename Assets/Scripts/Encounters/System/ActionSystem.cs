@@ -59,6 +59,20 @@ namespace ryathom.RunTheNet.Encounters
                     }
                 }
             }
+
+            foreach (Card card in EncounterManager.Instance.Server.Cards)
+            {
+                foreach (IAbility ability in card.Abilities)
+                {
+                    if (ability is TriggeredAbility triggeredAbility)
+                    {
+                        if (triggeredAbility.Trigger.HasTriggered(action, card))
+                        {
+                            AddAction(new ResolveAbility(triggeredAbility, card));
+                        }
+                    }
+                }
+            }
         }
     }
 }

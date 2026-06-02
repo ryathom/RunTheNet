@@ -28,4 +28,12 @@ namespace ryathom.RunTheNet.Encounters.Actions
             yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ChangeZone(Program, runner.Rig));
         }
     }
+
+    public class EndTurn : IAction
+    {
+        public IEnumerator Execute()
+        {
+            return null;
+        }
+    }
 }
