@@ -24,7 +24,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
         {
             background.sprite = card.CardSO.BackgroundImage;
             title.text = card.CardSO.name;
-            type.text = card.CardSO.cardType.ToString();
+            type.text = card.CardSO.GetType().ToString();
             text.text = card.CardSO.cardText;
         }
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
-    [CreateAssetMenu(fileName = "ProgramSO", menuName = "Scriptable Objects/ProgramSO")]
+    [CreateAssetMenu(fileName = "ProgramSO", menuName = "Scriptable Objects/Cards/ProgramSO")]
     public class ProgramSO : CardSO
     {
         
@@ -11,6 +11,6 @@ namespace ryathom.RunTheNet.Encounters.Cards
     public enum ProgramType
     {
         Immediate,
-        
+        Icebreaker,
     }
 }

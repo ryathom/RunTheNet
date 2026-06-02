@@ -12,7 +12,7 @@ namespace ryathom.RunTheNet.Encounters.System
     {
         public static EncounterManager Instance {get; private set;}
 
-        [SerializeField] private List<CardSO> tempPlayerDecklist;
+        [SerializeField] private List<ProgramSO> tempPlayerDecklist;
         [SerializeField] private List<CardSO> tempServerDecklist;
         [SerializeField] private CardContainer cardPrefab;
         [SerializeField] private CardContainer corpCardPrefab;
@@ -72,7 +72,7 @@ namespace ryathom.RunTheNet.Encounters.System
             foreach (CardSO cardSO in tempPlayerDecklist)
             {
                 CardContainer container = Instantiate(cardPrefab, cardCanvas.transform);
-                Card card = new(cardSO);
+                Program card = new(cardSO);
 
                 container.SetCard(card);
                 container.gameObject.SetActive(true);
@@ -88,7 +88,19 @@ namespace ryathom.RunTheNet.Encounters.System
             foreach (CardSO cardSO in tempServerDecklist)
             {
                 CardContainer container = Instantiate(cardPrefab, serverView.transform);
-                Card card = new(cardSO);
+                
+                Card card = null;
+
+                if (cardSO is IceSO iceSO)
+                {
+                    card = new Ice(iceSO);
+                } else if (cardSO is ServerAssetSO assetSO)
+                {
+                    card = new ServerAsset(assetSO);
+                } else
+                {
+                    Debug.LogError("Unrecognised card type " + cardSO);
+                }
 
                 container.SetCard(card);
                 container.gameObject.SetActive(true);

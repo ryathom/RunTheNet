@@ -2,7 +2,7 @@ using ryathom.RunTheNet.Encounters.Zones;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
-    public class Card
+    public abstract class Card
     {
         public CardSO CardSO {get; protected set;}
 
