@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Cards
@@ -6,6 +7,9 @@ namespace ryathom.RunTheNet.Encounters.Cards
     {
         public Sprite BackgroundImage;
         
+        [SerializeReference, SubclassSelector]
+        public List<IAbility> Abilities;
+
         public string cardText;
     }
 }

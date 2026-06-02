@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
+    [Serializable]
     public class TriggeredAbility : IAbility
     {
         [SerializeReference, SubclassSelector]
