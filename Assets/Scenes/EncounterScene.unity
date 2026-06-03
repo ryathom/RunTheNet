@@ -331,7 +331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Barrier
+  m_text: Root
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d0bb7337f597634b94b9005947e8e28, type: 2}
   m_sharedMaterial: {fileID: 7503143391497007800, guid: 4d0bb7337f597634b94b9005947e8e28, type: 2}
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Program - ICE
+  m_text: Asset
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4d0bb7337f597634b94b9005947e8e28, type: 2}
   m_sharedMaterial: {fileID: 7503143391497007800, guid: 4d0bb7337f597634b94b9005947e8e28, type: 2}
@@ -984,7 +984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f39adbe09347a3346a2a85e30aaef69b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c74b97fc4ed3a341bac15f0a03b6689, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1954,6 +1954,7 @@ GameObject:
   - component: {fileID: 860075649}
   - component: {fileID: 860075651}
   - component: {fileID: 860075650}
+  - component: {fileID: 860075652}
   m_Layer: 5
   m_Name: CorpCard
   m_TagString: Untagged
@@ -2003,6 +2004,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860075648}
   m_CullTransparentMesh: 1
+--- !u!114 &860075652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860075648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5efb21741b2c7488d93528ac48523d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.CardSetter
+  cardSO: {fileID: 11400000, guid: a81b3d86c2c394cd4890337db79a0323, type: 2}
 --- !u!1 &871032886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,12 +2780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Deal 1 net damage.
-
-    - End the run.
-
-
-    (strength 4)'
+  m_text: Trace 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}
   m_sharedMaterial: {fileID: -8262044034710385518, guid: a85a5fb20be32c74e8b4a078e736f5ab, type: 2}

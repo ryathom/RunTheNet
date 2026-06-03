@@ -5,8 +5,6 @@ using UnityEngine;
 namespace ryathom.RunTheNet.Encounters.Zones {
     public class ServerView : ZoneView
     {
-        private float cardSpacing = 344;
-
         private float xOffset = 0;
         private float yOffset = 0;
         private float offsetStep = 150;
