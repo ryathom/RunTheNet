@@ -28,6 +28,7 @@ namespace ryathom.RunTheNet.Encounters
         
         [SerializeField] private RunnerPlayArea playArea;
         [SerializeField] private ServerView serverView;
+        [SerializeField] private PlayerController playerController;
 
         // Unity Messages
         //---------------------------------------------------------------------------------------------------------
@@ -48,6 +49,7 @@ namespace ryathom.RunTheNet.Encounters
             SetupServer();
 
             EncounterInfo = new();
+            EncounterInfo.CurrentPhase.Enter();
         }
 
         public void Update()
@@ -69,6 +71,8 @@ namespace ryathom.RunTheNet.Encounters
 
             Runner = new();
             Runner.SetupRunner(playArea, programs);
+
+            playerController.Setup(Actions, Runner);
         }
 
         private void SetupPrograms()

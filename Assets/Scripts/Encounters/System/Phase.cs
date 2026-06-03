@@ -8,8 +8,14 @@ namespace ryathom.RunTheNet.Encounters
     {
         public abstract Phase NextPhase();
 
-        public virtual void Enter() {}
+        public virtual void Enter()
+        {
+            OnPhaseEnter?.Invoke(this);    
+        }
+
         public virtual void Exit() {}
+
+        public static Action<Phase> OnPhaseEnter;
     }
 
     [Serializable]

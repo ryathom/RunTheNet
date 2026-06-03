@@ -28,8 +28,6 @@ namespace ryathom.RunTheNet.Encounters.Player
 
             playArea.SetupPlayArea(this);
 
-            playArea.HandView.OnClickCardInHand += AddCardToRig;
-
             for (int i = 0; i < 5; i++)
             {
                 EncounterManager.Instance.Actions.AddAction(new DrawCard());

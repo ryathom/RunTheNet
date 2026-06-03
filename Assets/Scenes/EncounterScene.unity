@@ -3828,6 +3828,7 @@ MonoBehaviour:
   cardCanvas: {fileID: 504251143}
   playArea: {fileID: 1689558772}
   serverView: {fileID: 1223250621}
+  playerController: {fileID: 1583723180}
 --- !u!4 &2118728000
 Transform:
   m_ObjectHideFlags: 0
