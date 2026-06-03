@@ -24,8 +24,7 @@ namespace ryathom.RunTheNet.Encounters
         public Runner Runner {get; private set;}
         public Server Server {get; private set;}
 
-        public int Trace {get; private set;}
-        public int MaxTrace {get; private set;}
+        public EncounterInfo EncounterInfo {get; private set;}
         
         [SerializeField] private RunnerPlayArea playArea;
         [SerializeField] private ServerView serverView;
@@ -48,8 +47,7 @@ namespace ryathom.RunTheNet.Encounters
             SetupRunner();
             SetupServer();
 
-            Trace = 0;
-            MaxTrace = 3;
+            EncounterInfo = new();
         }
 
         public void Update()
@@ -61,7 +59,7 @@ namespace ryathom.RunTheNet.Encounters
                 StartCoroutine(Actions.ExecuteNextAction());
             }
 
-            EncounterUIManager.Instance.UpdateTraceText(Trace, MaxTrace);
+            EncounterUIManager.Instance.UpdateTraceText(EncounterInfo.Trace, EncounterInfo.MaxTrace);
         }
 
         // Game flow
@@ -124,16 +122,6 @@ namespace ryathom.RunTheNet.Encounters
         public void EndTurn()
         {
             Actions.AddAction(new EndTurn());
-        }
-
-        public void IncreaseTrace(int value)
-        {
-            Trace += value;
-
-            if (Trace >= MaxTrace)
-            {
-                Actions.AddAction(new EndEncounter());
-            }
         }
     }
 }

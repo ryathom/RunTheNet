@@ -13,9 +13,14 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
         public IEnumerator Execute()
         {
-            EncounterManager.Instance.IncreaseTrace(Value);
+            EncounterInfo info = EncounterManager.Instance.EncounterInfo;
 
-            return null;
+            info.Trace += Value;
+
+            if (info.Trace >= info.MaxTrace)
+            {
+                yield return EncounterManager.Instance.Actions.ExecuteImmediate(new EndEncounter());
+            }
         }
     }
 }
