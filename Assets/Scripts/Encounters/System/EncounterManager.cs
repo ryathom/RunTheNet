@@ -119,7 +119,7 @@ namespace ryathom.RunTheNet.Encounters
 
         public void EndTurn()
         {
-            Actions.AddAction(new EndTurn());
+            Actions.AddAction(new NextPhase());
         }
     }
 }

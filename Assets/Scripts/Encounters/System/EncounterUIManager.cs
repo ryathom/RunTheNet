@@ -28,6 +28,8 @@ namespace ryathom.RunTheNet.Encounters
 
         public void Update()
         {
+            if (info == null) return;
+
             UpdateTraceText(info.Trace, info.MaxTrace);
         }
 

@@ -7,7 +7,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     {
         public bool HasTriggered(IAction action, Card source)
         {
-            if (action is EndTurn) return true;
+            if (action is NextPhase) return true;
 
             return false;       
         }
