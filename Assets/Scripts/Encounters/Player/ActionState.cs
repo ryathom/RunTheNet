@@ -1,3 +1,6 @@
+using ryathom.RunTheNet.Encounters.Actions;
+using ryathom.RunTheNet.Encounters.Cards;
+
 namespace ryathom.RunTheNet.Encounters.Player
 {
     public class ActionState : PlayerControllerState
@@ -9,11 +12,15 @@ namespace ryathom.RunTheNet.Encounters.Player
         public override void Enter()
         {
             Phase.OnPhaseEnter += ExitActionState;
+            
+            controller.PlayArea.HandView.OnClickCardInHand += PlayCard;
         }
 
         public override void Exit()
         {
             Phase.OnPhaseEnter -= ExitActionState;
+
+            controller.PlayArea.HandView.OnClickCardInHand -= PlayCard;
         }
 
         private void ExitActionState(Phase phase)
@@ -22,6 +29,11 @@ namespace ryathom.RunTheNet.Encounters.Player
             {
                 controller.ChangeState(controller.NoInputState);
             }
+        }
+
+        private void PlayCard(Card card)
+        {
+            EncounterManager.Instance.Actions.AddAction(new InstallProgram(card));
         }
     }
 }

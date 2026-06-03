@@ -1,3 +1,4 @@
+using ryathom.RunTheNet.Encounters.Zones;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Player
@@ -5,6 +6,8 @@ namespace ryathom.RunTheNet.Encounters.Player
     public class PlayerController : MonoBehaviour
     {
         public Runner Runner {get; private set;}
+        [SerializeField] private RunnerPlayArea playArea;
+        public RunnerPlayArea PlayArea {get => playArea;}
         public ActionSystem ActionSystem {get; private set;}
 
         public PlayerControllerState CurrentState {get; private set;}
@@ -21,6 +24,7 @@ namespace ryathom.RunTheNet.Encounters.Player
         {
             ActionSystem = system;
             Runner = runner;
+            playArea.SetupPlayArea(runner);
 
             SetupStateMachine();
         }

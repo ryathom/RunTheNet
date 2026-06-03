@@ -8,7 +8,6 @@ namespace ryathom.RunTheNet.Encounters.Player
 {
     public class Runner
     {
-        private RunnerPlayArea playArea;
 
         public Repository Repository {get; private set;}
         public Hand Hand {get; private set;}
@@ -16,27 +15,18 @@ namespace ryathom.RunTheNet.Encounters.Player
 
         public int Clicks {get; private set;}
 
-        public void SetupRunner(RunnerPlayArea playArea, List<Card> programs)
+        public void SetupRunner(List<Card> programs)
         {
-            this.playArea = playArea;
-
             Repository = new(programs);
             Hand = new();
             Rig = new();
 
             Clicks = 3;
 
-            playArea.SetupPlayArea(this);
-
             for (int i = 0; i < 5; i++)
             {
                 EncounterManager.Instance.Actions.AddAction(new DrawCard());
             }
-        }
-
-        public void AddCardToRig(Card card)
-        {
-            EncounterManager.Instance.Actions.AddAction(new InstallProgram(card));
         }
 
         public void SpendClicks(int clicks)

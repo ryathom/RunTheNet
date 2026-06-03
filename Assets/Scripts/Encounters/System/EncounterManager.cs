@@ -26,7 +26,6 @@ namespace ryathom.RunTheNet.Encounters
 
         public EncounterInfo EncounterInfo {get; private set;}
         
-        [SerializeField] private RunnerPlayArea playArea;
         [SerializeField] private ServerView serverView;
         [SerializeField] private PlayerController playerController;
 
@@ -70,8 +69,7 @@ namespace ryathom.RunTheNet.Encounters
             SetupPrograms();
 
             Runner = new();
-            Runner.SetupRunner(playArea, programs);
-
+            Runner.SetupRunner(programs);
             playerController.Setup(Actions, Runner);
         }
 

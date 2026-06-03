@@ -2576,6 +2576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e375d650b6c34a0e9209412df0e0612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Player.PlayerController
+  playArea: {fileID: 1689558772}
 --- !u!1 &1607585668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3826,7 +3827,6 @@ MonoBehaviour:
   cardPrefab: {fileID: 172950392}
   corpCardPrefab: {fileID: 860075650}
   cardCanvas: {fileID: 504251143}
-  playArea: {fileID: 1689558772}
   serverView: {fileID: 1223250621}
   playerController: {fileID: 1583723180}
 --- !u!4 &2118728000
