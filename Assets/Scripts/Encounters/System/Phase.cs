@@ -36,30 +36,12 @@ namespace ryathom.RunTheNet.Encounters
     {
         public override Phase NextPhase()
         {
-            return new CorpStartPhase();
+            return new CorpPhase();
         }
     }
 
     [Serializable]
-    public class CorpStartPhase : Phase
-    {
-        public override Phase NextPhase()
-        {
-            return new CorpMainPhase();
-        }
-    }
-
-    [Serializable]
-    public class CorpMainPhase : Phase
-    {
-        public override Phase NextPhase()
-        {
-            return new CorpEndPhase();
-        }
-    }
-
-    [Serializable]
-    public class CorpEndPhase : Phase
+    public class CorpPhase : Phase
     {
         public override Phase NextPhase()
         {
