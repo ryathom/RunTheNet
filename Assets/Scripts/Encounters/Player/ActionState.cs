@@ -1,5 +1,6 @@
 using ryathom.RunTheNet.Encounters.Actions;
 using ryathom.RunTheNet.Encounters.Cards;
+using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Player
 {
@@ -14,6 +15,7 @@ namespace ryathom.RunTheNet.Encounters.Player
             Phase.OnPhaseEnter += ExitActionState;
             
             controller.PlayArea.HandView.OnClickCardInHand += PlayCard;
+            EncounterManager.Instance.ServerView.OnClickCardInServer += AccessServer;
         }
 
         public override void Exit()
@@ -34,6 +36,17 @@ namespace ryathom.RunTheNet.Encounters.Player
         private void PlayCard(Card card)
         {
             EncounterManager.Instance.Actions.AddAction(new InstallProgram(card));
+        }
+
+        private void AccessServer(Card card)
+        {
+            if (card is ServerAsset)
+            {
+                Debug.Log("Attempting to access server");
+            } else if (card is Ice)
+            {
+                Debug.Log("Attempting to break ICE");
+            }
         }
     }
 }

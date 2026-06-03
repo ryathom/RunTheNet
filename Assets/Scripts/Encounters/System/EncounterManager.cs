@@ -27,6 +27,7 @@ namespace ryathom.RunTheNet.Encounters
         public EncounterInfo EncounterInfo {get; private set;}
         
         [SerializeField] private ServerView serverView;
+        public ServerView ServerView {get => serverView;}
         [SerializeField] private PlayerController playerController;
 
         // Unity Messages

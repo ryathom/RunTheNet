@@ -1,3 +1,5 @@
+using System;
+using ryathom.RunTheNet.Encounters.Cards;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Zones {
@@ -7,6 +9,8 @@ namespace ryathom.RunTheNet.Encounters.Zones {
 
         private float offset = 0;
         private float offsetStep = 150;
+
+        public Action<Card> OnClickCardInServer;
 
         public override void UpdateVisuals()
         {
@@ -33,6 +37,13 @@ namespace ryathom.RunTheNet.Encounters.Zones {
         {
             offset -= offsetStep;
             UpdateVisuals();
+        }
+
+        // Event responses
+        //---------------------------------------------------------------------------------------------------------
+        protected override void ClickCard(Card card)
+        {
+            OnClickCardInServer?.Invoke(card);
         }
     }
 }
