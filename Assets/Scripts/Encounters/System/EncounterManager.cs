@@ -58,8 +58,6 @@ namespace ryathom.RunTheNet.Encounters
             {
                 StartCoroutine(Actions.ExecuteNextAction());
             }
-
-            EncounterUIManager.Instance.UpdateTraceText(EncounterInfo.Trace, EncounterInfo.MaxTrace);
         }
 
         // Game flow

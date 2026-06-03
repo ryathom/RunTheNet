@@ -7,6 +7,8 @@ namespace ryathom.RunTheNet.Encounters
     {
         public static EncounterUIManager Instance {get; private set;}
 
+        private EncounterInfo info;
+
         [SerializeField] private TextMeshProUGUI traceText;
 
         private void Awake() 
@@ -17,6 +19,16 @@ namespace ryathom.RunTheNet.Encounters
             {
                 Destroy(gameObject);
             }
+        }
+
+        public void Start()
+        {
+            info = EncounterManager.Instance.EncounterInfo;
+        }
+
+        public void Update()
+        {
+            UpdateTraceText(info.Trace, info.MaxTrace);
         }
 
         public void UpdateTraceText(int traceValue, int maxTrace)
