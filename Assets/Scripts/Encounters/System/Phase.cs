@@ -1,4 +1,5 @@
 using System;
+using ryathom.RunTheNet.Encounters.Actions;
 
 namespace ryathom.RunTheNet.Encounters
 {
@@ -9,13 +10,18 @@ namespace ryathom.RunTheNet.Encounters
 
         public virtual void Enter() {}
         public virtual void Exit() {}
-
-        public static Action<Phase> OnPhaseEnter;
     }
 
     [Serializable]
     public class RunnerStartPhase : Phase
     {
+        public override void Enter()
+        {
+            base.Enter();
+
+            EncounterManager.Instance.Actions.AddAction(new NextPhase());
+        }
+
         public override Phase NextPhase()
         {
             return new RunnerMainPhase();
@@ -34,6 +40,13 @@ namespace ryathom.RunTheNet.Encounters
     [Serializable]
     public class RunnerEndPhase : Phase
     {
+        public override void Enter()
+        {
+            base.Enter();
+
+            EncounterManager.Instance.Actions.AddAction(new NextPhase());
+        }
+
         public override Phase NextPhase()
         {
             return new CorpPhase();

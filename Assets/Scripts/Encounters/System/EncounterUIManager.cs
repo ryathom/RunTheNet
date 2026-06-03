@@ -23,11 +23,12 @@ namespace ryathom.RunTheNet.Encounters
 
         public void Start()
         {
-            info = EncounterManager.Instance.EncounterInfo;
         }
 
         public void Update()
         {
+            info ??= EncounterManager.Instance.EncounterInfo;
+
             if (info == null) return;
 
             UpdateTraceText(info.Trace, info.MaxTrace);
