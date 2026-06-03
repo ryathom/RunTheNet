@@ -7,35 +7,42 @@ namespace ryathom.RunTheNet.Encounters.Zones {
     {
         private float cardSpacing = 344;
 
-        private float offset = 0;
+        private float xOffset = 0;
+        private float yOffset = 0;
         private float offsetStep = 150;
 
         public Action<Card> OnClickCardInServer;
 
+        public ServerGraph serverGraph;
+
         public override void UpdateVisuals()
         {
-            for (int i = 0; i < containers.Count; i++)
-            {
-                // float y = i * cardSpacing;
-                // Vector2 targetPosition = new (0, y + offset);
-                float x = i * cardSpacing;
-                Vector2 targetPosition = new (x + offset, 0);
-
-
-                containers[i].SetTargetPosition(this.transform.position + (Vector3)targetPosition);
-                containers[i].ShowVisual(true);
-            }
+            Vector2 targetPosition = new (xOffset, yOffset);
+                
+            serverGraph.SetTargetPosition(this.transform.position + (Vector3)targetPosition);
         }
 
         public void ScrollUp()
         {
-            offset += offsetStep;
+            yOffset += offsetStep;
             UpdateVisuals();
         }
 
         public void ScrollDown()
         {
-            offset -= offsetStep;
+            yOffset -= offsetStep;
+            UpdateVisuals();
+        }
+
+        public void ScrollLeft()
+        {
+            xOffset -= offsetStep;
+            UpdateVisuals();
+        }
+
+        public void ScrollRight()
+        {
+            xOffset += offsetStep;
             UpdateVisuals();
         }
 
