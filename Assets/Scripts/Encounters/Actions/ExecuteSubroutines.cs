@@ -36,13 +36,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
             yield return new WaitForSeconds(pointerDelay);
 
-            if (PC > 0)
-            {
-                EncounterManager.Instance.Actions.AddAction(new ExecuteSubroutines(PC - 1));
-            } else
-            {
-                EncounterManager.Instance.Actions.AddAction(new EndCorpTurn());
-            }
+            EncounterManager.Instance.Actions.ModifyProgramCounter(-1);
         }
     }
 }

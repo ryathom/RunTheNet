@@ -1,3 +1,4 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using ryathom.RunTheNet.Encounters.Actions;
@@ -12,6 +13,8 @@ namespace ryathom.RunTheNet.Encounters
         public IAction CurrentAction {get; private set;}
 
         public bool Busy {get; private set;}
+
+        public int ProgramCounter {get; private set;}
 
         public ActionSystem()
         {
@@ -49,6 +52,8 @@ namespace ryathom.RunTheNet.Encounters
             yield return CurrentAction.Execute();
 
             CheckTriggeredAbilities(CurrentAction);
+
+            ManageCorpTurn();
 
             Busy = false;
         }
@@ -88,6 +93,31 @@ namespace ryathom.RunTheNet.Encounters
                         }
                     }
                 }
+            }
+        }
+
+        public void SetProgramCounter(int pc)
+        {
+            ProgramCounter = pc;
+        }
+
+        public void ModifyProgramCounter(int mod)
+        {
+            ProgramCounter += mod;
+        }
+
+        public void ManageCorpTurn()
+        {
+            if (EncounterManager.Instance.EncounterInfo.CurrentPhase is not CorpPhase) return;
+            if (ActionQueue.Count != 0) return;
+            if (ActionStack.Count != 0) return;
+
+            if (ProgramCounter >= 0)
+            {
+                AddAction(new ExecuteSubroutines(ProgramCounter));
+            } else
+            {
+                AddAction(new NextPhase());
             }
         }
     }
