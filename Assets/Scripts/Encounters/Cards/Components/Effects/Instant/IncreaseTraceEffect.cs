@@ -16,7 +16,15 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public void Execute()
         {
-            EncounterManager.Instance.Actions.AddAction(new IncreaseTrace(Value));
+            EncounterInfo info = EncounterManager.Instance.EncounterInfo;
+
+            info.Trace += Value;
+
+            // REVISIT - change this to check at end of stack resolution
+            if (info.Trace >= info.MaxTrace)
+            {
+                EncounterManager.Instance.Actions.AddAction(new EndEncounter());
+            }
         }
 
         public IEffect Copy()
