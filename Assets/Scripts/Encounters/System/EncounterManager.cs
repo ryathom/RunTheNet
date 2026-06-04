@@ -91,6 +91,7 @@ namespace ryathom.RunTheNet.Encounters
         {
             Server = new();
             serverView.SetZone(Server);
+            // serverView.HideStackPointer();
 
             foreach (CardSO cardSO in tempServerDecklist)
             {
@@ -112,12 +113,6 @@ namespace ryathom.RunTheNet.Encounters
                 container.SetCard(card);
                 container.gameObject.SetActive(true);
                 Server.AddCard(card);
-            }
-
-            foreach (ServerSlotView slotView in serverView.ServerSlots)
-            {
-                Debug.Log(slotView.ServerSlot.Index);
-                Debug.Log(slotView.ServerSlot.Card);
             }
         }
 

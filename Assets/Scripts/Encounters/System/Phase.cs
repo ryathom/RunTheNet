@@ -62,6 +62,13 @@ namespace ryathom.RunTheNet.Encounters
     [Serializable]
     public class CorpPhase : Phase
     {
+        public override void Enter()
+        {
+            base.Enter();
+
+            EncounterManager.Instance.Actions.AddAction(new CorpTurn());
+        }
+
         public override Phase NextPhase()
         {
             return new RunnerStartPhase();

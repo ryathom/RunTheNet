@@ -2,17 +2,19 @@ using System;
 using System.Collections.Generic;
 using ryathom.RunTheNet.Encounters.Cards;
 using UnityEngine;
-
-// Test change for new branch
+using UnityEngine.UI;
 
 namespace ryathom.RunTheNet.Encounters.Zones {
     public class ServerView : ZoneView
     {
+        [SerializeField] private Image stackPointerArrow;
+
         private Server server;
         public List<ServerSlotView> ServerSlots;
 
         public Action<ServerSlot> OnClickServerSlot;
         public Action<Card> OnClickCardInServer;
+        
 
         public override void UpdateVisuals()
         {
@@ -39,6 +41,22 @@ namespace ryathom.RunTheNet.Encounters.Zones {
                 ServerSlots[i].ServerSlot = server.Slots[i];
                 ServerSlots[i].OnClickSlot += ClickServerSlot;
             }
+        }
+
+        public void HideStackPointer()
+        {
+            stackPointerArrow.enabled = false;
+        }
+
+        public void ShowStackPointer(int pos)
+        {
+            float x = ServerSlots[pos].transform.localPosition.x;
+            float y = stackPointerArrow.transform.localPosition.y;
+
+            Quaternion q = stackPointerArrow.transform.localRotation;
+
+            stackPointerArrow.transform.SetLocalPositionAndRotation(new(x, y, 0), q);
+            stackPointerArrow.enabled = true;
         }
 
         // Event responses
