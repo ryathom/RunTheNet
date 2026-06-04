@@ -7,7 +7,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     {
         public void Execute()
         {
-            Debug.Log("Should end the access");
+            EncounterManager.Instance.Actions.SetProgramCounter(-1);
         }
 
         public IEffect Copy()
