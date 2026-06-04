@@ -117,8 +117,7 @@ namespace ryathom.RunTheNet.Encounters
                 AddAction(new ExecuteSubroutines(ProgramCounter));
             } else
             {
-                EncounterManager.Instance.ServerView.HideStackPointer();
-                AddAction(new NextPhase());
+                AddAction(new EndCorpTurn());
             }
         }
     }
