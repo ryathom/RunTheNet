@@ -113,6 +113,12 @@ namespace ryathom.RunTheNet.Encounters
                 container.gameObject.SetActive(true);
                 Server.AddCard(card);
             }
+
+            foreach (ServerSlotView slotView in serverView.ServerSlots)
+            {
+                Debug.Log(slotView.ServerSlot.Index);
+                Debug.Log(slotView.ServerSlot.Card);
+            }
         }
 
         public void RunnerDrawCard()

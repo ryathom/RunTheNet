@@ -6,6 +6,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     public abstract class Card
     {
         public CardSO CardSO {get; protected set;}
+        public string Name {get => CardSO.name;}
 
         public List<IAbility> Abilities {get; private set;}
 

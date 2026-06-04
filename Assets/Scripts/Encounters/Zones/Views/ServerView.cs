@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ryathom.RunTheNet.Encounters.Cards;
 using UnityEngine;
 
@@ -7,43 +8,37 @@ using UnityEngine;
 namespace ryathom.RunTheNet.Encounters.Zones {
     public class ServerView : ZoneView
     {
-        private float xOffset = 0;
-        private float yOffset = 0;
-        private float offsetStep = 150;
+        private Server server;
+        public List<ServerSlotView> ServerSlots;
 
+        public Action<ServerSlot> OnClickServerSlot;
         public Action<Card> OnClickCardInServer;
-
-        public ServerGraph serverGraph;
 
         public override void UpdateVisuals()
         {
-            Vector2 targetPosition = new (xOffset, yOffset);
-                
-            serverGraph.SetTargetPosition(this.transform.position + (Vector3)targetPosition);
+            foreach (ServerSlot slot in server.Slots)
+            {
+                if (slot.IsEmpty) continue;
+
+                int index = server.Slots.IndexOf(slot);
+
+                slot.Card.Container.transform.eulerAngles = new Vector3(0, 0, 0);
+                slot.Card.Container.SetTargetPosition(ServerSlots[index].transform.position);
+            }
         }
 
-        public void ScrollUp()
+        // Methods
+        //---------------------------------------------------------------------------------------------------------
+        public override void SetZone(Zone zone)
         {
-            yOffset += offsetStep;
-            UpdateVisuals();
-        }
+            base.SetZone(zone);
+            this.server = (Server)zone;
 
-        public void ScrollDown()
-        {
-            yOffset -= offsetStep;
-            UpdateVisuals();
-        }
-
-        public void ScrollLeft()
-        {
-            xOffset -= offsetStep;
-            UpdateVisuals();
-        }
-
-        public void ScrollRight()
-        {
-            xOffset += offsetStep;
-            UpdateVisuals();
+            for (int i = 0; i < server.Slots.Count; i++)
+            {
+                ServerSlots[i].ServerSlot = server.Slots[i];
+                ServerSlots[i].OnClickSlot += ClickServerSlot;
+            }
         }
 
         // Event responses
@@ -51,6 +46,11 @@ namespace ryathom.RunTheNet.Encounters.Zones {
         protected override void ClickCard(Card card)
         {
             OnClickCardInServer?.Invoke(card);
+        }
+
+        public void ClickServerSlot(ServerSlot slot)
+        {
+            OnClickServerSlot?.Invoke(slot);
         }
     }
 }
