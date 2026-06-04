@@ -19,7 +19,6 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
                 if (server.Slots[i].Card != null)
                 {
-                    Debug.Log("here");
                     yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ExecuteSubroutines(server.Slots[i].Card));
                 }
 

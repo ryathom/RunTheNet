@@ -57,6 +57,19 @@ namespace ryathom.RunTheNet.Encounters.Zones
                 }
             }
         }
+
+        public int GetSlotIndex(Card card)
+        {
+            foreach (ServerSlot slot in Slots)
+            {
+                if (slot.Card == card)
+                {
+                    return slot.Index;
+                }
+            }
+
+            return -1;
+        }
     }
 
     public class ServerSlot
