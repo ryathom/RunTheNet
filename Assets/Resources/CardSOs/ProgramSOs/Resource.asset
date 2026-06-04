@@ -14,21 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   BackgroundImage: {fileID: 21300000, guid: c93dbf91c45e28d4aafdd6f5a906f41f, type: 3}
   Abilities:
-  - rid: 2674383532039078254
+  - rid: 8546192824960024756
   cardText: Placeholder resource program.
   references:
     version: 2
     RefIds:
-    - rid: 2674383532039078254
-      type: {class: TriggeredAbility, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+    - rid: 8546192824960024756
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        Trigger:
-          rid: 2674383532039078256
         Effect:
-          rid: 2674383532039078257
-    - rid: 2674383532039078256
-      type: {class: OnInstall, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
-    - rid: 2674383532039078257
-      type: {class: DrawCardEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+          rid: 8546192824960024757
+    - rid: 8546192824960024757
+      type: {class: TrashSelf, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
