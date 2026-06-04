@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   BackgroundImage: {fileID: 21300000, guid: c93dbf91c45e28d4aafdd6f5a906f41f, type: 3}
   Abilities:
+  - rid: 8546192824960024759
   - rid: 8546192824960024756
   cardText: Placeholder resource program.
   references:
@@ -26,4 +27,12 @@ MonoBehaviour:
           rid: 8546192824960024757
     - rid: 8546192824960024757
       type: {class: TrashSelf, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546192824960024759
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Effect:
+          rid: 8546192824960024760
+    - rid: 8546192824960024760
+      type: {class: DrawCardEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
