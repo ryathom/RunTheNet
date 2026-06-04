@@ -66,7 +66,7 @@ namespace ryathom.RunTheNet.Encounters
         {
             base.Enter();
 
-            EncounterManager.Instance.Actions.AddAction(new CorpTurn());
+            EncounterManager.Instance.Actions.AddAction(new StartCorpTurn());
         }
 
         public override Phase NextPhase()

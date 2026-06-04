@@ -6,4 +6,8 @@ namespace ryathom.RunTheNet.Encounters.Actions
     {
         public IEnumerator Execute();
     }
+
+    public interface IStackAction : IAction
+    {
+    }
 }

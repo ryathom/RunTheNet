@@ -1,12 +1,15 @@
 using System.Collections;
 using ryathom.RunTheNet.Encounters.Cards;
+using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Actions
 {
-    public class ResolveAbility : IAction
+    public class ResolveAbility : IStackAction
     {
         public IAbility Ability {get; private set;}
         public Card Source {get; private set;}
+
+        private readonly float resolveDelay = 1f;
 
         public ResolveAbility(IAbility ability, Card source)
         {
@@ -18,28 +21,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
         {
             Ability.Execute();
 
-            return null;
-        }
-    }
-
-    public class ExecuteSubroutines : IAction
-    {
-        public Card Card {get; private set;}
-
-        public ExecuteSubroutines(Card card)
-        {
-            Card = card;
-        }
-
-        public IEnumerator Execute()
-        {
-            foreach (IAbility ability in Card.Abilities)
-            {
-                if (ability is Subroutine subroutine)
-                {
-                    yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ResolveAbility(subroutine, Card));
-                }
-            }
+            yield return new WaitForSeconds(resolveDelay);
         }
     }
 }

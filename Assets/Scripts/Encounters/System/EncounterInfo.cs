@@ -11,7 +11,7 @@ namespace ryathom.RunTheNet.Encounters
         public EncounterInfo()
         {
             Trace = 0;
-            MaxTrace = 3;
+            MaxTrace = 10;
 
             CurrentTurn = 1;
             CurrentPhase = new RunnerStartPhase();

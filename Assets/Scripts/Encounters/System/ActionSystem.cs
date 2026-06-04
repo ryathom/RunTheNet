@@ -8,6 +8,7 @@ namespace ryathom.RunTheNet.Encounters
     public class ActionSystem
     {
         public Queue<IAction> ActionQueue {get; private set;}
+        public Stack<IStackAction> ActionStack {get; private set;}
         public IAction CurrentAction {get; private set;}
 
         public bool Busy {get; private set;}
@@ -15,26 +16,41 @@ namespace ryathom.RunTheNet.Encounters
         public ActionSystem()
         {
             ActionQueue = new();
+            ActionStack = new();
             Busy = false;
         }
 
         public void AddAction(IAction action)
         {
-            ActionQueue.Enqueue(action);
+            if (action is IStackAction stackAction)
+            {
+                ActionStack.Push(stackAction);
+            } else
+            {
+                ActionQueue.Enqueue(action);
+            }
         }
 
         public IEnumerator ExecuteNextAction()
         {
             if (ActionQueue.Count > 0)
             {
-                Busy = true;
                 CurrentAction = ActionQueue.Dequeue();
-                yield return CurrentAction.Execute();
-
-                CheckTriggeredAbilities(CurrentAction);
-
-                Busy = false;
+            } else if (ActionStack.Count > 0)
+            {
+                CurrentAction = ActionStack.Pop();
+            } else
+            {
+                CurrentAction = null;
+                yield break;
             }
+
+            Busy = true;
+            yield return CurrentAction.Execute();
+
+            CheckTriggeredAbilities(CurrentAction);
+
+            Busy = false;
         }
 
         public IEnumerator ExecuteImmediate(IAction action)

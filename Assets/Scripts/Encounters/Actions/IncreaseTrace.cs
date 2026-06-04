@@ -17,10 +17,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
             info.Trace += Value;
 
-            if (info.Trace >= info.MaxTrace)
-            {
-                yield return EncounterManager.Instance.Actions.ExecuteImmediate(new EndEncounter());
-            }
+            return null;
         }
     }
 }
