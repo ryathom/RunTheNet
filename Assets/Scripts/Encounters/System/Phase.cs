@@ -25,6 +25,8 @@ namespace ryathom.RunTheNet.Encounters
         {
             base.Enter();
 
+            EncounterManager.Instance.Runner.SetClicks(3);
+
             EncounterManager.Instance.Actions.AddAction(new NextPhase());
         }
 

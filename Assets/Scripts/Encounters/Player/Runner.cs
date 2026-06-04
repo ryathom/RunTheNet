@@ -38,5 +38,10 @@ namespace ryathom.RunTheNet.Encounters.Player
 
             Clicks -= clicks;
         }
+
+        public void SetClicks(int clicks)
+        {
+            Clicks = clicks;
+        }
     }
 }
