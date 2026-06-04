@@ -16,6 +16,13 @@ namespace ryathom.RunTheNet.Encounters.Actions
             for (int i = server.Slots.Count - 1; i >= 0; i--)
             {
                 serverView.ShowStackPointer(i);
+
+                if (server.Slots[i].Card != null)
+                {
+                    Debug.Log("here");
+                    yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ExecuteSubroutines(server.Slots[i].Card));
+                }
+
                 yield return new WaitForSeconds(pointerDelay);
             }
 

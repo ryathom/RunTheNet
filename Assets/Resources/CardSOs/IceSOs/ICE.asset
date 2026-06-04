@@ -13,4 +13,18 @@ MonoBehaviour:
   m_Name: ICE
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.IceSO
   BackgroundImage: {fileID: 21300000, guid: f39adbe09347a3346a2a85e30aaef69b, type: 3}
+  Abilities:
+  - rid: 8546192824960024672
   cardText: Placeholder ICE
+  references:
+    version: 2
+    RefIds:
+    - rid: 8546192824960024672
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Effect:
+          rid: 8546192824960024673
+    - rid: 8546192824960024673
+      type: {class: IncreaseTraceEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: 1

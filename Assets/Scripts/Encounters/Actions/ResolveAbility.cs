@@ -21,4 +21,25 @@ namespace ryathom.RunTheNet.Encounters.Actions
             return null;
         }
     }
+
+    public class ExecuteSubroutines : IAction
+    {
+        public Card Card {get; private set;}
+
+        public ExecuteSubroutines(Card card)
+        {
+            Card = card;
+        }
+
+        public IEnumerator Execute()
+        {
+            foreach (IAbility ability in Card.Abilities)
+            {
+                if (ability is Subroutine subroutine)
+                {
+                    yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ResolveAbility(subroutine, Card));
+                }
+            }
+        }
+    }
 }
