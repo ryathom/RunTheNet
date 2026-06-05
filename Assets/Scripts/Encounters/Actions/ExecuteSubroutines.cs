@@ -23,7 +23,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
         {
             EncounterManager.Instance.ServerView.ShowStackPointer(PC);
 
-            if (Card != null)
+            if (Card != null && Card.Active)
             {
                 foreach (IAbility ability in Card.Abilities)
                 {

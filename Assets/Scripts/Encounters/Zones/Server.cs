@@ -15,6 +15,8 @@ namespace ryathom.RunTheNet.Encounters.Zones
             {
                 Slots.Add(new ServerSlot(i));
             }
+
+            Phase.OnPhaseEnter += ActivateCards;
         }
 
         // If no slot specified, add to first available slot
@@ -74,7 +76,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
         public Card GetCardAtSlot(int index)
         {
             ServerSlot slot = Slots[index];
-            
+
             if (slot.IsOccupied)
             {
                 return slot.Card;
