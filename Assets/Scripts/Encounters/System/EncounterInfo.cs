@@ -13,8 +13,8 @@ namespace ryathom.RunTheNet.Encounters
             Trace = 0;
             MaxTrace = 10;
 
-            CurrentTurn = 1;
-            CurrentPhase = new RunnerStartPhase();
+            CurrentTurn = 0;
+            CurrentPhase = new NullPhase();
         }
     }
 }

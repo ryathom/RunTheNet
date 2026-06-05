@@ -25,8 +25,6 @@ namespace ryathom.RunTheNet.Encounters
         {
             base.Enter();
 
-            EncounterManager.Instance.Runner.SetClicks(3);
-
             EncounterManager.Instance.Actions.AddAction(new NextPhase());
         }
 
@@ -69,6 +67,20 @@ namespace ryathom.RunTheNet.Encounters
             base.Enter();
 
             EncounterManager.Instance.Actions.AddAction(new StartCorpTurn());
+        }
+
+        public override Phase NextPhase()
+        {
+            return new RunnerStartPhase();
+        }
+    }
+
+    [Serializable]
+    public class NullPhase : Phase
+    {
+        public override void Enter()
+        {
+            EncounterManager.Instance.Actions.AddAction(new NextPhase());
         }
 
         public override Phase NextPhase()

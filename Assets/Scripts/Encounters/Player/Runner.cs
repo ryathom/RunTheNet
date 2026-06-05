@@ -21,7 +21,7 @@ namespace ryathom.RunTheNet.Encounters.Player
             Rig = new();
             Hand = new();
 
-            Clicks = 3;
+            Clicks = 0;
 
             for (int i = 0; i < 5; i++)
             {

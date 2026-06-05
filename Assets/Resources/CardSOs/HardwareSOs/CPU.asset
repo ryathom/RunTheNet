@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f118c2b732d8481691f70ea2dad640b, type: 3}
   m_Name: CPU
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.HardwareSO
-  Abilities: []
+  Abilities:
+  - rid: 8546192847017345161
   cardText: Clicks Per Turn 3
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8546192847017345161
+      type: {class: TriggeredAbility, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Trigger:
+          rid: 8546192847017345164
+        Effect:
+          rid: 8546192847017345165
+    - rid: 8546192847017345164
+      type: {class: OnStartPhase, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546192847017345165
+      type: {class: SetClicks, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Clicks: 3

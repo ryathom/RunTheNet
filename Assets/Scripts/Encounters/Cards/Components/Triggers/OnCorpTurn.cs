@@ -25,4 +25,28 @@ namespace ryathom.RunTheNet.Encounters.Cards
             return new OnCorpTurn();
         }
     }
+
+    [System.Serializable]
+    public class OnStartPhase : ITrigger
+    {
+        public bool HasTriggered(IAction action, Card source)
+        {
+            if (action is NextPhase)
+            {
+                EncounterInfo info = EncounterManager.Instance.EncounterInfo;
+                
+                if (info.CurrentPhase is RunnerStartPhase)
+                {
+                    return true;
+                }
+            }
+
+            return false;       
+        }
+
+        public ITrigger Copy()
+        {
+            return new OnStartPhase();
+        }
+    }
 }
