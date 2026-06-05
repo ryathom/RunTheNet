@@ -13,12 +13,14 @@ namespace ryathom.RunTheNet.Encounters
         public static EncounterManager Instance {get; private set;}
 
         [SerializeField] private List<ProgramSO> tempPlayerDecklist;
+        [SerializeField] private List<HardwareSO> tempPlayerHardware;
         [SerializeField] private List<CardSO> tempServerDecklist;
         [SerializeField] private CardContainer cardPrefab;
         [SerializeField] private CardContainer corpCardPrefab;
         [SerializeField] private Canvas cardCanvas;
 
         private List<Card> programs;
+        private List<Card> hardware;
 
         public ActionSystem Actions {get; private set;}
         public Runner Runner {get; private set;}
@@ -66,16 +68,23 @@ namespace ryathom.RunTheNet.Encounters
         //---------------------------------------------------------------------------------------------------------
         private void SetupRunner()
         {
-            programs = new();
             SetupPrograms();
+            SetupHardware();
 
             Runner = new();
             Runner.SetupRunner(programs);
             playerController.Setup(Actions, Runner);
+
+            foreach(Card card in hardware)
+            {
+                Runner.Rig.AddCard(card);
+            }
         }
 
         private void SetupPrograms()
         {
+            programs = new();
+
             foreach (CardSO cardSO in tempPlayerDecklist)
             {
                 CardContainer container = Instantiate(cardPrefab, cardCanvas.transform);
@@ -84,6 +93,21 @@ namespace ryathom.RunTheNet.Encounters
                 container.SetCard(card);
                 container.gameObject.SetActive(true);
                 programs.Add(card);
+            }
+        }
+
+        private void SetupHardware()
+        {
+            hardware = new();
+
+            foreach (HardwareSO hardwareSO in tempPlayerHardware)
+            {
+                CardContainer container = Instantiate(cardPrefab, cardCanvas.transform);
+                Hardware card = new(hardwareSO);
+
+                container.SetCard(card);
+                container.gameObject.SetActive(true);
+                hardware.Add(card);
             }
         }
 

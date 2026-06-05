@@ -6,6 +6,4 @@ namespace ryathom.RunTheNet.Encounters.Cards
         {
         }
     }
-
-
 }

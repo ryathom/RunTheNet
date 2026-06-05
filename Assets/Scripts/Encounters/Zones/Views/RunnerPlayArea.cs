@@ -19,6 +19,8 @@ namespace ryathom.RunTheNet.Encounters.Zones
 
             HandView.SetZone(runner.Hand);
             RigView.SetZone(runner.Rig);
+
+            Debug.Log(runner.Rig.Cards.Count);
         }
 
         public void Update()

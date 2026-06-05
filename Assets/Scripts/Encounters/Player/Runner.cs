@@ -18,8 +18,8 @@ namespace ryathom.RunTheNet.Encounters.Player
         public void SetupRunner(List<Card> programs)
         {
             Repository = new(programs);
-            Hand = new();
             Rig = new();
+            Hand = new();
 
             Clicks = 3;
 

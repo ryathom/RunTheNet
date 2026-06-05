@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using PrimeTween;
+using ryathom.RunTheNet.Encounters.Zones;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
@@ -12,6 +13,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
         [SerializeField] private float dragSpeed = 15;
 
         public Card Card {get; private set;}
+
+        public Zone Zone;
 
         public bool IsDragging {get; private set;}
         public Vector2 TargetPosition {get; private set;}
@@ -40,6 +43,11 @@ namespace ryathom.RunTheNet.Encounters.Cards
                 TargetPosition = InputManager.Instance.GetPointInput();
                 transform.position = Vector3.Lerp(transform.position, TargetPosition, dragSpeed * Time.deltaTime);
             }
+
+            // if (Card != null && Card is Hardware && Card.Zone != null)
+            // {
+            //     Debug.Log("hello I am hardware and my zone is " + Card.Zone.GetType().Name);
+            // }
         }
 
         // UX methods
