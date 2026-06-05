@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CPU
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.HardwareSO
   Abilities: []
-  cardText: Placeholder CPU
+  cardText: Clicks Per Turn 3
   references:
     version: 2
     RefIds: []

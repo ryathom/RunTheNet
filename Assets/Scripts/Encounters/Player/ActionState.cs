@@ -15,7 +15,9 @@ namespace ryathom.RunTheNet.Encounters.Player
             Phase.OnPhaseEnter += ExitActionState;
             
             controller.PlayArea.HandView.OnClickCardInHand += PlayCard;
-            EncounterManager.Instance.ServerView.OnClickCardInServer += AccessServer;
+            controller.PlayArea.RigView.OnClickCardInRig += ActivateCard;
+
+            // EncounterManager.Instance.ServerView.OnClickCardInServer += AccessServer;
         }
 
         public override void Exit()
@@ -23,6 +25,7 @@ namespace ryathom.RunTheNet.Encounters.Player
             Phase.OnPhaseEnter -= ExitActionState;
 
             controller.PlayArea.HandView.OnClickCardInHand -= PlayCard;
+            controller.PlayArea.RigView.OnClickCardInRig -= ActivateCard;
         }
 
         private void ExitActionState(Phase phase)
@@ -36,6 +39,20 @@ namespace ryathom.RunTheNet.Encounters.Player
         private void PlayCard(Card card)
         {
             EncounterManager.Instance.Actions.AddAction(new InstallProgram(card));
+        }
+
+        private void ActivateCard(Card card)
+        {
+            if (card.Abilities.Count > 0)
+            {
+                foreach (IAbility ability in card.Abilities)
+                {
+                    if (ability is ActivatedAbility activatedAbility)
+                    {
+                        EncounterManager.Instance.Actions.AddAction(new ResolveAbility(activatedAbility, card));
+                    }
+                }
+            }
         }
 
         private void AccessServer(Card card)
