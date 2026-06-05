@@ -13,6 +13,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
         public CardContainer Container {get; private set;}
         public Zone Zone {get; private set;}
 
+        public bool Active {get; private set;}
+
         public Card(CardSO cardSO)
         {
             this.CardSO = cardSO;
@@ -23,6 +25,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
                 IAbility copy = ability.Copy();
                 Abilities.Add(copy);
             }
+
+            Active = true;
         }
 
         public void SetContainer(CardContainer container)
@@ -33,6 +37,18 @@ namespace ryathom.RunTheNet.Encounters.Cards
         public void SetZone(Zone zone)
         {
             Zone = zone;
+        }
+
+        public void Activate()
+        {
+            Active = true;
+            Container.ShowVisual(true);
+        }
+
+        public void Deactivate()
+        {
+            Active = false;
+            Container.ShowVisual(true);
         }
     }
 }

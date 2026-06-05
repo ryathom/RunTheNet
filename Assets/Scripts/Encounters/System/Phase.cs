@@ -1,3 +1,4 @@
+using UnityEngine;
 using System;
 using ryathom.RunTheNet.Encounters.Actions;
 
@@ -24,6 +25,9 @@ namespace ryathom.RunTheNet.Encounters
         public override void Enter()
         {
             base.Enter();
+
+            EncounterManager.Instance.EncounterInfo.CurrentTurn += 1;
+            Debug.Log("Turn " + EncounterManager.Instance.EncounterInfo.CurrentTurn);
 
             EncounterManager.Instance.Actions.AddAction(new NextPhase());
         }

@@ -70,6 +70,29 @@ namespace ryathom.RunTheNet.Encounters.Zones
 
             return -1;
         }
+
+        public Card GetCardAtSlot(int index)
+        {
+            ServerSlot slot = Slots[index];
+            
+            if (slot.IsOccupied)
+            {
+                return slot.Card;
+            }
+
+            return null;
+        }
+
+        public void ActivateCards(Phase phase)
+        {
+            if (phase is RunnerStartPhase)
+            {
+                foreach (Card card in Cards)
+                {
+                    card.Activate();
+                }
+            }
+        }
     }
 
     public class ServerSlot

@@ -34,6 +34,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
             
             SetTypeText();
             SetBackground();
+            SetActive();
         }
 
         public void SetTypeText()
@@ -70,6 +71,17 @@ namespace ryathom.RunTheNet.Encounters.Cards
             } else
             {
                 Debug.LogError("Unrecognised CardSO");
+            }
+        }
+
+        public void SetActive()
+        {
+            if (card.Active)
+            {
+                background.color = Color.white;
+            } else
+            {
+                background.color = Color.gray;
             }
         }
     }

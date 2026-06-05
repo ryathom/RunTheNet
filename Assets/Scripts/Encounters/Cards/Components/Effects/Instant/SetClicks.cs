@@ -16,7 +16,6 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public void Execute()
         {
-            Debug.Log("Here");
             EncounterManager.Instance.Runner.SetClicks(Clicks);
         }
 

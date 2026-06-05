@@ -54,7 +54,10 @@ namespace ryathom.RunTheNet.Encounters.Cards
         // -------------------------------------------------------
         public void ShowVisual(bool enabled)
         {
+            if (enabled) cardVisual.UpdateVisuals();
+            
             cardVisual.gameObject.SetActive(enabled);
+
         }
 
         public void SetTargetPosition(Vector2 pos)

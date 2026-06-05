@@ -7,7 +7,14 @@ namespace ryathom.RunTheNet.Encounters.Cards
     {
         public void Execute()
         {
-            Debug.Log("Should break ICE in next slot");
+            int pc = EncounterManager.Instance.Actions.ProgramCounter;
+            Card nextCard = EncounterManager.Instance.Server.GetCardAtSlot(pc);
+            // REVISIT 06/05 - this should be (PC - 1) but action system isn't working correctly atm
+
+            if (nextCard is Ice)
+            {
+                nextCard.Deactivate();
+            }
         }
 
         public IEffect Copy()
