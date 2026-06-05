@@ -47,7 +47,7 @@ namespace ryathom.RunTheNet.Encounters.Player
             {
                 foreach (IAbility ability in card.Abilities)
                 {
-                    if (ability is ActivatedAbility activatedAbility)
+                    if (ability is ActivatedAbility activatedAbility && activatedAbility.Cost.CanPay())
                     {
                         EncounterManager.Instance.Actions.AddAction(new ResolveAbility(activatedAbility, card));
                     }

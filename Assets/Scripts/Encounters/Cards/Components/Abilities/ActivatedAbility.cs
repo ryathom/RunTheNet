@@ -6,8 +6,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
     [Serializable]
     public class ActivatedAbility : IAbility
     {
-        // [SerializeReference, SubclassSelector]
-        // public ICost Cost = new NoCost();
+        [SerializeReference, SubclassSelector]
+        public ICost Cost = new ClickCost(1);
 
         [SerializeReference, SubclassSelector]
         public ICondition Condition;
@@ -24,7 +24,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public void Execute()
         {
-            // Cost.Pay(boardState, source.Controller);
+            Cost.Pay();
             Effect.Execute();
         }
 
@@ -32,7 +32,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
         {
             ActivatedAbility ability = new()
             {
-                // Cost = Cost.Copy(),
+                Cost = Cost.Copy(),
                 Condition = Condition,
                 Effect = Effect.Copy(),
             };
