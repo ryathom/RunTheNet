@@ -6,6 +6,13 @@ namespace ryathom.RunTheNet.Encounters.Cards
 {
     public class CardVisual : MonoBehaviour
     {
+        [Header("Sprites")]
+        [SerializeField] private Sprite hardwareSprite;
+        [SerializeField] private Sprite programSprite;
+        [SerializeField] private Sprite iceSprite;
+        [SerializeField] private Sprite assetSprite;
+
+        [Header("Components")]
         [SerializeField] private Image background;
         [SerializeField] private TextMeshProUGUI title;
         [SerializeField] private TextMeshProUGUI type;
@@ -22,11 +29,11 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public void UpdateVisuals()
         {
-            background.sprite = card.CardSO.BackgroundImage;
             title.text = card.CardSO.name;
             text.text = card.CardSO.cardText;
             
             SetTypeText();
+            SetBackground();
         }
 
         public void SetTypeText()
@@ -40,6 +47,29 @@ namespace ryathom.RunTheNet.Encounters.Cards
             } else if (card.CardSO is ServerAssetSO)
             {
                 type.text = "Asset";
+            } else if (card.CardSO is HardwareSO)
+            {
+                type.text = "Hardware";
+            }
+        }
+
+        public void SetBackground()
+        {
+            if (card.CardSO is IceSO)
+            {
+                background.sprite = iceSprite;
+            } else if (card.CardSO is ServerAssetSO)
+            {
+                background.sprite = assetSprite;
+            } else if (card.CardSO is ProgramSO)
+            {
+                background.sprite = programSprite;
+            } else if (card.CardSO is HardwareSO)
+            {
+                background.sprite = hardwareSprite;
+            } else
+            {
+                Debug.LogError("Unrecognised CardSO");
             }
         }
     }
