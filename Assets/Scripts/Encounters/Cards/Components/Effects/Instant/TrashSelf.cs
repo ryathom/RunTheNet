@@ -9,7 +9,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     {
         public IEnumerator Execute(Card source)
         {
-            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ChangeZone(source, EncounterManager.Instance.Runner.Trash));
+            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(source));
         }
 
         public IEffect Copy()
