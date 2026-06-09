@@ -10,9 +10,9 @@ namespace ryathom.RunTheNet.Encounters.Cards
         [SerializeReference, SubclassSelector]
         public IEffect Effect;
 
-        public IEnumerator Execute()
+        public IEnumerator Execute(Card source)
         {
-            yield return Effect.Execute();
+            yield return Effect.Execute(source);
         }
 
         public IAbility Copy()

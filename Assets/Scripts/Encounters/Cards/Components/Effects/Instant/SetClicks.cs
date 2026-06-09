@@ -15,7 +15,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
             Clicks = clicks;
         }
 
-        public IEnumerator Execute()
+        public IEnumerator Execute(Card source)
         {
             EncounterManager.Instance.Runner.SetClicks(Clicks);
 

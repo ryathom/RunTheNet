@@ -15,7 +15,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
             Modifier = mod;
         }
 
-        public IEnumerator Execute()
+        public IEnumerator Execute(Card source)
         {
             EncounterManager.Instance.Actions.ModifyProgramCounter(Modifier);
 

@@ -6,7 +6,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     [System.Serializable]
     public class BreakIce : IEffect
     {
-        public IEnumerator Execute()
+        public IEnumerator Execute(Card source)
         {
             int pc = EncounterManager.Instance.Actions.ProgramCounter;
             Card nextCard = EncounterManager.Instance.Server.GetCardAtSlot(pc);

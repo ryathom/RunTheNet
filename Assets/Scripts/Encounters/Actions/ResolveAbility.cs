@@ -19,7 +19,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
         public IEnumerator Execute()
         {
-            yield return Ability.Execute();
+            yield return Ability.Execute(Source);
 
             yield return new WaitForSeconds(resolveDelay);
         }

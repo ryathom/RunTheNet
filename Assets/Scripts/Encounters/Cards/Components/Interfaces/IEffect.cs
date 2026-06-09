@@ -5,7 +5,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 {
     public interface IEffect
     {
-        public IEnumerator Execute();
+        public IEnumerator Execute(Card source);
         public IEffect Copy();
     }
 

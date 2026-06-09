@@ -6,7 +6,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     [System.Serializable]
     public class DrawCardEffect : IEffect
     {
-        public IEnumerator Execute()
+        public IEnumerator Execute(Card source)
         {
             yield return EncounterManager.Instance.Actions.ExecuteImmediate(new DrawCard());
         }

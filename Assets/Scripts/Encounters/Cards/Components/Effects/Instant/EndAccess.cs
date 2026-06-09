@@ -6,7 +6,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     [System.Serializable]
     public class EndAccess : IEffect
     {
-        public IEnumerator Execute()
+        public IEnumerator Execute(Card source)
         {
             EncounterManager.Instance.Actions.SetProgramCounter(-1);
 

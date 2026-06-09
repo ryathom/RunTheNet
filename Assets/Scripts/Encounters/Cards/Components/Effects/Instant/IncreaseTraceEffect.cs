@@ -15,7 +15,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
             Value = value;
         }
 
-        public IEnumerator Execute()
+        public IEnumerator Execute(Card source)
         {
             yield return EncounterManager.Instance.Actions.ExecuteImmediate(new IncreaseTrace(Value));
         }

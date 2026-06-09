@@ -23,12 +23,12 @@ namespace ryathom.RunTheNet.Encounters.Cards
         {
         }
 
-        public IEnumerator Execute()
+        public IEnumerator Execute(Card source)
         {
             if (Cost.CanPay() == false) yield break;
 
             yield return Cost.Pay();
-            yield return Effect.Execute();
+            yield return Effect.Execute(source);
         }
 
         public IAbility Copy()
