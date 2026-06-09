@@ -12,6 +12,7 @@ namespace ryathom.RunTheNet.Encounters.Player
         public Repository Repository {get; private set;}
         public Hand Hand {get; private set;}
         public Rig Rig {get; private set;}
+        public Trash Trash {get; private set;}
 
         public int Clicks {get; private set;}
 
@@ -20,6 +21,7 @@ namespace ryathom.RunTheNet.Encounters.Player
             Repository = new(programs);
             Rig = new();
             Hand = new();
+            Trash = new();
 
             Clicks = 0;
 
