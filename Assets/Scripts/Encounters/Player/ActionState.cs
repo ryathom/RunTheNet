@@ -44,7 +44,11 @@ namespace ryathom.RunTheNet.Encounters.Player
 
             if (currentSlot == null) return;
 
-            EncounterManager.Instance.Actions.AddAction(new InstallProgram(card, currentSlot));
+            if (card is Program program)
+            {
+                EncounterManager.Instance.Actions.AddAction(new InstallProgram(program, currentSlot));
+            }
+
         }
 
         private void ActivateCard(Card card)
