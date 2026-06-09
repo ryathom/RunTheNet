@@ -17,6 +17,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
         [SerializeField] private TextMeshProUGUI title;
         [SerializeField] private TextMeshProUGUI type;
         [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] private GameObject costField;
+        [SerializeField] private TextMeshProUGUI costValue;
 
         private Card card;
 
@@ -35,6 +37,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
             SetTypeText();
             SetBackground();
             SetActive();
+            SetCost();
         }
 
         public void SetTypeText()
@@ -82,6 +85,18 @@ namespace ryathom.RunTheNet.Encounters.Cards
             } else
             {
                 background.color = Color.gray;
+            }
+        }
+
+        public void SetCost()
+        {
+            if (card is Program program)
+            {
+                costField.SetActive(true);
+                costValue.text = (program.Cost is ClickCost clickCost) ? clickCost.Clicks.ToString() : "0";
+            } else
+            {
+                costField.SetActive(false);
             }
         }
     }
