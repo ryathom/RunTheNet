@@ -25,6 +25,18 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
             if (Program.Cost.CanPay())
             {
+                if (Slot.IsOccupied)
+                {
+                    if (CanOverwrite(Slot.Card))
+                    {
+                        yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(Slot.Card));
+                    } else
+                    {
+                        Debug.Log("Program installation failed");
+                        yield break;
+                    }
+                }
+
                 yield return Program.Cost.Pay();
                 yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ChangeZone(Program, EncounterManager.Instance.Server, Slot));
             } else
@@ -32,6 +44,13 @@ namespace ryathom.RunTheNet.Encounters.Actions
                 Debug.Log("Program installation failed");
             }
 
+        }
+
+        public bool CanOverwrite(Card card)
+        {
+            if (card is Program) return true;
+
+            return false;
         }
     }
 }
