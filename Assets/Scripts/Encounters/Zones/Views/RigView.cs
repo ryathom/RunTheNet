@@ -45,7 +45,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
         {
         }
 
-        protected override void EndDragContainer(CardContainer container)
+        protected override void EndDragContainer(CardContainer container, PointerEventData eventData)
         {
         }
 

@@ -8,6 +8,7 @@ namespace ryathom.RunTheNet.Encounters.Player
         public Runner Runner {get; private set;}
         [SerializeField] private RunnerPlayArea playArea;
         public RunnerPlayArea PlayArea {get => playArea;}
+        public ServerView ServerView {get => EncounterManager.Instance.ServerView;}
         public ActionSystem ActionSystem {get; private set;}
 
         public PlayerControllerState CurrentState {get; private set;}

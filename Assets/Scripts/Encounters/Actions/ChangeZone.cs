@@ -8,17 +8,27 @@ namespace ryathom.RunTheNet.Encounters.Actions
     {
         public Card Card {get; private set;}
         public Zone EndZone {get; private set;}
+        public ServerSlot Slot {get; private set;}
 
-        public ChangeZone(Card card, Zone endZone)
+        public ChangeZone(Card card, Zone endZone, ServerSlot slot = null)
         {
             Card = card;
             EndZone = endZone;
+            Slot = slot;
         }
 
         public IEnumerator Execute()
         {
             Card.Zone.RemoveCard(Card);
-            EndZone.AddCard(Card);
+
+            if (EndZone is Server server && Slot != null)
+            {
+                server.AddCard(Card, Slot.Index);
+            } else
+            {
+                EndZone.AddCard(Card);
+            }
+
 
             yield return null;
         }

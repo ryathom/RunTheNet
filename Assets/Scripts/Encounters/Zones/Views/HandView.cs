@@ -16,6 +16,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
         private Vector3 mouseOverOffset = new(0f, 60f);
 
         public Action<Card> OnClickCardInHand;
+        public Action<Card, PointerEventData> OnEndDragFromHand;
 
         // Methods
         //---------------------------------------------------------------------------------------------------------
@@ -56,9 +57,10 @@ namespace ryathom.RunTheNet.Encounters.Zones
             container.SetDragging(true);
         }
 
-        protected override void EndDragContainer(CardContainer container)
+        protected override void EndDragContainer(CardContainer container, PointerEventData eventData)
         {
             container.SetDragging(false);
+            OnEndDragFromHand?.Invoke(container.Card, eventData);
             UpdateVisuals();
         }
 

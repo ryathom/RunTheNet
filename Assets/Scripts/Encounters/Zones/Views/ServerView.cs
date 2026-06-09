@@ -13,6 +13,8 @@ namespace ryathom.RunTheNet.Encounters.Zones {
         public List<ServerSlotView> ServerSlots;
 
         public Action<ServerSlot> OnClickServerSlot;
+        public Action<ServerSlot> OnEnterServerSlot;
+        public Action<ServerSlot> OnExitServerSlot;
         public Action<Card> OnClickCardInServer;
         
 
@@ -40,6 +42,8 @@ namespace ryathom.RunTheNet.Encounters.Zones {
             {
                 ServerSlots[i].ServerSlot = server.Slots[i];
                 ServerSlots[i].OnClickSlot += ClickServerSlot;
+                ServerSlots[i].OnEnterSlot += EnterServerSlot;
+                ServerSlots[i].OnExitSlot += ExitServerSlot;
             }
         }
 
@@ -59,6 +63,19 @@ namespace ryathom.RunTheNet.Encounters.Zones {
             stackPointerArrow.enabled = true;
         }
 
+        public ServerSlot GetServerSlotAtPosition(Vector2 position)
+        {
+            foreach (ServerSlotView slotView in ServerSlots)
+            {
+                if (slotView.CheckBounds(position) == true)
+                {
+                    return slotView.ServerSlot;
+                }
+            }
+
+            return null;
+        }
+
         // Event responses
         //---------------------------------------------------------------------------------------------------------
         protected override void ClickCard(Card card)
@@ -69,6 +86,16 @@ namespace ryathom.RunTheNet.Encounters.Zones {
         public void ClickServerSlot(ServerSlot slot)
         {
             OnClickServerSlot?.Invoke(slot);
+        }
+
+        public void EnterServerSlot(ServerSlot slot)
+        {
+            OnEnterServerSlot?.Invoke(slot);
+        }
+
+        public void ExitServerSlot(ServerSlot slot)
+        {
+            OnExitServerSlot?.Invoke(slot);
         }
     }
 }

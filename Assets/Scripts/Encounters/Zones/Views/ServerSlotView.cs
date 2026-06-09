@@ -6,10 +6,12 @@ using UnityEngine.UI;
 // Test change for new branch
 
 namespace ryathom.RunTheNet.Encounters.Zones {
-    public class ServerSlotView : MonoBehaviour
+    public class ServerSlotView : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         public ServerSlot ServerSlot;
         public Action<ServerSlot> OnClickSlot;
+        public Action<ServerSlot> OnEnterSlot;
+        public Action<ServerSlot> OnExitSlot;
 
         // public Image outline;
 
@@ -28,17 +30,21 @@ namespace ryathom.RunTheNet.Encounters.Zones {
             OnClickSlot?.Invoke(ServerSlot);
         }
 
-        // public void OnPointerEnter(PointerEventData eventData)
-        // {
-        //     if (outline.enabled)
-        //     {
-        //         outline.color = Color.yellow;
-        //     }
-        // }
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            OnEnterSlot?.Invoke(ServerSlot);
+        }
 
-        // public void OnPointerExit(PointerEventData eventData)
-        // {
-        //     outline.color = Color.white;
-        // }
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            OnExitSlot?.Invoke(ServerSlot);
+        }
+
+        public bool CheckBounds(Vector2 position)
+        {
+            RectTransform rect = GetComponent<RectTransform>();
+
+            return RectTransformUtility.RectangleContainsScreenPoint(rect, position);
+        }
     }
 }

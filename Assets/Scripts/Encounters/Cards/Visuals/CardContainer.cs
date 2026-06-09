@@ -22,7 +22,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public Action<Card> OnClickCard;
         public Action<CardContainer> OnBeginDragContainer;
-        public Action<CardContainer> OnEndDragContainer;
+        public Action<CardContainer, PointerEventData> OnEndDragContainer;
         public Action<CardContainer> OnEnterContainer;
         public Action<CardContainer> OnExitContainer;
 
@@ -122,7 +122,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            OnEndDragContainer?.Invoke(this);
+            OnEndDragContainer?.Invoke(this, eventData);
         }
     }
 }

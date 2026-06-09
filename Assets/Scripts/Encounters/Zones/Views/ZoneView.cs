@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ryathom.RunTheNet.Encounters.Cards;
+using UnityEngine.EventSystems;
 
 
 namespace ryathom.RunTheNet.Encounters.Zones
@@ -70,7 +71,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
 
         protected virtual void ClickCard(Card card) {}
         protected virtual void BeginDragContainer(CardContainer container) {}
-        protected virtual void EndDragContainer(CardContainer container) {}
+        protected virtual void EndDragContainer(CardContainer container, PointerEventData eventData) {}
         protected virtual void EnterContainer(CardContainer container) {}
         protected virtual void ExitContainer(CardContainer container) {}
     }

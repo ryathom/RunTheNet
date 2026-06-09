@@ -1,6 +1,8 @@
 using ryathom.RunTheNet.Encounters.Actions;
 using ryathom.RunTheNet.Encounters.Cards;
+using ryathom.RunTheNet.Encounters.Zones;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace ryathom.RunTheNet.Encounters.Player
 {
@@ -10,21 +12,21 @@ namespace ryathom.RunTheNet.Encounters.Player
         {
         }
 
+        private ServerSlot currentSlot;
+
         public override void Enter()
         {
             Phase.OnPhaseEnter += ExitActionState;
             
-            controller.PlayArea.HandView.OnClickCardInHand += PlayCard;
+            controller.PlayArea.HandView.OnEndDragFromHand += PlayCard;
             controller.PlayArea.RigView.OnClickCardInRig += ActivateCard;
-
-            // EncounterManager.Instance.ServerView.OnClickCardInServer += AccessServer;
         }
 
         public override void Exit()
         {
             Phase.OnPhaseEnter -= ExitActionState;
 
-            controller.PlayArea.HandView.OnClickCardInHand -= PlayCard;
+            controller.PlayArea.HandView.OnEndDragFromHand -= PlayCard;
             controller.PlayArea.RigView.OnClickCardInRig -= ActivateCard;
         }
 
@@ -36,9 +38,13 @@ namespace ryathom.RunTheNet.Encounters.Player
             }
         }
 
-        private void PlayCard(Card card)
+        private void PlayCard(Card card, PointerEventData eventData)
         {
-            EncounterManager.Instance.Actions.AddAction(new InstallProgram(card));
+            currentSlot = controller.ServerView.GetServerSlotAtPosition(eventData.position);
+
+            if (currentSlot == null) return;
+
+            EncounterManager.Instance.Actions.AddAction(new InstallProgram(card, currentSlot));
         }
 
         private void ActivateCard(Card card)
@@ -52,17 +58,6 @@ namespace ryathom.RunTheNet.Encounters.Player
                         EncounterManager.Instance.Actions.AddAction(new ResolveAbility(activatedAbility, card));
                     }
                 }
-            }
-        }
-
-        private void AccessServer(Card card)
-        {
-            if (card is ServerAsset)
-            {
-                Debug.Log("Attempting to access server");
-            } else if (card is Ice)
-            {
-                Debug.Log("Attempting to break ICE");
             }
         }
     }
