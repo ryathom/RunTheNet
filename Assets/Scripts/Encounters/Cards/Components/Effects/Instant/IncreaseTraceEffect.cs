@@ -1,3 +1,4 @@
+using System.Collections;
 using ryathom.RunTheNet.Encounters.Actions;
 
 namespace ryathom.RunTheNet.Encounters.Cards
@@ -14,9 +15,9 @@ namespace ryathom.RunTheNet.Encounters.Cards
             Value = value;
         }
 
-        public void Execute()
+        public IEnumerator Execute()
         {
-            EncounterManager.Instance.Actions.AddAction(new IncreaseTrace(Value));
+            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new IncreaseTrace(Value));
         }
 
         public IEffect Copy()

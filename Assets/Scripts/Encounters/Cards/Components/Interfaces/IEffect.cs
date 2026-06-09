@@ -1,10 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
     public interface IEffect
     {
-        public void Execute();
+        public IEnumerator Execute();
         public IEffect Copy();
     }
 

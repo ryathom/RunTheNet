@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Cards
@@ -22,10 +23,12 @@ namespace ryathom.RunTheNet.Encounters.Cards
         {
         }
 
-        public void Execute()
+        public IEnumerator Execute()
         {
-            Cost.Pay();
-            Effect.Execute();
+            if (Cost.CanPay() == false) yield break;
+
+            yield return Cost.Pay();
+            yield return Effect.Execute();
         }
 
         public IAbility Copy()

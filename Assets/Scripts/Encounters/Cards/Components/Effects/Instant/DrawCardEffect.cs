@@ -1,3 +1,4 @@
+using System.Collections;
 using ryathom.RunTheNet.Encounters.Actions;
 
 namespace ryathom.RunTheNet.Encounters.Cards
@@ -5,9 +6,9 @@ namespace ryathom.RunTheNet.Encounters.Cards
     [System.Serializable]
     public class DrawCardEffect : IEffect
     {
-        public void Execute()
+        public IEnumerator Execute()
         {
-            EncounterManager.Instance.Actions.AddAction(new DrawCard());
+            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new DrawCard());
         }
 
         public IEffect Copy()

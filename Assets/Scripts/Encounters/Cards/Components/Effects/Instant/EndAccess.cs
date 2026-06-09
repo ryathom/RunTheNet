@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Cards
@@ -5,9 +6,11 @@ namespace ryathom.RunTheNet.Encounters.Cards
     [System.Serializable]
     public class EndAccess : IEffect
     {
-        public void Execute()
+        public IEnumerator Execute()
         {
             EncounterManager.Instance.Actions.SetProgramCounter(-1);
+
+            return null;
         }
 
         public IEffect Copy()

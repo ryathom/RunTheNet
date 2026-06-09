@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Cards
@@ -9,9 +10,9 @@ namespace ryathom.RunTheNet.Encounters.Cards
         [SerializeReference, SubclassSelector]
         public IEffect Effect;
 
-        public void Execute()
+        public IEnumerator Execute()
         {
-            Effect.Execute();
+            yield return Effect.Execute();
         }
 
         public IAbility Copy()

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
@@ -14,9 +15,11 @@ namespace ryathom.RunTheNet.Encounters.Cards
             Modifier = mod;
         }
 
-        public void Execute()
+        public IEnumerator Execute()
         {
             EncounterManager.Instance.Actions.ModifyProgramCounter(Modifier);
+
+            return null;
         }
 
         public IEffect Copy()

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Cards
@@ -14,9 +15,11 @@ namespace ryathom.RunTheNet.Encounters.Cards
             Clicks = clicks;
         }
 
-        public void Execute()
+        public IEnumerator Execute()
         {
             EncounterManager.Instance.Runner.SetClicks(Clicks);
+
+            return null;
         }
 
         public IEffect Copy()

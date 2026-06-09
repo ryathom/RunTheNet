@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Cards
@@ -5,7 +6,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     [System.Serializable]
     public class BreakIce : IEffect
     {
-        public void Execute()
+        public IEnumerator Execute()
         {
             int pc = EncounterManager.Instance.Actions.ProgramCounter;
             Card nextCard = EncounterManager.Instance.Server.GetCardAtSlot(pc);
@@ -15,6 +16,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
             {
                 nextCard.Deactivate();
             }
+
+            return null;
         }
 
         public IEffect Copy()
