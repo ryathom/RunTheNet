@@ -9,10 +9,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     {
         public IEnumerator Execute(Card source)
         {
-            Debug.Log("Should trash self " + source.Name);
-
-            return null;
-            // EncounterManager.Instance.Actions.AddAction(new ChangeZone())
+            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ChangeZone(source, EncounterManager.Instance.Runner.Trash));
         }
 
         public IEffect Copy()

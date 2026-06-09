@@ -9,7 +9,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
         public IAbility Ability {get; private set;}
         public Card Source {get; private set;}
 
-        private readonly float resolveDelay = 0.1f;
+        private readonly float resolveDelay = 0.25f;
 
         public ResolveAbility(IAbility ability, Card source)
         {
