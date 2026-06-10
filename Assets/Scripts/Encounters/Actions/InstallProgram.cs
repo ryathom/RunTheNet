@@ -10,7 +10,6 @@ namespace ryathom.RunTheNet.Encounters.Actions
     {
         public Program Program {get; private set;}
         public ServerSlot Slot {get; private set;}
-        private Runner runner;
 
         public InstallProgram(Program program, ServerSlot slot)
         {
@@ -21,8 +20,6 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
         public IEnumerator Execute()
         {
-            runner = EncounterManager.Instance.Runner;
-
             if (Program.Cost.CanPay())
             {
                 if (Slot.IsOccupied)
