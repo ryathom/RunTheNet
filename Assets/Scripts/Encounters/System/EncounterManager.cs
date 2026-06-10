@@ -5,6 +5,7 @@ using ryathom.RunTheNet.Encounters.Cards;
 using ryathom.RunTheNet.Encounters.Zones;
 using ryathom.RunTheNet.Encounters.Player;
 using ryathom.RunTheNet.Encounters.Actions;
+using ryathom.RunTheNet.Run;
 
 namespace ryathom.RunTheNet.Encounters
 {
@@ -12,8 +13,6 @@ namespace ryathom.RunTheNet.Encounters
     {
         public static EncounterManager Instance {get; private set;}
 
-        [SerializeField] private List<ProgramSO> tempPlayerDecklist;
-        [SerializeField] private List<HardwareSO> tempPlayerHardware;
         [SerializeField] private List<CardSO> tempServerDecklist;
         [SerializeField] private CardContainer cardPrefab;
         [SerializeField] private CardContainer corpCardPrefab;
@@ -83,31 +82,27 @@ namespace ryathom.RunTheNet.Encounters
 
         private void SetupPrograms()
         {
-            programs = new();
+            programs = RunManager.Instance.Programs;
 
-            foreach (CardSO cardSO in tempPlayerDecklist)
+            foreach (Card card in programs)
             {
                 CardContainer container = Instantiate(cardPrefab, cardCanvas.transform);
-                Program card = new(cardSO);
 
                 container.SetCard(card);
                 container.gameObject.SetActive(true);
-                programs.Add(card);
             }
         }
 
         private void SetupHardware()
         {
-            hardware = new();
+            hardware = RunManager.Instance.Hardware;
 
-            foreach (HardwareSO hardwareSO in tempPlayerHardware)
+            foreach (Card card in hardware)
             {
                 CardContainer container = Instantiate(cardPrefab, cardCanvas.transform);
-                Hardware card = new(hardwareSO);
 
                 container.SetCard(card);
                 container.gameObject.SetActive(true);
-                hardware.Add(card);
             }
         }
 

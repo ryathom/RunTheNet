@@ -266,6 +266,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ffe1d2dbfdce47e496e0aa58b8c90b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Run.RunManager
+  startingPrograms:
+  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
+  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
+  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
+  - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
+  - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
+  - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
+  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
+  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
+  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
+  startingHardware:
+  - {fileID: 11400000, guid: 014d5191183494fdeacafef3a6fe58fc, type: 2}
+  - {fileID: 11400000, guid: 6cf5f90dc86324875aca2b23d9ef600e, type: 2}
+  - {fileID: 11400000, guid: ea6d970927037404d8bbfc4d002b50dc, type: 2}
 --- !u!1 &804763685
 GameObject:
   m_ObjectHideFlags: 0
