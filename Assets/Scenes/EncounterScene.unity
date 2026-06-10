@@ -3531,6 +3531,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ea6d970927037404d8bbfc4d002b50dc, type: 2}
   tempServerDecklist:
   - {fileID: 11400000, guid: a81b3d86c2c394cd4890337db79a0323, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 660b9b003c7864f02a2256651b873045, type: 2}
   - {fileID: 11400000, guid: 2f227a2060ad846c8929fea5e75a7993, type: 2}
   cardPrefab: {fileID: 172950392}

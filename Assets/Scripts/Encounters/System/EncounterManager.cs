@@ -117,13 +117,17 @@ namespace ryathom.RunTheNet.Encounters
             serverView.SetZone(Server);
             // serverView.HideStackPointer();
 
-            foreach (CardSO cardSO in tempServerDecklist)
+            for (int i = 0; i < tempServerDecklist.Count; i++)
             {
                 CardContainer container = Instantiate(cardPrefab, serverView.transform);
+                CardSO cardSO = tempServerDecklist[i];
                 
                 Card card = null;
 
-                if (cardSO is IceSO iceSO)
+                if (cardSO == null)
+                {
+                    continue;
+                } else if (cardSO is IceSO iceSO)
                 {
                     card = new Ice(iceSO);
                 } else if (cardSO is ServerAssetSO assetSO)
@@ -136,7 +140,7 @@ namespace ryathom.RunTheNet.Encounters
 
                 container.SetCard(card);
                 container.gameObject.SetActive(true);
-                Server.AddCard(card);
+                Server.AddCard(card, i);
             }
         }
 
