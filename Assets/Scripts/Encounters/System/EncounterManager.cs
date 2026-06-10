@@ -63,6 +63,11 @@ namespace ryathom.RunTheNet.Encounters
             }
         }
 
+        public void OnDestroy()
+        {
+            Server.OnDestroy();
+        }
+
         // Game flow
         //---------------------------------------------------------------------------------------------------------
         private void SetupRunner()
@@ -147,6 +152,11 @@ namespace ryathom.RunTheNet.Encounters
         public void EndTurn()
         {
             Actions.AddAction(new NextPhase());
+        }
+
+        public void EndEncounter()
+        {
+            GameManager.Instance.LoadScene("RunScene");
         }
     }
 }

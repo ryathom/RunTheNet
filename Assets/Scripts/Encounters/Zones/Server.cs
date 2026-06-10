@@ -19,6 +19,11 @@ namespace ryathom.RunTheNet.Encounters.Zones
             Phase.OnPhaseEnter += ActivateCards;
         }
 
+        public void OnDestroy()
+        {
+            Phase.OnPhaseEnter -= ActivateCards;
+        }
+
         // If no slot specified, add to first available slot
         public override void AddCard(Card card) 
         {

@@ -15,7 +15,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
         public IEnumerator Execute()
         {
-            GameManager.Instance.LoadScene("RunScene");
+            EncounterManager.Instance.EndEncounter();
 
             return null;
         }
