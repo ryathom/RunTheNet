@@ -18,20 +18,4 @@ namespace ryathom.RunTheNet.Encounters.Actions
             return null;
         }
     }
-
-    public class EndCorpTurn : IAction
-    {
-        public IEnumerator Execute()
-        {
-            EncounterInfo info = EncounterManager.Instance.EncounterInfo;
-
-            if (info.Trace >= info.MaxTrace)
-            {
-                yield return EncounterManager.Instance.Actions.ExecuteImmediate(new EndEncounter());
-            }
-
-            EncounterManager.Instance.ServerView.HideStackPointer();
-            EncounterManager.Instance.Actions.AddAction(new NextPhase());
-        }
-    }
 }

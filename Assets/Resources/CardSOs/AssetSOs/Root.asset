@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0599113efb47b41539d4ffa368c2e13c, type: 3}
   m_Name: Root
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ServerAssetSO
-  BackgroundImage: {fileID: 21300000, guid: 6c74b97fc4ed3a341bac15f0a03b6689, type: 3}
-  Abilities: []
+  Abilities:
+  - rid: 8546192847017345271
   cardText: '-'
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8546192847017345271
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Effect:
+          rid: 8546192847017345273
+    - rid: 8546192847017345273
+      type: {class: SuccessfulAccess, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
