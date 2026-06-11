@@ -73,7 +73,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public void SetScale(Vector3 scale)
         {
-            if (transform.localScale != scale)
+            if ((Vector3)transform.localScale != scale)
             {
                 Tween.Scale(transform, scale, 0.1f);
             }
