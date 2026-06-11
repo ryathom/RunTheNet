@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ryathom.RunTheNet.Encounters;
 using ryathom.RunTheNet.Encounters.Cards;
+using TMPro;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Run
@@ -14,6 +15,8 @@ namespace ryathom.RunTheNet.Run
 
         public List<Card> Programs {get; private set;}
         public List<Card> Hardware {get; private set;}
+
+        public int Credits {get; private set;}
 
         // Unity Messages
         //---------------------------------------------------------------------------------------------------------
@@ -32,6 +35,8 @@ namespace ryathom.RunTheNet.Run
         private void Start()
         {
             SetupCards();
+
+            Credits = 0;
         }
 
         // Game flow
@@ -57,6 +62,12 @@ namespace ryathom.RunTheNet.Run
         public void StartEncounter()
         {
             GameManager.Instance.LoadScene("EncounterScene");
+        }
+
+        // Rewards
+        public void GiveRewards()
+        {
+            Credits += 500;
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using ryathom.RunTheNet.Run;
 
 namespace ryathom.RunTheNet.Encounters.Actions
 {
@@ -15,6 +16,11 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
         public IEnumerator Execute()
         {
+            if (Success == true)
+            {
+                RunManager.Instance.GiveRewards();
+            }
+
             EncounterManager.Instance.EndEncounter();
 
             return null;
