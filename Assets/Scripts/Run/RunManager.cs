@@ -11,6 +11,7 @@ namespace ryathom.RunTheNet.Run
         public static RunManager Instance {get; private set;}
 
         public EncounterSO CurrentEncounter {get; private set;}
+        private bool rewardChosen;
 
         [SerializeField] private List<ProgramSO> startingPrograms;
         [SerializeField] private List<HardwareSO> startingHardware;
@@ -92,6 +93,7 @@ namespace ryathom.RunTheNet.Run
         public void StartEncounter(EncounterSO encounter)
         {
             CurrentEncounter = encounter;
+            rewardChosen = false;
             SetupServer();
             GameManager.Instance.LoadScene("EncounterScene");
         }
@@ -100,6 +102,14 @@ namespace ryathom.RunTheNet.Run
         public void GiveRewards()
         {
             Credits += CurrentEncounter.CreditsReward;
+        }
+
+        public void ChooseReward(Card card)
+        {
+            if (rewardChosen) return;
+
+            Programs.Add(card);
+            rewardChosen = true;
         }
     }
 }

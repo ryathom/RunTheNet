@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using ryathom.RunTheNet.Encounters.Cards;
+using ryathom.RunTheNet.Run;
 using TMPro;
 using UnityEngine;
 
@@ -21,8 +22,15 @@ namespace ryathom.RunTheNet.Encounters
                 CardContainer container = Instantiate(cardPrefab, cardRewardsContainer.transform);
 
                 container.SetCard(card);
+                container.OnClickCard += ChooseReward;
                 container.gameObject.SetActive(true);
             }
+        }
+
+        public void ChooseReward(Card card)
+        {
+            RunManager.Instance.ChooseReward(card);
+            EncounterManager.Instance.EndEncounter();
         }
     }
 }
