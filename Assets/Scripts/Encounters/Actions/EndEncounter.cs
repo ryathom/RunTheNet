@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using ryathom.RunTheNet.Encounters.Cards;
 using ryathom.RunTheNet.Run;
 using UnityEngine;
 
@@ -22,12 +24,12 @@ namespace ryathom.RunTheNet.Encounters.Actions
                 EncounterUIManager.Instance.ShowRewardsPopUp(true);
 
                 int credits = RunManager.Instance.CurrentEncounter.CreditsReward;
-                EncounterUIManager.Instance.RewardsPopUp.SetRewards(credits);
+                List<ProgramSO> programs = RunManager.Instance.CurrentEncounter.ProgramRewards;
+                EncounterUIManager.Instance.RewardsPopUp.SetRewards(credits, programs);
 
                 RunManager.Instance.GiveRewards();
             }
 
-            // EncounterManager.Instance.EndEncounter();
             EncounterManager.Instance.StopActions();
             return null;
         }

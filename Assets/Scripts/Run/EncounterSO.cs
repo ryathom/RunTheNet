@@ -8,6 +8,7 @@ namespace ryathom.RunTheNet.Run
     public class EncounterSO : ScriptableObject
     {
         public int CreditsReward;
+        public List<ProgramSO> ProgramRewards;
 
         public List<CardSO> ServerList;
     }
