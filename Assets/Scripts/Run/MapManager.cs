@@ -12,9 +12,9 @@ namespace ryathom.RunTheNet.Run
 
         // Game flow
         //---------------------------------------------------------------------------------------------------------
-        public void StartEncounter()
+        public void StartEncounter(EncounterSO encounter)
         {
-            RunManager.Instance.StartEncounter();
+            RunManager.Instance.StartEncounter(encounter);
         }
     }
 }

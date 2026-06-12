@@ -10,6 +10,8 @@ namespace ryathom.RunTheNet.Run
     {
         public static RunManager Instance {get; private set;}
 
+        public EncounterSO CurrentEncounter {get; private set;}
+
         [SerializeField] private List<ProgramSO> startingPrograms;
         [SerializeField] private List<HardwareSO> startingHardware;
 
@@ -59,15 +61,16 @@ namespace ryathom.RunTheNet.Run
             }
         }
 
-        public void StartEncounter()
+        public void StartEncounter(EncounterSO encounter)
         {
+            CurrentEncounter = encounter;
             GameManager.Instance.LoadScene("EncounterScene");
         }
 
         // Rewards
         public void GiveRewards()
         {
-            Credits += 500;
+            Credits += CurrentEncounter.CreditsReward;
         }
     }
 }
