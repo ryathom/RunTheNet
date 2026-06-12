@@ -136,6 +136,13 @@ namespace ryathom.RunTheNet.Encounters
             Actions.AddAction(new NextPhase());
         }
 
+        public void StopActions()
+        {
+            StopAllCoroutines();
+            Actions.ActionQueue.Clear();
+            Actions.ActionStack.Clear();
+        }
+
         public void EndEncounter()
         {
             GameManager.Instance.LoadScene("RunScene");

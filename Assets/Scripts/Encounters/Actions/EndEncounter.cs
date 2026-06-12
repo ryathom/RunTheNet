@@ -1,5 +1,6 @@
 using System.Collections;
 using ryathom.RunTheNet.Run;
+using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Actions
 {
@@ -18,11 +19,16 @@ namespace ryathom.RunTheNet.Encounters.Actions
         {
             if (Success == true)
             {
+                EncounterUIManager.Instance.ShowRewardsPopUp(true);
+
+                int credits = RunManager.Instance.CurrentEncounter.CreditsReward;
+                EncounterUIManager.Instance.RewardsPopUp.SetRewards(credits);
+
                 RunManager.Instance.GiveRewards();
             }
 
-            EncounterManager.Instance.EndEncounter();
-
+            // EncounterManager.Instance.EndEncounter();
+            EncounterManager.Instance.StopActions();
             return null;
         }
     }

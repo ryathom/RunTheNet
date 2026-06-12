@@ -10,6 +10,8 @@ namespace ryathom.RunTheNet.Encounters
         private EncounterInfo info;
 
         [SerializeField] private TextMeshProUGUI traceText;
+        [SerializeField] private RewardsPopUp rewardsPopUp;
+        public RewardsPopUp RewardsPopUp {get => rewardsPopUp;}
 
         private void Awake() 
         {
@@ -23,6 +25,7 @@ namespace ryathom.RunTheNet.Encounters
 
         public void Start()
         {
+            ShowRewardsPopUp(false);
         }
 
         public void Update()
@@ -37,6 +40,12 @@ namespace ryathom.RunTheNet.Encounters
         public void UpdateTraceText(int traceValue, int maxTrace)
         {
             traceText.text = "Trace: " + traceValue + "/" + maxTrace;
+        }
+
+        public void ShowRewardsPopUp(bool enabled)
+        {
+            rewardsPopUp.transform.SetAsLastSibling();
+            rewardsPopUp.gameObject.SetActive(enabled);
         }
     }
 }
