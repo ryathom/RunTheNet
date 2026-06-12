@@ -14,6 +14,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
             }
 
             EncounterManager.Instance.ServerView.HideStackPointer();
+            EncounterManager.Instance.Runner.SetEnergy(0);
             EncounterManager.Instance.Actions.AddAction(new NextPhase());
         }
     }

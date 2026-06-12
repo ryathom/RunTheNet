@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079c41d5c663b4efba8a884ce0859a15, type: 3}
   m_Name: Relay
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
-  Abilities: []
-  cardText: Generates energy.
+  Abilities:
+  - rid: 8546192847017345365
+  cardText: Generates 1 Energy.
   Cost:
     rid: 8546192847017345361
   references:
@@ -23,3 +24,12 @@ MonoBehaviour:
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Clicks: 1
+    - rid: 8546192847017345365
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Effect:
+          rid: 8546192847017345366
+    - rid: 8546192847017345366
+      type: {class: GenerateEnergy, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: 1

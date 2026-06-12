@@ -15,6 +15,7 @@ namespace ryathom.RunTheNet.Encounters.Player
         public Trash Trash {get; private set;}
 
         public int Clicks {get; private set;}
+        public int Energy {get; private set;}
 
         public void SetupRunner(List<Card> programs)
         {
@@ -24,6 +25,7 @@ namespace ryathom.RunTheNet.Encounters.Player
             Trash = new();
 
             Clicks = 0;
+            Energy = 0;
 
             for (int i = 0; i < 5; i++)
             {
@@ -44,6 +46,26 @@ namespace ryathom.RunTheNet.Encounters.Player
         public void SetClicks(int clicks)
         {
             Clicks = clicks;
+        }
+
+        public void GainEnergy(int energy)
+        {
+            Energy += energy;
+        }
+
+        public void SpendEnergy(int energy)
+        {
+            if (energy > Energy)
+            {
+                Debug.Log("Tried to spend more energy than available");
+            }
+
+            Energy -= energy;
+        }
+
+        public void SetEnergy(int energy)
+        {
+            Energy = energy;
         }
     }
 }

@@ -456,9 +456,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
   - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
   - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
-  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
-  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
-  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
+  - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
+  - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
+  - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
   startingHardware:
   - {fileID: 11400000, guid: 014d5191183494fdeacafef3a6fe58fc, type: 2}
   - {fileID: 11400000, guid: 6cf5f90dc86324875aca2b23d9ef600e, type: 2}

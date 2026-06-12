@@ -7,6 +7,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
     public class RunnerPlayArea : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI ClicksText;
+        [SerializeField] private TextMeshProUGUI EnergyText;
 
         public HandView HandView;
         public RigView RigView;
@@ -27,7 +28,8 @@ namespace ryathom.RunTheNet.Encounters.Zones
         {
             if (runner == null) return;
 
-            ClicksText.text = "Clicks: " + runner.Clicks.ToString();   
+            ClicksText.text = "Clicks: " + runner.Clicks.ToString();
+            EnergyText.text = "Energy: " + runner.Energy.ToString();
         }
     }
 }
