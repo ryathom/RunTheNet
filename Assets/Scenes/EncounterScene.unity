@@ -2346,14 +2346,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Zones.ServerView
   stackPointerArrow: {fileID: 1637478382}
   ServerSlots:
-  - {fileID: 1232196629}
-  - {fileID: 882745032}
-  - {fileID: 369404274}
-  - {fileID: 646668439}
-  - {fileID: 624228203}
-  - {fileID: 1623744106}
-  - {fileID: 2116666056}
   - {fileID: 907061380}
+  - {fileID: 2116666056}
+  - {fileID: 1623744106}
+  - {fileID: 624228203}
+  - {fileID: 646668439}
+  - {fileID: 369404274}
+  - {fileID: 882745032}
+  - {fileID: 1232196629}
 --- !u!224 &1232196628 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7340083869575579640, guid: 46c7d977a4a7e449e85e56754f5321ac, type: 3}
@@ -3515,24 +3515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39cd18f042c724f04a52eba03ebe2df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.System.EncounterManager
-  tempPlayerDecklist:
-  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
-  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
-  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
-  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
-  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
-  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
-  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
-  - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
-  - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
-  tempPlayerHardware:
-  - {fileID: 11400000, guid: 014d5191183494fdeacafef3a6fe58fc, type: 2}
-  - {fileID: 11400000, guid: 6cf5f90dc86324875aca2b23d9ef600e, type: 2}
-  - {fileID: 11400000, guid: ea6d970927037404d8bbfc4d002b50dc, type: 2}
-  tempServerDecklist:
-  - {fileID: 11400000, guid: a81b3d86c2c394cd4890337db79a0323, type: 2}
   cardPrefab: {fileID: 172950392}
-  corpCardPrefab: {fileID: 0}
   cardCanvas: {fileID: 504251143}
   serverView: {fileID: 1223250621}
   playerController: {fileID: 1583723180}

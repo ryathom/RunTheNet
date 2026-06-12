@@ -113,6 +113,7 @@ namespace ryathom.RunTheNet.Encounters
         {
             Server = new();
             serverView.SetZone(Server);
+            serverView.HideStackPointer();
 
             for (int i = 0; i < RunManager.Instance.Server.Count; i++)
             {
