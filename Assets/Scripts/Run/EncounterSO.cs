@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using ryathom.RunTheNet.Encounters.Cards;
 using UnityEngine;
 
 namespace ryathom.RunTheNet.Run
@@ -6,5 +8,7 @@ namespace ryathom.RunTheNet.Run
     public class EncounterSO : ScriptableObject
     {
         public int CreditsReward;
+
+        public List<CardSO> ServerList;
     }
 }

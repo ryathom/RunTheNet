@@ -13,9 +13,7 @@ namespace ryathom.RunTheNet.Encounters
     {
         public static EncounterManager Instance {get; private set;}
 
-        [SerializeField] private List<CardSO> tempServerDecklist;
         [SerializeField] private CardContainer cardPrefab;
-        [SerializeField] private CardContainer corpCardPrefab;
         [SerializeField] private Canvas cardCanvas;
 
         private List<Card> programs;
@@ -115,28 +113,11 @@ namespace ryathom.RunTheNet.Encounters
         {
             Server = new();
             serverView.SetZone(Server);
-            // serverView.HideStackPointer();
 
-            for (int i = 0; i < tempServerDecklist.Count; i++)
+            for (int i = 0; i < RunManager.Instance.Server.Count; i++)
             {
                 CardContainer container = Instantiate(cardPrefab, serverView.transform);
-                CardSO cardSO = tempServerDecklist[i];
-                
-                Card card = null;
-
-                if (cardSO == null)
-                {
-                    continue;
-                } else if (cardSO is IceSO iceSO)
-                {
-                    card = new Ice(iceSO);
-                } else if (cardSO is ServerAssetSO assetSO)
-                {
-                    card = new ServerAsset(assetSO);
-                } else
-                {
-                    Debug.LogError("Unrecognised card type " + cardSO);
-                }
+                Card card = RunManager.Instance.Server[i];
 
                 container.SetCard(card);
                 container.gameObject.SetActive(true);

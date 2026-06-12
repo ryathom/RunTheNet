@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: TestEncounter
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Run.EncounterSO
   CreditsReward: 1000
+  ServerList:
+  - {fileID: 11400000, guid: a81b3d86c2c394cd4890337db79a0323, type: 2}
+  - {fileID: 11400000, guid: 660b9b003c7864f02a2256651b873045, type: 2}
