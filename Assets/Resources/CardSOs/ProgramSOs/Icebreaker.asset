@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546192824960024691
-  cardText: Placeholder icebreaker program.
+  cardText: Requires 1 Energy. \n Strength 3
   Cost:
     rid: 8546192847017345228
   Strength: 3

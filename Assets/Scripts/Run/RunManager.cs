@@ -74,7 +74,7 @@ namespace ryathom.RunTheNet.Run
 
                 if (cardSO == null)
                 {
-                    continue;
+                    // continue;
                 } else if (cardSO is IceSO iceSO)
                 {
                     card = new Ice(iceSO);

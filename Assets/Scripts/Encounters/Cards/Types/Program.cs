@@ -13,5 +13,10 @@ namespace ryathom.RunTheNet.Encounters.Cards
             Strength = programSO.Strength;
         }
 
+        public void ResetStrength()
+        {
+            Strength = programSO.Strength;
+        }
+
     }
 }

@@ -117,8 +117,10 @@ namespace ryathom.RunTheNet.Encounters
 
             for (int i = 0; i < RunManager.Instance.Server.Count; i++)
             {
-                CardContainer container = Instantiate(cardPrefab, serverView.transform);
                 Card card = RunManager.Instance.Server[i];
+                if (card == null) continue;
+
+                CardContainer container = Instantiate(cardPrefab, serverView.transform);
 
                 container.SetCard(card);
                 container.gameObject.SetActive(true);

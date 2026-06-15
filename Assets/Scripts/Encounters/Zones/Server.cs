@@ -97,6 +97,11 @@ namespace ryathom.RunTheNet.Encounters.Zones
                 foreach (Card card in Cards)
                 {
                     card.Activate();
+
+                    if (card is Program program)
+                    {
+                        program.ResetStrength();
+                    }
                 }
             }
         }
