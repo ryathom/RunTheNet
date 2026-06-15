@@ -12,19 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079c41d5c663b4efba8a884ce0859a15, type: 3}
   m_Name: Jmp
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
-  BackgroundImage: {fileID: 21300000, guid: c93dbf91c45e28d4aafdd6f5a906f41f, type: 3}
   Abilities:
   - rid: 8546192824960024750
   cardText: Jump the next program.
+  Cost:
+    rid: 8546193071756279895
+  Strength: -1
   references:
     version: 2
     RefIds:
     - rid: 8546192824960024750
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
+        Condition:
+          rid: 8546193071756279906
         Effect:
           rid: 8546192824960024751
     - rid: 8546192824960024751
       type: {class: ModifyProgramCounter, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Modifier: -1
+    - rid: 8546193071756279895
+      type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Clicks: 1
+    - rid: 8546193071756279906
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 

@@ -18,12 +18,15 @@ MonoBehaviour:
   cardText: Placeholder resource program.
   Cost:
     rid: 8546192847017345229
+  Strength: -1
   references:
     version: 2
     RefIds:
     - rid: 8546192824960024756
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
+        Condition:
+          rid: 8546193071756279909
         Effect:
           rid: 8546192824960024757
     - rid: 8546192824960024757
@@ -32,6 +35,8 @@ MonoBehaviour:
     - rid: 8546192824960024759
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
+        Condition:
+          rid: 8546193071756279908
         Effect:
           rid: 8546192824960024760
     - rid: 8546192824960024760
@@ -41,3 +46,9 @@ MonoBehaviour:
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Clicks: 0
+    - rid: 8546193071756279908
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756279909
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 

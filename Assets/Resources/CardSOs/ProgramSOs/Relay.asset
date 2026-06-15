@@ -17,6 +17,7 @@ MonoBehaviour:
   cardText: Generates 1 Energy.
   Cost:
     rid: 8546192847017345361
+  Strength: -1
   references:
     version: 2
     RefIds:
@@ -27,9 +28,14 @@ MonoBehaviour:
     - rid: 8546192847017345365
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
+        Condition:
+          rid: 8546193071756279907
         Effect:
           rid: 8546192847017345366
     - rid: 8546192847017345366
       type: {class: GenerateEnergy, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Value: 1
+    - rid: 8546193071756279907
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 

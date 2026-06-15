@@ -17,12 +17,15 @@ MonoBehaviour:
   cardText: Placeholder icebreaker program.
   Cost:
     rid: 8546192847017345228
+  Strength: 3
   references:
     version: 2
     RefIds:
     - rid: 8546192824960024691
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
+        Condition:
+          rid: 8546193071756279899
         Effect:
           rid: 8546192824960024692
     - rid: 8546192824960024692
@@ -32,3 +35,7 @@ MonoBehaviour:
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Clicks: 2
+    - rid: 8546193071756279899
+      type: {class: EnergyRequirement, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: 1
