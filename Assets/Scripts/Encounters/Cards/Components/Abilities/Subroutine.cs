@@ -8,17 +8,24 @@ namespace ryathom.RunTheNet.Encounters.Cards
     public class Subroutine : IAbility
     {
         [SerializeReference, SubclassSelector]
+        public ICondition Condition = new NoCondition();
+
+        [SerializeReference, SubclassSelector]
         public IEffect Effect;
 
         public IEnumerator Execute(Card source)
         {
-            yield return Effect.Execute(source);
+            if (Condition.Evaluate(source))
+            {
+                yield return Effect.Execute(source);
+            }
         }
 
         public IAbility Copy()
         {
             Subroutine ability = new()
             {
+                Condition = Condition.Copy(),
                 Effect = Effect.Copy(),
             };
             return ability;

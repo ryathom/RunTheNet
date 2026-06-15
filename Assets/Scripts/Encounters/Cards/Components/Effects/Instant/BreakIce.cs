@@ -11,9 +11,12 @@ namespace ryathom.RunTheNet.Encounters.Cards
             int pc = EncounterManager.Instance.Actions.ProgramCounter;
             Card nextCard = EncounterManager.Instance.Server.GetCardAtSlot(pc - 1);
 
-            if (nextCard is Ice)
+            if (nextCard is Ice ice && source is Program program)
             {
-                nextCard.Deactivate();
+                if (ice.Strength <= program.Strength)
+                {
+                    nextCard.Deactivate();
+                }
             }
 
             return null;

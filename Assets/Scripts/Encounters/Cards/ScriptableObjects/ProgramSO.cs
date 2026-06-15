@@ -6,7 +6,9 @@ namespace ryathom.RunTheNet.Encounters.Cards
     public class ProgramSO : CardSO
     {
         [SerializeReference, SubclassSelector]
-        public ICost Cost = new ClickCost(1);   
+        public ICost Cost = new ClickCost(1);
+
+        public int Strength = -1;
     }
 
     public enum ProgramType
