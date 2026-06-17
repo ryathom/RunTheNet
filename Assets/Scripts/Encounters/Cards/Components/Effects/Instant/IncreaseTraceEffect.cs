@@ -25,35 +25,4 @@ namespace ryathom.RunTheNet.Encounters.Cards
             return new IncreaseTraceEffect(Value);
         }
     }
-
-    [System.Serializable]
-    public class BoostStrength : IEffect
-    {
-        public int Value;
-
-        public BoostStrength() {}
-
-        public BoostStrength(int value)
-        {
-            Value = value;
-        }
-
-        public IEnumerator Execute(Card source)
-        {
-            foreach (Card card in EncounterManager.Instance.Server.Cards)
-            {
-                if (card is Program program)
-                {
-                    program.Strength += Value;
-                }
-            }
-
-            return null;
-        }
-
-        public IEffect Copy()
-        {
-            return new BoostStrength(Value);
-        }
-    }
 }

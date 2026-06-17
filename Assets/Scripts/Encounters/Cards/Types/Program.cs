@@ -16,6 +16,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
         public void ResetStrength()
         {
             Strength = programSO.Strength;
+            Container.ShowVisual(true);
         }
 
     }
