@@ -735,7 +735,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
   - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
   - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
-  - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
   startingHardware:
   - {fileID: 11400000, guid: 014d5191183494fdeacafef3a6fe58fc, type: 2}
   - {fileID: 11400000, guid: ea6d970927037404d8bbfc4d002b50dc, type: 2}
