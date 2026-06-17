@@ -15,7 +15,7 @@ MonoBehaviour:
   Abilities:
   - rid: 8546192847017345271
   - rid: 8546193071756279941
-  cardText: 'On End Turn: Spawn a <b>Gremlin<b>'
+  cardText: 'On End Turn: Install a card from Reserves.'
   references:
     version: 2
     RefIds:
@@ -38,11 +38,10 @@ MonoBehaviour:
         Trigger:
           rid: 8546193071756279964
         Effect:
-          rid: 8546193071756279944
-    - rid: 8546193071756279944
-      type: {class: SpawnIce, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data:
-        IceSO: {fileID: 11400000, guid: c4453fc2898244d4e80d535f68492a8c, type: 2}
+          rid: 8546193071756279990
     - rid: 8546193071756279964
       type: {class: OnEndCorpTurn, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756279990
+      type: {class: InstallFromReserves, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
