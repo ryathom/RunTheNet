@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f118c2b732d8481691f70ea2dad640b, type: 3}
+  m_Name: Garbage Collector
+  m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.HardwareSO
+  Abilities:
+  - rid: 8546193071756279997
+  cardText: '[C]: Trash program closest to the server root.'
+  references:
+    version: 2
+    RefIds:
+    - rid: 8546193071756279997
+      type: {class: ActivatedAbility, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Cost:
+          rid: 8546193071756279998
+        Condition:
+          rid: 8546193071756279999
+        Effect:
+          rid: 8546193071756280001
+        AbilityText: 
+    - rid: 8546193071756279998
+      type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Clicks: 1
+    - rid: 8546193071756279999
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756280001
+      type: {class: TrashFirstProgram, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
