@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.IceSO
   Abilities:
   - rid: 8546193071756279917
-  cardText: Set Energy to 0. \n Strength 1
+  cardText: Set Energy to 0.
   Strength: 1
   references:
     version: 2

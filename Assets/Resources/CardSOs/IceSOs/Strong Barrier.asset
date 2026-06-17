@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.IceSO
   Abilities:
   - rid: 8546192824960024685
-  cardText: Strength 5.
+  cardText: End the access.
   Strength: 5
   references:
     version: 2

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546193071756280007
-  cardText: Requires 1 Energy. \n Strength 3
+  cardText: Consumes 1 Energy. \nDeactivates ICE with equal or lower Strength.
   Cost:
     rid: 8546192847017345228
   Strength: 3
@@ -24,18 +24,18 @@ MonoBehaviour:
     - rid: 8546192847017345228
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        Clicks: 2
+        Clicks: 1
     - rid: 8546193071756280007
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Condition:
-          rid: 8546193071756280009
+          rid: 8546193071756280022
         Effect:
           rid: 8546193071756280010
-    - rid: 8546193071756280009
-      type: {class: EnergyRequirement, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data:
-        Value: 1
     - rid: 8546193071756280010
       type: {class: DeactivateIce, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
+    - rid: 8546193071756280022
+      type: {class: EnergyConsumption, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: 1

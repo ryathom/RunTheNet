@@ -19,6 +19,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private GameObject costField;
         [SerializeField] private TextMeshProUGUI costValue;
+        [SerializeField] private GameObject strengthField;
+        [SerializeField] private TextMeshProUGUI strengthValue;
 
         private Card card;
 
@@ -38,6 +40,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
             SetBackground();
             SetActive();
             SetCost();
+            SetStrength();
         }
 
         public void SetTypeText()
@@ -90,13 +93,29 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public void SetCost()
         {
-            if (card is Program program)
+            // if (card is Program program)
+            // {
+            //     costField.SetActive(true);
+            //     costValue.text = (program.Cost is ClickCost clickCost) ? clickCost.Clicks.ToString() : "0";
+            // } else
+            // {
+                costField.SetActive(false);
+            // }
+        }
+
+        public void SetStrength()
+        {
+            if (card is Program program && program.Strength >= 0)
             {
-                costField.SetActive(true);
-                costValue.text = (program.Cost is ClickCost clickCost) ? clickCost.Clicks.ToString() : "0";
+                strengthField.SetActive(true);
+                strengthValue.text = program.Strength.ToString();
+            } else if (card is Ice ice && ice.Strength >= 0)
+            {
+                strengthField.SetActive(true);
+                strengthValue.text = ice.Strength.ToString();
             } else
             {
-                costField.SetActive(false);
+                strengthField.SetActive(false);
             }
         }
     }
