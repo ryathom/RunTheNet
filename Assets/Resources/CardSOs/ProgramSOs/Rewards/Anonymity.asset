@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 079c41d5c663b4efba8a884ce0859a15, type: 3}
-  m_Name: Resource
+  m_Name: Anonymity
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546192824960024759
   - rid: 8546192824960024756
-  cardText: Placeholder resource program.
+  cardText: -5 Trace. Then trash this program.
   Cost:
     rid: 8546192847017345229
   Strength: -1
@@ -38,17 +38,18 @@ MonoBehaviour:
         Condition:
           rid: 8546193071756279908
         Effect:
-          rid: 8546192824960024760
-    - rid: 8546192824960024760
-      type: {class: DrawCardEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
+          rid: 8546193071756280053
     - rid: 8546192847017345229
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        Clicks: 0
+        Clicks: 1
     - rid: 8546193071756279908
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
     - rid: 8546193071756279909
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
+    - rid: 8546193071756280053
+      type: {class: IncreaseTraceEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: -5

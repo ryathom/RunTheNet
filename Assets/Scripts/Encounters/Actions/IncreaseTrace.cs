@@ -15,7 +15,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
         {
             EncounterInfo info = EncounterManager.Instance.EncounterInfo;
 
-            info.Trace += Value;
+            info.ModifyTrace(Value);
 
             return null;
         }

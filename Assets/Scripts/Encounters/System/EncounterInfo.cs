@@ -16,5 +16,15 @@ namespace ryathom.RunTheNet.Encounters
             CurrentTurn = 0;
             CurrentPhase = new NullPhase();
         }
+
+        public void ModifyTrace(int mod)
+        {
+            Trace += mod;
+
+            if (Trace < 0)
+            {
+                Trace = 0;
+            }
+        }
     }
 }
