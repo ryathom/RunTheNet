@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546193071756280064
-  cardText: Trash all programs and ICE with equal or lower Strength.
+  - rid: 8546193071756280071
+  cardText: Trash all programs and ICE with equal or lower Strength. \n End the access..
   Cost:
     rid: 8546193071756280058
   Strength: 4
@@ -37,4 +38,17 @@ MonoBehaviour:
       data: 
     - rid: 8546193071756280066
       type: {class: LogicBomb, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756280071
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193071756280073
+        Effect:
+          rid: 8546193071756280074
+    - rid: 8546193071756280073
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756280074
+      type: {class: EndAccess, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
