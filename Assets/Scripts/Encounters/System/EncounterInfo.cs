@@ -7,7 +7,6 @@ namespace ryathom.RunTheNet.Encounters
 
         public int CurrentTurn;
         public Phase CurrentPhase;
-        public Phase PreviousPhase;
 
         public EncounterInfo()
         {

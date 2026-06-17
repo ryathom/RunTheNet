@@ -31,14 +31,9 @@ namespace ryathom.RunTheNet.Encounters.Cards
     {
         public bool HasTriggered(IAction action, Card source)
         {
-            if (action is NextPhase)
+            if (action is EndCorpTurn)
             {
-                EncounterInfo info = EncounterManager.Instance.EncounterInfo;
-                
-                if (info.PreviousPhase is CorpPhase)
-                {
-                    return true;
-                }
+                return true;
             }
 
             return false;       
@@ -46,7 +41,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public ITrigger Copy()
         {
-            return new OnCorpTurn();
+            return new OnEndCorpTurn();
         }
     }
 }
