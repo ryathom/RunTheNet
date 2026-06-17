@@ -27,7 +27,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     }
 
     [System.Serializable]
-    public class OnStartPhase : ITrigger
+    public class OnEndCorpTurn : ITrigger
     {
         public bool HasTriggered(IAction action, Card source)
         {
@@ -35,7 +35,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
             {
                 EncounterInfo info = EncounterManager.Instance.EncounterInfo;
                 
-                if (info.CurrentPhase is RunnerStartPhase)
+                if (info.PreviousPhase is CorpPhase)
                 {
                     return true;
                 }
@@ -46,7 +46,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public ITrigger Copy()
         {
-            return new OnStartPhase();
+            return new OnCorpTurn();
         }
     }
 }

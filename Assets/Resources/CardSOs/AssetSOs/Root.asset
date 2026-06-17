@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ServerAssetSO
   Abilities:
   - rid: 8546192847017345271
+  - rid: 8546193071756279941
   cardText: '-'
   references:
     version: 2
@@ -31,3 +32,17 @@ MonoBehaviour:
     - rid: 8546193071756279913
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
+    - rid: 8546193071756279941
+      type: {class: TriggeredAbility, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Trigger:
+          rid: 8546193071756279943
+        Effect:
+          rid: 8546193071756279944
+    - rid: 8546193071756279943
+      type: {class: OnStartPhase, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756279944
+      type: {class: SpawnIce, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        IceSO: {fileID: 0}
