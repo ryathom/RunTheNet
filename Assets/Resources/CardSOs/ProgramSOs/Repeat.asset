@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 079c41d5c663b4efba8a884ce0859a15, type: 3}
-  m_Name: Jmp
+  m_Name: Repeat
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546192824960024750
-  cardText: Jump the next program.
+  - rid: 8546193071756280015
+  cardText: Repeat the last program.
   Cost:
     rid: 8546193071756279895
   Strength: -1
@@ -31,11 +32,24 @@ MonoBehaviour:
     - rid: 8546192824960024751
       type: {class: ModifyProgramCounter, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        Modifier: -1
+        Modifier: 2
     - rid: 8546193071756279895
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Clicks: 1
     - rid: 8546193071756279906
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756280015
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193071756280017
+        Effect:
+          rid: 8546193071756280018
+    - rid: 8546193071756280017
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756280018
+      type: {class: DeactivateSelf, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 

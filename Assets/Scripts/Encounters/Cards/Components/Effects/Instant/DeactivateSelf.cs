@@ -1,21 +1,20 @@
-using UnityEngine;
-using ryathom.RunTheNet.Encounters.Actions;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
     [System.Serializable]
-    public class TrashSelf : IEffect
+    public class DeactivateSelf : IEffect
     {
         public IEnumerator Execute(Card source)
         {
-            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(source));
+            source.Deactivate();
+
+            return null;
         }
 
         public IEffect Copy()
         {
-            return new TrashSelf();
+            return new DeactivateSelf();
         }
     }
 

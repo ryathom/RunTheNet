@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Icebreaker
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
-  - rid: 8546192824960024691
+  - rid: 8546193071756280007
   cardText: Requires 1 Energy. \n Strength 3
   Cost:
     rid: 8546192847017345228
@@ -21,21 +21,21 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8546192824960024691
-      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data:
-        Condition:
-          rid: 8546193071756279899
-        Effect:
-          rid: 8546192824960024692
-    - rid: 8546192824960024692
-      type: {class: BreakIce, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
     - rid: 8546192847017345228
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Clicks: 2
-    - rid: 8546193071756279899
+    - rid: 8546193071756280007
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193071756280009
+        Effect:
+          rid: 8546193071756280010
+    - rid: 8546193071756280009
       type: {class: EnergyRequirement, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Value: 1
+    - rid: 8546193071756280010
+      type: {class: DeactivateIce, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 

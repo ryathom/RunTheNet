@@ -1,21 +1,36 @@
-using UnityEngine;
 using ryathom.RunTheNet.Encounters.Actions;
 using System.Collections;
-using System.Collections.Generic;
+using ryathom.RunTheNet.Encounters.Zones;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
     [System.Serializable]
-    public class TrashSelf : IEffect
+    public class TrashFirstProgram : IEffect
     {
         public IEnumerator Execute(Card source)
         {
-            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(source));
+            Program program = null;
+
+            foreach (ServerSlot slot in EncounterManager.Instance.Server.Slots)
+            {
+                if (slot.Card != null)
+                {
+                    if (slot.Card is Program p)
+                    {
+                        program = p;
+                        break;
+                    }
+                }
+            }
+
+            if (program == null) yield break;
+
+            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(program));
         }
 
         public IEffect Copy()
         {
-            return new TrashSelf();
+            return new TrashFirstProgram();
         }
     }
 

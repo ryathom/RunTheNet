@@ -1,10 +1,10 @@
 using System.Collections;
-using UnityEngine;
+using ryathom.RunTheNet.Encounters.Actions;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
     [System.Serializable]
-    public class DeactivateIce : IEffect
+    public class TrashIce : IEffect
     {
         public IEnumerator Execute(Card source)
         {
@@ -15,16 +15,14 @@ namespace ryathom.RunTheNet.Encounters.Cards
             {
                 if (ice.Strength <= program.Strength)
                 {
-                    nextCard.Deactivate();
+                    yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(ice));
                 }
             }
-
-            return null;
         }
 
         public IEffect Copy()
         {
-            return new DeactivateIce();
+            return new TrashIce();
         }
     }
 }
