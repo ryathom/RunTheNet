@@ -11,5 +11,6 @@ namespace ryathom.RunTheNet.Run
         public List<ProgramSO> ProgramRewards;
 
         public List<CardSO> ServerList;
+        public List<CardSO> ReservesList;
     }
 }

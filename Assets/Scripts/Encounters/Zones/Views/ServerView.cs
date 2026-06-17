@@ -12,6 +12,9 @@ namespace ryathom.RunTheNet.Encounters.Zones {
         private Server server;
         public List<ServerSlotView> ServerSlots;
 
+        private Reserves reserves;
+        public ServerSlotView ReserveSlot;
+
         public Action<ServerSlot> OnClickServerSlot;
         public Action<ServerSlot> OnEnterServerSlot;
         public Action<ServerSlot> OnExitServerSlot;
@@ -29,6 +32,13 @@ namespace ryathom.RunTheNet.Encounters.Zones {
                 slot.Card.Container.transform.eulerAngles = new Vector3(0, 0, 0);
                 slot.Card.Container.SetTargetPosition(ServerSlots[index].transform.position);
             }
+
+            foreach (Card card in reserves.Cards)
+            {
+                Debug.Log("here");
+                card.Container.transform.eulerAngles = new Vector3(0, 0, 0);
+                card.Container.SetTargetPosition(ReserveSlot.transform.position);
+            }
         }
 
         // Methods
@@ -45,6 +55,11 @@ namespace ryathom.RunTheNet.Encounters.Zones {
                 ServerSlots[i].OnEnterSlot += EnterServerSlot;
                 ServerSlots[i].OnExitSlot += ExitServerSlot;
             }
+        }
+
+        public void SetReserves(Reserves reserves)
+        {
+            this.reserves = reserves;
         }
 
         public void HideStackPointer()

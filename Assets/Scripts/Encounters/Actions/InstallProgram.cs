@@ -22,20 +22,21 @@ namespace ryathom.RunTheNet.Encounters.Actions
         {
             if (Program.Cost.CanPay())
             {
-                if (Slot.IsOccupied)
-                {
-                    if (CanOverwrite(Slot.Card))
-                    {
-                        yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(Slot.Card));
-                    } else
-                    {
-                        Debug.Log("Program installation failed");
-                        yield break;
-                    }
-                }
+                // if (Slot.IsOccupied)
+                // {
+                //     if (CanOverwrite(Slot.Card))
+                //     {
+                //         yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(Slot.Card));
+                //     } else
+                //     {
+                //         Debug.Log("Program installation failed");
+                //         yield break;
+                //     }
+                // }
 
                 yield return Program.Cost.Pay();
-                yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ChangeZone(Program, EncounterManager.Instance.Server, Slot));
+                // yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ChangeZone(Program, EncounterManager.Instance.Server, Slot));
+                yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ChangeZone(Program, EncounterManager.Instance.Server));
             } else
             {
                 Debug.Log("Program installation failed");

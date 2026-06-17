@@ -22,6 +22,7 @@ namespace ryathom.RunTheNet.Encounters
         public ActionSystem Actions {get; private set;}
         public Runner Runner {get; private set;}
         public Server Server {get; private set;}
+        public Reserves Reserves {get; private set;}
 
         public EncounterInfo EncounterInfo {get; private set;}
         
@@ -112,7 +113,9 @@ namespace ryathom.RunTheNet.Encounters
         private void SetupServer()
         {
             Server = new();
+            Reserves = new();
             serverView.SetZone(Server);
+            serverView.SetReserves(Reserves);
             serverView.HideStackPointer();
 
             for (int i = 0; i < RunManager.Instance.Server.Count; i++)
@@ -123,6 +126,19 @@ namespace ryathom.RunTheNet.Encounters
                 InstantiateCardContainer(serverView.transform, card);
                 Server.AddCard(card, i);
             }
+
+            for (int i = 0; i < RunManager.Instance.Reserves.Count; i++)
+            {
+                Card card = RunManager.Instance.Reserves[i];
+                if (card == null) continue;
+
+                InstantiateCardContainer(serverView.transform, card);
+                Reserves.AddCard(card);
+
+                card.Deactivate();
+            }
+
+            serverView.UpdateVisuals();
         }
 
         public void InstantiateCardContainer(Transform parent, Card card)

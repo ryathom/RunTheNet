@@ -20,6 +20,7 @@ namespace ryathom.RunTheNet.Run
         public List<Card> Hardware {get; private set;}
 
         public List<Card> Server {get; private set;}
+        public List<Card> Reserves {get; private set;}
 
         public int Credits {get; private set;}
 
@@ -67,6 +68,7 @@ namespace ryathom.RunTheNet.Run
         public void SetupServer()
         {
             Server = new();
+            Reserves = new();
 
             foreach (CardSO cardSO in CurrentEncounter.ServerList)
             {
@@ -87,6 +89,27 @@ namespace ryathom.RunTheNet.Run
                 }
 
                 Server.Add(card);
+            }
+
+            foreach (CardSO cardSO in CurrentEncounter.ReservesList)
+            {
+                Card card = null;
+
+                if (cardSO == null)
+                {
+                    // continue;
+                } else if (cardSO is IceSO iceSO)
+                {
+                    card = new Ice(iceSO);
+                } else if (cardSO is ServerAssetSO assetSO)
+                {
+                    card = new ServerAsset(assetSO);
+                } else
+                {
+                    Debug.LogError("Unrecognised card type " + cardSO);
+                }
+
+                Reserves.Add(card);
             }
         }
 
