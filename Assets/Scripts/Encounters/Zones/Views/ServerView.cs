@@ -35,9 +35,10 @@ namespace ryathom.RunTheNet.Encounters.Zones {
 
             foreach (Card card in reserves.Cards)
             {
-                Debug.Log("here");
                 card.Container.transform.eulerAngles = new Vector3(0, 0, 0);
                 card.Container.SetTargetPosition(ReserveSlot.transform.position);
+
+                card.Container.ShowVisual(card == reserves.Cards[0]);
             }
         }
 

@@ -4614,7 +4614,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2554615038175293273, guid: 46c7d977a4a7e449e85e56754f5321ac, type: 3}
       propertyPath: m_Name
-      value: ServerSlotView (8)
+      value: ReserveSlot
       objectReference: {fileID: 0}
     - target: {fileID: 7340083869575579640, guid: 46c7d977a4a7e449e85e56754f5321ac, type: 3}
       propertyPath: m_Pivot.x
