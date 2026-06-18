@@ -1,6 +1,7 @@
 using System.Collections;
 using ryathom.RunTheNet.Encounters.Cards;
 using ryathom.RunTheNet.Encounters.Zones;
+using UnityEngine;
 
 namespace ryathom.RunTheNet.Encounters.Actions
 {
@@ -19,6 +20,8 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
         public IEnumerator Execute()
         {
+            // Debug.Log("Moving " + Card.Name + " to " + EndZone.GetType().Name);
+
             Card.Zone.RemoveCard(Card);
 
             if (EndZone is Server server && Slot != null)
