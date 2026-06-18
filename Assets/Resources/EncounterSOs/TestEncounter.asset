@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Run.EncounterSO
   CreditsReward: 100
   ProgramRewards:
-  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
+  - {fileID: 11400000, guid: 4e3e0b8095b9646a99ba260aab3d9974, type: 2}
   - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
   - {fileID: 11400000, guid: f498f0b1c607048ef9132d1a02c86aeb, type: 2}
   ServerList:

@@ -34,6 +34,13 @@ namespace ryathom.RunTheNet.Encounters.Actions
                 }
             }
 
+            EncounterInfo info = EncounterManager.Instance.EncounterInfo;
+
+            if (info.Trace >= info.MaxTrace)
+            {
+                yield return EncounterManager.Instance.Actions.ExecuteImmediate(new EndEncounter(success: false));
+            }
+
             yield return new WaitForSeconds(pointerDelay);
 
             EncounterManager.Instance.Actions.ModifyProgramCounter(-1);

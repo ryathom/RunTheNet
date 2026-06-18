@@ -28,6 +28,9 @@ namespace ryathom.RunTheNet.Encounters.Actions
                 EncounterUIManager.Instance.RewardsPopUp.SetRewards(credits, programs);
 
                 RunManager.Instance.GiveRewards();
+            } else
+            {
+                EncounterUIManager.Instance.ShowGameOverPopUp(true);
             }
 
             EncounterManager.Instance.StopActions();

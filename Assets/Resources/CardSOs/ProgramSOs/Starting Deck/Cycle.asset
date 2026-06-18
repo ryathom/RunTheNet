@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079c41d5c663b4efba8a884ce0859a15, type: 3}
+  m_Name: Cycle
+  m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
+  Abilities:
+  - rid: 8546193071756280077
+  - rid: 8546193071756280081
+  cardText: Draw a card, then trash this program.
+  Cost:
+    rid: 8546193071756280076
+  Strength: -1
+  references:
+    version: 2
+    RefIds:
+    - rid: 8546193071756280076
+      type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Clicks: 1
+    - rid: 8546193071756280077
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193071756280079
+        Effect:
+          rid: 8546193071756280080
+    - rid: 8546193071756280079
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756280080
+      type: {class: DrawCardEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756280081
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193071756280082
+        Effect:
+          rid: 8546193071756280083
+    - rid: 8546193071756280082
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756280083
+      type: {class: TrashSelf, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
