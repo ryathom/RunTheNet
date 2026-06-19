@@ -12,6 +12,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
         public HandView HandView;
         public RigView RigView;
         public TrashView TrashView;
+        public RepoView RepoView;
 
         private Runner runner;
 
@@ -22,6 +23,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
             HandView.SetZone(runner.Hand);
             RigView.SetZone(runner.Rig);
             TrashView.SetZone(runner.Trash);
+            RepoView.SetZone(runner.Repository);
         }
 
         public void Update()
