@@ -112,7 +112,6 @@ namespace ryathom.RunTheNet.Encounters.Zones
         {
             for (int i = Slots.Count - 1; i > 0; i--)
             {
-                Debug.Log(i);
                 if (Slots[i].IsOccupied)
                 {
                     return i;

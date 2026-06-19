@@ -23,11 +23,13 @@ namespace ryathom.RunTheNet.Encounters
         public Runner Runner {get; private set;}
         public Server Server {get; private set;}
         public Reserves Reserves {get; private set;}
+        public Trash CorpTrash {get; private set;}
 
         public EncounterInfo EncounterInfo {get; private set;}
         
         [SerializeField] private ServerView serverView;
         public ServerView ServerView {get => serverView;}
+        [SerializeField] private TrashView corpTrashView;
         [SerializeField] private PlayerController playerController;
         public PlayerController PlayerController {get => playerController;}
 
@@ -115,9 +117,13 @@ namespace ryathom.RunTheNet.Encounters
         {
             Server = new();
             Reserves = new();
+            CorpTrash = new();
+
             serverView.SetZone(Server);
             serverView.SetReserves(Reserves);
             serverView.HideStackPointer();
+            corpTrashView.SetZone(CorpTrash);
+
 
             for (int i = 0; i < RunManager.Instance.Server.Count; i++)
             {
