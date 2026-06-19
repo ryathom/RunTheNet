@@ -25,5 +25,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ReservesList:
-  - {fileID: 11400000, guid: 99361471b6a574b1da153cf61e4826f6, type: 2}
-  - {fileID: 11400000, guid: c4453fc2898244d4e80d535f68492a8c, type: 2}
+  - {fileID: 11400000, guid: dbabadab2d18446609ac2ac8389b1050, type: 2}
+  - {fileID: 11400000, guid: dbabadab2d18446609ac2ac8389b1050, type: 2}

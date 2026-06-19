@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149230a8d5e0a4c51b96b4c9898e0722, type: 3}
+  m_Name: Plasmacyte
+  m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.IceSO
+  Abilities:
+  - rid: 8546193071756280171
+  cardText: Runner discards a random card.
+  Strength: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 8546193071756280171
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193071756280172
+        Effect:
+          rid: 8546193071756280173
+    - rid: 8546193071756280172
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193071756280173
+      type: {class: RandomDiscard, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 

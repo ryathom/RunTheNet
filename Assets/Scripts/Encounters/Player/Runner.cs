@@ -27,7 +27,7 @@ namespace ryathom.RunTheNet.Encounters.Player
             Clicks = 0;
             Energy = 0;
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 4; i++)
             {
                 EncounterManager.Instance.Actions.AddAction(new DrawCard());
             }
