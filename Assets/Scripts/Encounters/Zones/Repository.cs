@@ -19,6 +19,8 @@ namespace ryathom.RunTheNet.Encounters.Zones
                 Cards.Add(card);
                 card.SetZone(this);
             }
+
+            Initialise();
         }
 
         public void Shuffle()
@@ -29,6 +31,19 @@ namespace ryathom.RunTheNet.Encounters.Zones
                 int randomIndex = Random.Range(i, Cards.Count);
                 Cards[i] = Cards[randomIndex];
                 Cards[randomIndex] = temp;
+            }
+        }
+
+        public void Initialise()
+        {
+            foreach (Card card in Cards)
+            {
+                card.Activate();
+
+                if (card is Program program)
+                {
+                    program.ResetStrength();
+                }
             }
         }
     }
