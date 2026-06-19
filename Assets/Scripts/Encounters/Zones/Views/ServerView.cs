@@ -10,6 +10,7 @@ namespace ryathom.RunTheNet.Encounters.Zones {
         [SerializeField] private Image stackPointerArrow;
 
         private Server server;
+        public Transform ServerSlotContainer;
         public List<ServerSlotView> ServerSlots;
 
         private Reserves reserves;
@@ -19,9 +20,20 @@ namespace ryathom.RunTheNet.Encounters.Zones {
         public Action<ServerSlot> OnEnterServerSlot;
         public Action<ServerSlot> OnExitServerSlot;
         public Action<Card> OnClickCardInServer;
-        
+
+        [SerializeField] private float scrollSpeed = 1f;
+
+        public void Update()
+        {
+            HandleScroll();
+        }
 
         public override void UpdateVisuals()
+        {
+            UpdateVisuals(instant: false);
+        }
+
+        public void UpdateVisuals(bool instant = false)
         {
             foreach (ServerSlot slot in server.Slots)
             {
@@ -30,13 +42,27 @@ namespace ryathom.RunTheNet.Encounters.Zones {
                 int index = server.Slots.IndexOf(slot);
 
                 slot.Card.Container.transform.eulerAngles = new Vector3(0, 0, 0);
-                slot.Card.Container.SetTargetPosition(ServerSlots[index].transform.position);
+
+                if (instant)
+                {
+                    slot.Card.Container.transform.SetPositionAndRotation(ServerSlots[index].transform.position, Quaternion.identity);
+                } else
+                {
+                    slot.Card.Container.SetTargetPosition(ServerSlots[index].transform.position);
+                }
             }
 
             foreach (Card card in reserves.Cards)
             {
                 card.Container.transform.eulerAngles = new Vector3(0, 0, 0);
-                card.Container.SetTargetPosition(ReserveSlot.transform.position);
+
+                if (instant)
+                {
+                    card.Container.transform.SetPositionAndRotation(ReserveSlot.transform.position, Quaternion.identity);
+                } else
+                {
+                    card.Container.SetTargetPosition(ReserveSlot.transform.position);
+                }
 
                 card.Container.ShowVisual(card == reserves.Cards[0]);
             }
@@ -90,6 +116,19 @@ namespace ryathom.RunTheNet.Encounters.Zones {
             }
 
             return null;
+        }
+
+        public void HandleScroll()
+        {
+            Vector2 scrollInput = InputManager.Instance.GetScrollInput();
+            
+            if (scrollInput != Vector2.zero)
+            {
+                Vector3 translation = new(scrollInput.y * scrollSpeed, 0, 0);
+
+                ServerSlotContainer.Translate(translation);
+                UpdateVisuals(instant: true);
+            }
         }
 
         // Event responses

@@ -3705,7 +3705,6 @@ RectTransform:
   - {fileID: 1755907421}
   - {fileID: 1213467204}
   - {fileID: 774088794}
-  - {fileID: 1642532623}
   m_Father: {fileID: 504251144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3726,6 +3725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Zones.ServerView
   stackPointerArrow: {fileID: 1637478382}
+  ServerSlotContainer: {fileID: 774088794}
   ServerSlots:
   - {fileID: 907061380}
   - {fileID: 2116666056}
@@ -4492,16 +4492,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642532622}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: -1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1223250620}
+  m_Father: {fileID: 2031298698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1199, y: 208}
+  m_AnchoredPosition: {x: 8.699951, y: -208}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1642532624
@@ -4698,7 +4698,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7340083869575579640, guid: 46c7d977a4a7e449e85e56754f5321ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1642532623}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c7d977a4a7e449e85e56754f5321ac, type: 3}
 --- !u!1 &1689558770

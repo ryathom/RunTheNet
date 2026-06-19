@@ -8,6 +8,7 @@ namespace ryathom.RunTheNet
     {
         private InputAction pointAction;
         private InputAction clickAction;
+        private InputAction scrollAction;
 
         // Events
         public Action OnClickAction;
@@ -31,6 +32,7 @@ namespace ryathom.RunTheNet
         {
             pointAction = InputSystem.actions.FindAction("Point");
             clickAction = InputSystem.actions.FindAction("Click");
+            scrollAction = InputSystem.actions.FindAction("ScrollWheel");
         }
 
         private void Update()
@@ -46,6 +48,11 @@ namespace ryathom.RunTheNet
         public Vector2 GetPointInput()
         {
             return pointAction.ReadValue<Vector2>();
+        }
+
+        public Vector2 GetScrollInput()
+        {
+            return scrollAction.ReadValue<Vector2>();
         }
     }
 }
