@@ -107,6 +107,20 @@ namespace ryathom.RunTheNet.Encounters.Zones
                 }
             }
         }
+
+        public int GetFirstOccupiedIndex()
+        {
+            for (int i = Slots.Count - 1; i > 0; i--)
+            {
+                Debug.Log(i);
+                if (Slots[i].IsOccupied)
+                {
+                    return i;
+                }
+            }
+
+            return 0;
+        }
     }
 
     public class ServerSlot

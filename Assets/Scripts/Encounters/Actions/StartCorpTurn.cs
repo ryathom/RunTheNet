@@ -11,9 +11,11 @@ namespace ryathom.RunTheNet.Encounters.Actions
         {
             Server server = EncounterManager.Instance.Server;
 
-            EncounterManager.Instance.Actions.SetProgramCounter(server.Slots.Count - 1);
+            int pc = server.GetFirstOccupiedIndex();
 
-            EncounterManager.Instance.Actions.AddAction(new ExecuteSubroutines(server.Slots.Count - 1));
+            EncounterManager.Instance.Actions.SetProgramCounter(pc);
+
+            EncounterManager.Instance.Actions.AddAction(new ExecuteSubroutines(pc));
 
             return null;
         }
