@@ -8,10 +8,12 @@ namespace ryathom.RunTheNet.Encounters.Zones
     {
         public List<ServerSlot> Slots {get; private set;}
 
+        private int numSlots = 12;
+
         public Server() : base()
         {
             Slots = new();
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < numSlots; i++)
             {
                 Slots.Add(new ServerSlot(i));
             }

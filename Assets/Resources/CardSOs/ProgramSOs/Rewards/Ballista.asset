@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 079c41d5c663b4efba8a884ce0859a15, type: 3}
-  m_Name: Shatter
+  m_Name: Ballista
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546193071756280007
   cardText: Consumes 2 Energy. \nTrash ICE with equal or lower Strength.
   Cost:
     rid: 8546192847017345228
-  Strength: 3
+  Strength: 5
   references:
     version: 2
     RefIds:
