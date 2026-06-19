@@ -9,6 +9,9 @@ namespace ryathom.RunTheNet.Encounters.Zones
         [SerializeField] private TextMeshProUGUI ClicksText;
         [SerializeField] private TextMeshProUGUI EnergyText;
 
+        [SerializeField] private TextMeshProUGUI RepoCount;
+        [SerializeField] private TextMeshProUGUI TrashCount;
+
         public HandView HandView;
         public RigView RigView;
         public TrashView TrashView;
@@ -32,6 +35,8 @@ namespace ryathom.RunTheNet.Encounters.Zones
 
             ClicksText.text = "Clicks: " + runner.Clicks.ToString();
             EnergyText.text = "Energy: " + runner.Energy.ToString();
+            RepoCount.text = "Repository: " + runner.Repository.Cards.Count.ToString();
+            TrashCount.text = "Trash: " + runner.Trash.Cards.Count.ToString();
         }
     }
 }
