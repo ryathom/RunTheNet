@@ -16,9 +16,9 @@ namespace ryathom.RunTheNet.Encounters.Cards
         {
             int strength;
 
-            if (source is Program program)
+            if (source is Program programSource)
             {
-                strength = program.Strength;
+                strength = programSource.Strength;
             } else
             {
                 yield break;
@@ -26,7 +26,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
             foreach (Card card in EncounterManager.Instance.Server.Cards)
             {
-                if (card is Program program1 && program.Strength <= strength)
+                if (card is Program program && program.Strength <= strength)
                 {
                     EncounterManager.Instance.Actions.AddAction(new TrashCard(program));
                 } else if (card is Ice ice && ice.Strength <= strength)
