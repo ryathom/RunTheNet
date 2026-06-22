@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546193071756280007
-  cardText: Temporarily disable ICE with equal or lower Strength.
+  cardText: Consumes 1 Energy. Temporarily disable ICE with equal or lower Strength.
   Cost:
     rid: 8546192847017345228
   Strength: 2
@@ -29,12 +29,13 @@ MonoBehaviour:
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Condition:
-          rid: 8546193071756280132
+          rid: 8546193227517788296
         Effect:
           rid: 8546193071756280010
     - rid: 8546193071756280010
       type: {class: DeactivateIce, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
-    - rid: 8546193071756280132
-      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
+    - rid: 8546193227517788296
+      type: {class: EnergyConsumption, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: 1

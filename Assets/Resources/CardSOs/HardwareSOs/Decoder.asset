@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f118c2b732d8481691f70ea2dad640b, type: 3}
-  m_Name: Garbage Collector
+  m_Name: Decoder
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.HardwareSO
   Abilities:
-  - rid: 8546193071756279997
-  cardText: '[CCC]: Shuffle trashed programs back into the Repository.'
+  - rid: 8546193227517788291
+  cardText: '[C]: Draw a card.'
   references:
     version: 2
     RefIds:
-    - rid: 8546193071756279997
+    - rid: 8546193227517788291
       type: {class: ActivatedAbility, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Cost:
-          rid: 8546193071756279998
+          rid: 8546193227517788292
         Condition:
-          rid: 8546193071756279999
+          rid: 8546193227517788293
         Effect:
-          rid: 8546193071756280099
+          rid: 8546193227517788294
         AbilityText: 
-    - rid: 8546193071756279998
+    - rid: 8546193227517788292
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        Clicks: 3
-    - rid: 8546193071756279999
+        Clicks: 1
+    - rid: 8546193227517788293
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
-    - rid: 8546193071756280099
-      type: {class: GarbageCollection, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+    - rid: 8546193227517788294
+      type: {class: DrawCardEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 

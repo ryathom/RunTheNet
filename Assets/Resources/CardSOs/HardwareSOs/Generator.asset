@@ -10,31 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f118c2b732d8481691f70ea2dad640b, type: 3}
-  m_Name: Garbage Collector
+  m_Name: Generator
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.HardwareSO
   Abilities:
-  - rid: 8546193071756279997
-  cardText: '[CCC]: Shuffle trashed programs back into the Repository.'
+  - rid: 8546193227517788287
+  cardText: '[C]: Generate 1 Energy.'
   references:
     version: 2
     RefIds:
-    - rid: 8546193071756279997
+    - rid: 8546193227517788287
       type: {class: ActivatedAbility, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Cost:
-          rid: 8546193071756279998
+          rid: 8546193227517788288
         Condition:
-          rid: 8546193071756279999
+          rid: 8546193227517788289
         Effect:
-          rid: 8546193071756280099
-        AbilityText: 
-    - rid: 8546193071756279998
+          rid: 8546193227517788290
+        AbilityText: '[C]: Generate 1 Energy.'
+    - rid: 8546193227517788288
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        Clicks: 3
-    - rid: 8546193071756279999
+        Clicks: 1
+    - rid: 8546193227517788289
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
-    - rid: 8546193071756280099
-      type: {class: GarbageCollection, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
+    - rid: 8546193227517788290
+      type: {class: GenerateEnergy, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: 1

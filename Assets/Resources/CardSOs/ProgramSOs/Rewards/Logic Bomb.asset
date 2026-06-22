@@ -30,12 +30,9 @@ MonoBehaviour:
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Condition:
-          rid: 8546193071756280065
+          rid: 8546193227517788298
         Effect:
           rid: 8546193071756280066
-    - rid: 8546193071756280065
-      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
     - rid: 8546193071756280066
       type: {class: LogicBomb, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
@@ -51,4 +48,7 @@ MonoBehaviour:
       data: 
     - rid: 8546193071756280074
       type: {class: EndAccess, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193227517788298
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 

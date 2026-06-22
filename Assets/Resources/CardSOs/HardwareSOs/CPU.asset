@@ -13,36 +13,22 @@ MonoBehaviour:
   m_Name: CPU
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.HardwareSO
   Abilities:
-  - rid: 8546192847017345161
   - rid: 8546193071756280042
-  cardText: 'On Start Phase: Gain 2 Clicks and draw a card.'
+  cardText: 'On Start Phase: Gain 3 Clicks.'
   references:
     version: 2
     RefIds:
-    - rid: 8546192847017345161
-      type: {class: TriggeredAbility, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data:
-        Trigger:
-          rid: 8546192847017345164
-        Effect:
-          rid: 8546192847017345165
-    - rid: 8546192847017345164
-      type: {class: OnStartPhase, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
-    - rid: 8546192847017345165
-      type: {class: SetClicks, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data:
-        Clicks: 2
     - rid: 8546193071756280042
       type: {class: TriggeredAbility, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Trigger:
           rid: 8546193071756280043
         Effect:
-          rid: 8546193071756280044
+          rid: 8546193227517788305
     - rid: 8546193071756280043
       type: {class: OnStartPhase, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
-    - rid: 8546193071756280044
-      type: {class: DrawCardEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
+    - rid: 8546193227517788305
+      type: {class: SetClicks, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Clicks: 3
