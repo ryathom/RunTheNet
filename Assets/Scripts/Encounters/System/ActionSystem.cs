@@ -112,11 +112,13 @@ namespace ryathom.RunTheNet.Encounters
             if (ActionQueue.Count != 0) return;
             if (ActionStack.Count != 0) return;
 
+
             if (ProgramCounter >= 0)
             {
                 AddAction(new ExecuteSubroutines(ProgramCounter));
             } else
             {
+                EncounterManager.Instance.Server.ConsolidateServerSlots();
                 AddAction(new EndCorpTurn());
             }
         }

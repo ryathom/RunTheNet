@@ -26,6 +26,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
             if (program == null) yield break;
 
             yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(program));
+
+            EncounterManager.Instance.Server.ConsolidateServerSlots();
         }
 
         public IEffect Copy()

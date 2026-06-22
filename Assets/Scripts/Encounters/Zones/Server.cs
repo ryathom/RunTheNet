@@ -35,6 +35,9 @@ namespace ryathom.RunTheNet.Encounters.Zones
                 {
                     slot.AddCard(card);
                     base.AddCard(card);
+
+                    // ConsolidateServerSlots();
+
                     return;
                 }
             }
@@ -62,6 +65,9 @@ namespace ryathom.RunTheNet.Encounters.Zones
                 {
                     slot.RemoveCard();
                     base.RemoveCard(card);
+
+                    // ConsolidateServerSlots();
+
                     return;
                 }
             }
@@ -132,6 +138,37 @@ namespace ryathom.RunTheNet.Encounters.Zones
             }
 
             return -1;
+        }
+
+        public int GetNextOccupiedIndex(int idx)
+        {
+            for (int i = idx + 1; i < Slots.Count; i++)
+            {
+                if (Slots[i].IsOccupied)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public void ConsolidateServerSlots()
+        {
+            if (GetLastOccupiedIndex() > GetFirstEmptyIndex())
+            {
+                int i1 = GetFirstEmptyIndex();
+                int i2 = GetNextOccupiedIndex(i1);
+
+                Card card = Slots[i2].Card;
+                Slots[i2].RemoveCard();
+                Slots[i1].AddCard(card);
+
+                ConsolidateServerSlots();
+            } else
+            {
+                EncounterManager.Instance.ServerView.UpdateVisuals();
+            }
         }
     }
 
