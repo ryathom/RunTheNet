@@ -155,6 +155,8 @@ namespace ryathom.RunTheNet.Encounters.Zones
 
         public void ConsolidateServerSlots()
         {
+            if (GetFirstEmptyIndex() == -1) return;
+
             if (GetLastOccupiedIndex() > GetFirstEmptyIndex())
             {
                 int i1 = GetFirstEmptyIndex();
