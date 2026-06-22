@@ -16,6 +16,8 @@ namespace ryathom.RunTheNet.Run
         [SerializeField] private List<ProgramSO> startingPrograms;
         [SerializeField] private List<HardwareSO> startingHardware;
 
+        public List<ProgramSO> RewardsPool;
+
         public List<Card> Programs {get; private set;}
         public List<Card> Hardware {get; private set;}
 

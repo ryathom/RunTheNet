@@ -24,7 +24,9 @@ namespace ryathom.RunTheNet.Encounters.Actions
                 EncounterUIManager.Instance.ShowRewardsPopUp(true);
 
                 int credits = RunManager.Instance.CurrentEncounter.CreditsReward;
-                List<ProgramSO> programs = RunManager.Instance.CurrentEncounter.ProgramRewards;
+                // List<ProgramSO> programs = RunManager.Instance.CurrentEncounter.ProgramRewards;
+                List<ProgramSO> programs = RunManager.Instance.RewardsPool;
+
                 EncounterUIManager.Instance.RewardsPopUp.SetRewards(credits, programs);
 
                 RunManager.Instance.GiveRewards();

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.HardwareSO
   Abilities:
   - rid: 8546193071756279997
-  cardText: '[CCC]: Shuffle trashed programs back into the Repository.'
+  cardText: '[CC]: Shuffle trashed programs back into the Repository.'
   references:
     version: 2
     RefIds:
@@ -31,7 +31,7 @@ MonoBehaviour:
     - rid: 8546193071756279998
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        Clicks: 3
+        Clicks: 2
     - rid: 8546193071756279999
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 

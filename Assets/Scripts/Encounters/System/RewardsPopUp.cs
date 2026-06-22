@@ -16,7 +16,17 @@ namespace ryathom.RunTheNet.Encounters
         {
             creditsText.text = "Credits: " + credits.ToString();
 
-            foreach (ProgramSO cardSO in cards)
+            List<ProgramSO> randomRewards = new();
+
+            for (int i = 0; i < 3; i++)
+            {
+                int x = Random.Range(0, cards.Count - 1);
+                ProgramSO selected = cards[x];
+
+                randomRewards.Add(selected);
+            }
+
+            foreach (ProgramSO cardSO in randomRewards)
             {
                 Program card = new(cardSO);
                 CardContainer container = Instantiate(cardPrefab, cardRewardsContainer.transform);

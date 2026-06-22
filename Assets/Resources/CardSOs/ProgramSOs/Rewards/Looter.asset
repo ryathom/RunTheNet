@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079c41d5c663b4efba8a884ce0859a15, type: 3}
   m_Name: Looter
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
-  Abilities: []
-  cardText: 
+  Abilities:
+  - rid: 8546193227517788268
+  - rid: 8546193227517788261
+  - rid: 8546193227517788265
+  cardText: Discard a random card. Draw 2 cards.
   Cost:
     rid: 8546193227517788259
   Strength: -1
@@ -24,3 +27,42 @@ MonoBehaviour:
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Clicks: 1
+    - rid: 8546193227517788261
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193227517788263
+        Effect:
+          rid: 8546193227517788264
+    - rid: 8546193227517788263
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193227517788264
+      type: {class: DrawCardEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193227517788265
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193227517788266
+        Effect:
+          rid: 8546193227517788267
+    - rid: 8546193227517788266
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193227517788267
+      type: {class: DrawCardEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193227517788268
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193227517788269
+        Effect:
+          rid: 8546193227517788270
+    - rid: 8546193227517788269
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193227517788270
+      type: {class: RandomDiscard, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 

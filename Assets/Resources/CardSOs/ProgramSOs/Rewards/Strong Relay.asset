@@ -10,32 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 079c41d5c663b4efba8a884ce0859a15, type: 3}
-  m_Name: Booster
+  m_Name: Strong Relay
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
-  - rid: 8546193071756279930
-  cardText: Boost the Strength of all icebreakers by 2.
+  - rid: 8546193227517788275
+  cardText: Generate 2 Energy.
   Cost:
-    rid: 8546193071756279929
+    rid: 8546193227517788274
   Strength: -1
   references:
     version: 2
     RefIds:
-    - rid: 8546193071756279929
+    - rid: 8546193227517788274
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Clicks: 1
-    - rid: 8546193071756279930
+    - rid: 8546193227517788275
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Condition:
-          rid: 8546193227517788279
+          rid: 8546193227517788276
         Effect:
-          rid: 8546193071756279934
-    - rid: 8546193071756279934
-      type: {class: BoostStrength, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data:
-        Value: 2
-    - rid: 8546193227517788279
+          rid: 8546193227517788277
+    - rid: 8546193227517788276
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
+    - rid: 8546193227517788277
+      type: {class: GenerateEnergy, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: 2
