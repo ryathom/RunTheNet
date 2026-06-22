@@ -108,7 +108,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
             }
         }
 
-        public int GetFirstOccupiedIndex()
+        public int GetLastOccupiedIndex()
         {
             for (int i = Slots.Count - 1; i > 0; i--)
             {
@@ -119,6 +119,19 @@ namespace ryathom.RunTheNet.Encounters.Zones
             }
 
             return 0;
+        }
+
+        public int GetFirstEmptyIndex()
+        {
+            for (int i = 0; i < Slots.Count; i++)
+            {
+                if (Slots[i].IsEmpty)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
     }
 

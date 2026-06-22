@@ -11,7 +11,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
         {
             Server server = EncounterManager.Instance.Server;
 
-            int pc = server.GetFirstOccupiedIndex();
+            int pc = server.GetLastOccupiedIndex();
 
             EncounterManager.Instance.Actions.SetProgramCounter(pc);
 
