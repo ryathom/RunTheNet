@@ -20,6 +20,10 @@ namespace ryathom.RunTheNet.Encounters.Cards
             if (!TargetSelected()) yield break;
 
             yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(Target));
+
+            EncounterManager.Instance.Server.ConsolidateServerSlots();
+
+            Target = null;
         }
 
         public List<Card> GetValidTargets(Card source)
