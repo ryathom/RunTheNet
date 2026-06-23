@@ -14,5 +14,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
         public List<Card> GetValidTargets(Card source);
         public void SetTarget(Card target);
         public bool TargetSelected();
+
+        public string TargetingText();
     }
 }

@@ -10,6 +10,8 @@ namespace ryathom.RunTheNet.Encounters
         private EncounterInfo info;
 
         [SerializeField] private TextMeshProUGUI traceText;
+        [SerializeField] private TextMeshProUGUI textPopUp;
+
         [SerializeField] private RewardsPopUp rewardsPopUp;
         public RewardsPopUp RewardsPopUp {get => rewardsPopUp;}
         [SerializeField] private GameObject gameOverPopUp;
@@ -28,6 +30,8 @@ namespace ryathom.RunTheNet.Encounters
         public void Start()
         {
             ShowRewardsPopUp(false);
+            ShowGameOverPopUp(false);
+            ShowText("");
         }
 
         public void Update()
@@ -54,6 +58,11 @@ namespace ryathom.RunTheNet.Encounters
         {
             gameOverPopUp.transform.SetAsLastSibling();
             gameOverPopUp.SetActive(enabled);
+        }
+
+        public void ShowText(string text)
+        {
+            textPopUp.text = text;
         }
     }
 }

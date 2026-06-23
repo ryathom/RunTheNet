@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.HardwareSO
   Abilities:
   - rid: 8546193071756279997
-  cardText: '[C]: Choose a program and trash it.'
+  cardText: '[C]: Trash a program.'
   references:
     version: 2
     RefIds:
@@ -37,4 +37,5 @@ MonoBehaviour:
       data: 
     - rid: 8546193227517788316
       type: {class: TrashTargetProgram, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
+      data:
+        TargetPrompt: Choose a program to trash.

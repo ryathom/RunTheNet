@@ -22,7 +22,11 @@ namespace ryathom.RunTheNet.Encounters.Actions
             if (Ability.GetEffect() is ITargetingEffect effect && effect.TargetSelected() == false
                                     && effect.GetValidTargets(Source).Count > 0)  
             {
+                EncounterUIManager.Instance.ShowText(effect.TargetingText());
+
                 yield return EncounterManager.Instance.PlayerController.GetTargets(effect, Source);
+
+                EncounterUIManager.Instance.ShowText("");
             }
 
             yield return Ability.Execute(Source);
