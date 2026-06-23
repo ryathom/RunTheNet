@@ -13,9 +13,13 @@ namespace ryathom.RunTheNet.Encounters.Actions
             info.CurrentPhase = info.CurrentPhase.NextPhase();
             info.CurrentPhase.Enter();
 
-            Debug.Log(info.CurrentPhase.GetType().Name);
+            if (info.CurrentPhase is RunnerStartPhase)
+            {
+                EncounterUIManager.Instance.ShowText("Turn " + info.CurrentTurn);
+                yield return new WaitForSeconds(0.5f);
 
-            return null;
+                EncounterUIManager.Instance.ShowText("");
+            }
         }
     }
 }
