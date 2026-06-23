@@ -65,4 +65,46 @@ namespace ryathom.RunTheNet.Encounters.Player
             }
         }
     }
+
+    public class TargetState : PlayerControllerState
+    {
+        public TargetState(PlayerController _pc) : base(_pc)
+        {
+        }
+
+        public TargetState(PlayerController _pc, ITargetingEffect effect, Card source) : base(_pc)
+        {
+            this.effect = effect;
+            this.source = source;
+        }
+
+        public ITargetingEffect effect;
+        private Card source;
+
+        public override void Enter()
+        {
+            base.Enter();
+
+            controller.PlayArea.HandView.OnClickCardInHand += SelectTarget;
+            controller.ServerView.OnClickCardInServer += SelectTarget;
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            controller.PlayArea.HandView.OnClickCardInHand -= SelectTarget;
+            controller.ServerView.OnClickCardInServer -= SelectTarget;
+        }
+
+        public void SelectTarget(Card card)
+        {
+            if (effect.GetValidTargets(source).Contains(card))
+            {
+                effect.SetTarget(card);
+
+                controller.ChangeState(controller.ActionState);
+            }
+        }
+    }
 }

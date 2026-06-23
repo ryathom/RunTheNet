@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.HardwareSO
   Abilities:
   - rid: 8546193071756279997
-  cardText: '[C]: Trash program closest to the server root.'
+  cardText: '[C]: Choose a program and trash it.'
   references:
     version: 2
     RefIds:
@@ -26,7 +26,7 @@ MonoBehaviour:
         Condition:
           rid: 8546193071756279999
         Effect:
-          rid: 8546193071756280001
+          rid: 8546193227517788316
         AbilityText: 
     - rid: 8546193071756279998
       type: {class: ClickCost, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
@@ -35,6 +35,6 @@ MonoBehaviour:
     - rid: 8546193071756279999
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
-    - rid: 8546193071756280001
-      type: {class: TrashFirstProgram, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+    - rid: 8546193227517788316
+      type: {class: TrashTargetProgram, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 

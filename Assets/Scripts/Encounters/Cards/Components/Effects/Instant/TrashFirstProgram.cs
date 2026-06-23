@@ -1,6 +1,7 @@
 using ryathom.RunTheNet.Encounters.Actions;
 using System.Collections;
 using ryathom.RunTheNet.Encounters.Zones;
+using System.Collections.Generic;
 
 namespace ryathom.RunTheNet.Encounters.Cards
 {
@@ -36,42 +37,46 @@ namespace ryathom.RunTheNet.Encounters.Cards
         }
     }
 
-    // [System.Serializable]
-    // public class TrashTargetProgram : ITargetingEffect, IEffect
-    // {
-    //     public IEnumerator Execute(Card source)
-    //     {
-    //         throw new System.NotImplementedException();
-    //     }
+    [System.Serializable]
+    public class TrashTargetProgram : ITargetingEffect, IEffect
+    {
+        public Card Target;
 
-    //     public List<Card> GetValidTargets(Card source)
-    //     {
-    //         List<Card> validTargets = new();
+        public IEnumerator Execute(Card source)
+        {
+            if (!TargetSelected()) yield break;
 
-    //         foreach (Card card in EncounterManager.Instance.Server.Cards)
-    //         {
-    //             if (card is Program program)
-    //             {
-    //                 validTargets.Add(program);
-    //             }
-    //         }
+            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new TrashCard(Target));
+        }
 
-    //         return validTargets;
-    //     }
+        public List<Card> GetValidTargets(Card source)
+        {
+            List<Card> validTargets = new();
 
-    //     public void SetTarget(Card target)
-    //     {
-    //         throw new System.NotImplementedException();
-    //     }
+            foreach (Card card in EncounterManager.Instance.Server.Cards)
+            {
+                if (card is Program program)
+                {
+                    validTargets.Add(program);
+                }
+            }
 
-    //     public bool TargetSelected()
-    //     {
-    //         throw new System.NotImplementedException();
-    //     }
+            return validTargets;
+        }
 
-    //     public IEffect Copy()
-    //     {
-    //         throw new System.NotImplementedException();
-    //     }
-    // }
+        public void SetTarget(Card target)
+        {
+            Target = target;
+        }
+
+        public bool TargetSelected()
+        {
+            return Target != null;
+        }
+
+        public IEffect Copy()
+        {
+            return new TrashTargetProgram();
+        }
+    }
 }

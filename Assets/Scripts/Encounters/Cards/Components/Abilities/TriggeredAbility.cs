@@ -27,5 +27,10 @@ namespace ryathom.RunTheNet.Encounters.Cards
             };
             return ability;
         }
+
+        public IEffect GetEffect()
+        {
+            return Effect;
+        }
     }
 }

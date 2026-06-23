@@ -1,3 +1,5 @@
+using System.Collections;
+using ryathom.RunTheNet.Encounters.Cards;
 using ryathom.RunTheNet.Encounters.Zones;
 using UnityEngine;
 
@@ -60,6 +62,16 @@ namespace ryathom.RunTheNet.Encounters.Player
             CurrentState.Exit();
             CurrentState = newState;
             CurrentState.Enter();
+        }
+
+        public IEnumerator GetTargets(ITargetingEffect effect, Card source)
+        {
+            ChangeState(new TargetState(this, effect, source));
+
+            while(effect.TargetSelected() != true)
+            {
+                yield return null;
+            }
         }
     }
 }

@@ -19,6 +19,12 @@ namespace ryathom.RunTheNet.Encounters.Actions
 
         public IEnumerator Execute()
         {
+            if (Ability.GetEffect() is ITargetingEffect effect && effect.TargetSelected() == false
+                                    && effect.GetValidTargets(Source).Count > 0)  
+            {
+                yield return EncounterManager.Instance.PlayerController.GetTargets(effect, Source);
+            }
+
             yield return Ability.Execute(Source);
 
             yield return new WaitForSeconds(resolveDelay);
