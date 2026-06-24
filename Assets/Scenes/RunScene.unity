@@ -1011,7 +1011,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ea6d970927037404d8bbfc4d002b50dc, type: 2}
   - {fileID: 11400000, guid: f0618b7c81e8c4287a1ff4894580b1fd, type: 2}
   - {fileID: 11400000, guid: 564a1f68631b5430d92fafc57d7fdeb1, type: 2}
-  - {fileID: 11400000, guid: 9f310302067ac48068254dfa8e0cb2e9, type: 2}
   RewardsPool:
   - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
   - {fileID: 11400000, guid: 4e3e0b8095b9646a99ba260aab3d9974, type: 2}
