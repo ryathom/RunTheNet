@@ -145,6 +145,7 @@ namespace ryathom.RunTheNet.Encounters
                 card.Deactivate();
             }
 
+            Reserves.Shuffle();
             serverView.UpdateVisuals();
         }
 

@@ -7,7 +7,6 @@ namespace ryathom.RunTheNet.Encounters.Zones
     {
         public Reserves()
         {
-            Shuffle();
         }
 
         public void Shuffle()
