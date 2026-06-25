@@ -15,10 +15,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public IEnumerator Execute(Card source)
         {
-            if (Condition.Evaluate(source))
-            {
-                yield return Effect.Execute(source);
-            }
+            yield return Effect.Execute(source);
         }
 
         public IAbility Copy()

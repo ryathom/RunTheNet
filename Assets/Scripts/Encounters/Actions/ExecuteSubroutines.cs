@@ -29,7 +29,10 @@ namespace ryathom.RunTheNet.Encounters.Actions
                 {
                     if (ability is Subroutine subroutine)
                     {
-                        yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ResolveAbility(subroutine, Card));
+                        if (subroutine.Condition.Evaluate(Card))
+                        {
+                            yield return EncounterManager.Instance.Actions.ExecuteImmediate(new ResolveAbility(subroutine, Card));
+                        }
                     }
                 }
             }
