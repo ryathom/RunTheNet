@@ -10,6 +10,8 @@ namespace ryathom.RunTheNet.Encounters.Cards
         public Card Target;
         public string TargetPrompt;
 
+        public TrashTargetIce() {}
+
         public TrashTargetIce(string prompt)
         {
             TargetPrompt = prompt;

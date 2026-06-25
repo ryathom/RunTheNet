@@ -998,15 +998,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Run.RunManager
   startingPrograms:
+  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
+  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
   - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
   - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
   - {fileID: 11400000, guid: 64f0dbbdebcf24145a42598130e9f24b, type: 2}
   - {fileID: 11400000, guid: 64f0dbbdebcf24145a42598130e9f24b, type: 2}
-  - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
-  - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
-  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
-  - {fileID: 11400000, guid: e11348f478be24e10b1fc8351f7a3b4e, type: 2}
   - {fileID: 11400000, guid: 7a6aec88f853449aea31ae6681338fec, type: 2}
+  - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
+  - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
   - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
   startingHardware:
   - {fileID: 11400000, guid: 014d5191183494fdeacafef3a6fe58fc, type: 2}
@@ -1014,12 +1014,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0618b7c81e8c4287a1ff4894580b1fd, type: 2}
   - {fileID: 11400000, guid: 564a1f68631b5430d92fafc57d7fdeb1, type: 2}
   RewardsPool:
-  - {fileID: 11400000, guid: a28c202fdd18e4376afbfd1c9e8f161c, type: 2}
-  - {fileID: 11400000, guid: 4e3e0b8095b9646a99ba260aab3d9974, type: 2}
-  - {fileID: 11400000, guid: b34935ab2ce9d43d7bfc7dfb2621d814, type: 2}
   - {fileID: 11400000, guid: b2c3db2d717e2463e97ecb593d07fa30, type: 2}
+  - {fileID: 11400000, guid: 4e3e0b8095b9646a99ba260aab3d9974, type: 2}
+  - {fileID: 11400000, guid: eec54445ebd9f4bbabd67084e8d4b9b4, type: 2}
   - {fileID: 11400000, guid: a628e652ac4a149d0b4494caa7e61e30, type: 2}
-  - {fileID: 11400000, guid: a628e652ac4a149d0b4494caa7e61e30, type: 2}
+  - {fileID: 11400000, guid: 6c8fa2b96c93b433481012330a598786, type: 2}
 --- !u!1 &804763685
 GameObject:
   m_ObjectHideFlags: 0
