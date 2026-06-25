@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546193071756280077
-  - rid: 8546193071756280081
-  cardText: Draw a card, then trash this program.
+  cardText: <b>1 Energy:</b> Draw a card.
   Cost:
     rid: 8546193071756280076
   Strength: -1
@@ -30,25 +29,13 @@ MonoBehaviour:
       type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Condition:
-          rid: 8546193071756280079
+          rid: 8546193227517788369
         Effect:
           rid: 8546193071756280080
-    - rid: 8546193071756280079
-      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
     - rid: 8546193071756280080
       type: {class: DrawCardEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
-    - rid: 8546193071756280081
-      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+    - rid: 8546193227517788369
+      type: {class: EnergyConsumption, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        Condition:
-          rid: 8546193071756280082
-        Effect:
-          rid: 8546193071756280083
-    - rid: 8546193071756280082
-      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
-    - rid: 8546193071756280083
-      type: {class: TrashSelf, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
+        Value: 1

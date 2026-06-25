@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546193071756280007
-  cardText: Consumes 3 Energy. \nTrash ICE with equal or lower Strength.
+  cardText: ' <b>3 Energy:</b> Trash ICE with equal or lower Strength.'
   Cost:
     rid: 8546192847017345228
   Strength: 5

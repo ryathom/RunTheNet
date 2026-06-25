@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546193071756279930
-  cardText: Consumes 1 Energy. Boost the Strength of all icebreakers by 2.
+  cardText: <b>1 Energy:</b> Boost the Strength of all icebreakers by 2.
   Cost:
     rid: 8546193071756279929
   Strength: -1

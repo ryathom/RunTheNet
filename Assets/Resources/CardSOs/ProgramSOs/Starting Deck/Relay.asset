@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546192847017345365
-  cardText: Generates 1 Energy.
+  cardText: Generate 1 Energy.
   Cost:
     rid: 8546192847017345361
   Strength: -1

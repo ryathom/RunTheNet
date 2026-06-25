@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Strong Barrier
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.IceSO
   Abilities:
+  - rid: 8546193227517788387
   - rid: 8546192824960024685
-  cardText: End the access.
+  cardText: +2 Trace\nEnd the access.
   Strength: 7
   references:
     version: 2
@@ -32,3 +33,17 @@ MonoBehaviour:
     - rid: 8546193071756279911
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
+    - rid: 8546193227517788387
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193227517788388
+        Effect:
+          rid: 8546193227517788389
+    - rid: 8546193227517788388
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193227517788389
+      type: {class: IncreaseTraceEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Value: 2

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.IceSO
   Abilities:
   - rid: 8546193071756280171
-  cardText: Runner discards a random card.
+  cardText: Deal 1 net damage. <i>(The runner discards a card. If they can't, they
+    lose the game.)</i>
   Strength: 1
   references:
     version: 2
@@ -25,10 +26,10 @@ MonoBehaviour:
         Condition:
           rid: 8546193071756280172
         Effect:
-          rid: 8546193071756280173
+          rid: 8546193227517788390
     - rid: 8546193071756280172
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
-    - rid: 8546193071756280173
-      type: {class: RandomDiscard, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+    - rid: 8546193227517788390
+      type: {class: NetDamage, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
