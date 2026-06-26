@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 149230a8d5e0a4c51b96b4c9898e0722, type: 3}
-  m_Name: Plasmacyte
+  m_Name: Macrocyte
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.IceSO
   Abilities:
   - rid: 8546193071756280171
-  cardText: Deal 1 net damage. <i>(Discard a random card. If you can't, lose the
+  - rid: 8546193319258226773
+  cardText: Deal 2 net damage. <i>(Discard two random cards. If you can't, lose the
     game.)</i>
-  Strength: 1
+  Strength: 3
   references:
     version: 2
     RefIds:
@@ -31,5 +32,18 @@ MonoBehaviour:
       type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
     - rid: 8546193227517788390
+      type: {class: NetDamage, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193319258226773
+      type: {class: Subroutine, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        Condition:
+          rid: 8546193319258226774
+        Effect:
+          rid: 8546193319258226776
+    - rid: 8546193319258226774
+      type: {class: NoCondition, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data: 
+    - rid: 8546193319258226776
       type: {class: NetDamage, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data: 
