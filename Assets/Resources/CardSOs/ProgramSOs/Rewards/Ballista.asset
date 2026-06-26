@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546193071756280007
-  cardText: ' <b>3 Energy:</b> Trash ICE with equal or lower Strength.'
+  cardText: ' <b>3 Energy:</b> Trash target ICE with equal or lower Strength.'
   Cost:
     rid: 8546192847017345228
   Strength: 5
@@ -31,11 +31,12 @@ MonoBehaviour:
         Condition:
           rid: 8546193071756280022
         Effect:
-          rid: 8546193071756280049
+          rid: 8546193227517788436
     - rid: 8546193071756280022
       type: {class: EnergyConsumption, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
         Value: 3
-    - rid: 8546193071756280049
-      type: {class: TrashIce, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
-      data: 
+    - rid: 8546193227517788436
+      type: {class: TrashTargetIce, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
+      data:
+        TargetPrompt: 

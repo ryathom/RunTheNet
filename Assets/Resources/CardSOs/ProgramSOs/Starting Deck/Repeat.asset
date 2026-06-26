@@ -15,7 +15,7 @@ MonoBehaviour:
   Abilities:
   - rid: 8546192824960024750
   - rid: 8546193071756280015
-  cardText: Move the Pointer one position to the left.
+  cardText: Move the Pointer one position to the left, then disable this program.
   Cost:
     rid: 8546193071756279895
   Strength: -1

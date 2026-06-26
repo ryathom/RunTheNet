@@ -15,7 +15,7 @@ MonoBehaviour:
   Abilities:
   - rid: 8546193227517788414
   - rid: 8546193227517788422
-  cardText: <b>1 Energy:</b> Trash target ICE with equal or lower strength. /n<b>1
+  cardText: <b>1 Energy:</b> Trash target ICE with equal or lower strength. \n<b>1
     Energy:</b> Trash target ICE with equal or lower strength.
   Cost:
     rid: 8546193227517788412

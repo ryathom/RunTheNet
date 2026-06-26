@@ -15,7 +15,7 @@ MonoBehaviour:
   Abilities:
   - rid: 8546192847017345271
   - rid: 8546193071756279941
-  cardText: 'On End Turn: Install a card from Reserves.'
+  cardText: 
   references:
     version: 2
     RefIds:
