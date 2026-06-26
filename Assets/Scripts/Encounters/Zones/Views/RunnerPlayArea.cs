@@ -35,7 +35,7 @@ namespace ryathom.RunTheNet.Encounters.Zones
 
             ClicksText.text = "Clicks: " + runner.Clicks.ToString();
             EnergyText.text = "Energy: " + runner.Energy.ToString();
-            RepoCount.text = "Repository: " + runner.Repository.Cards.Count.ToString();
+            RepoCount.text = "Deck: " + runner.Repository.Cards.Count.ToString();
             TrashCount.text = "Trash: " + runner.Trash.Cards.Count.ToString();
         }
     }
