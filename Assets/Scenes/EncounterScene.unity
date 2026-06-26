@@ -4456,7 +4456,7 @@ MonoBehaviour:
   - {fileID: 891540719}
   - {fileID: 1663119022}
   ReserveSlot: {fileID: 2031298699}
-  scrollSpeed: 1
+  scrollSpeed: 6
 --- !u!224 &1232196628 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7340083869575579640, guid: 46c7d977a4a7e449e85e56754f5321ac, type: 3}

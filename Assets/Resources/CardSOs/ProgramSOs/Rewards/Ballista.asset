@@ -39,4 +39,4 @@ MonoBehaviour:
     - rid: 8546193227517788436
       type: {class: TrashTargetIce, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        TargetPrompt: 
+        TargetPrompt: Choose target ICE.
