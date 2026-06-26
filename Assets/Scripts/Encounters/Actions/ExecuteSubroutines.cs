@@ -10,7 +10,8 @@ namespace ryathom.RunTheNet.Encounters.Actions
         public Card Card {get; private set;}
         public int PC {get; private set;}
 
-        private float pointerDelay = 0.66f;
+        private float pointerDelay = 0.75f;
+        private Vector3 hlScale = new(1.1f, 1.1f, 1f);
 
         public ExecuteSubroutines(int pc)
         {
@@ -22,6 +23,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
         public IEnumerator Execute()
         {
             EncounterManager.Instance.ServerView.ShowStackPointer(PC);
+            Card.Container.SetScale(hlScale);
 
             if (Card != null && Card.Active)
             {
@@ -45,6 +47,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
             }
 
             yield return new WaitForSeconds(pointerDelay);
+            Card.Container.SetScale(Vector3.one);
 
             EncounterManager.Instance.Actions.ModifyProgramCounter(-1);
         }

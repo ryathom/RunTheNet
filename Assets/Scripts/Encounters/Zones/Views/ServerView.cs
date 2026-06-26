@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using PrimeTween;
 using ryathom.RunTheNet.Encounters.Cards;
 using UnityEngine;
 using UnityEngine.UI;
@@ -101,8 +102,13 @@ namespace ryathom.RunTheNet.Encounters.Zones {
 
             Quaternion q = stackPointerArrow.transform.localRotation;
 
-            stackPointerArrow.transform.SetLocalPositionAndRotation(new(x, y, 0), q);
+            if (stackPointerArrow.enabled != true)
+            {
+                stackPointerArrow.transform.SetLocalPositionAndRotation(new(x, y, 0), q);
+            }
+
             stackPointerArrow.enabled = true;
+            Tween.LocalPosition(stackPointerArrow.transform, new Vector3(x, y, 0), duration: 0.2f, ease: Ease.InOutBounce);
         }
 
         public ServerSlot GetServerSlotAtPosition(Vector2 position)
