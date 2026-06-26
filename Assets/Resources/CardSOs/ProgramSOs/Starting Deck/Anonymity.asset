@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ryathom.RunTheNet.Encounters.Cards.ProgramSO
   Abilities:
   - rid: 8546192824960024759
-  cardText: -1 Trace
+  cardText: -2 Trace
   Cost:
     rid: 8546192847017345229
   Strength: -1
@@ -38,4 +38,4 @@ MonoBehaviour:
     - rid: 8546193071756280053
       type: {class: IncreaseTraceEffect, ns: ryathom.RunTheNet.Encounters.Cards, asm: Assembly-CSharp}
       data:
-        Value: -1
+        Value: -2
