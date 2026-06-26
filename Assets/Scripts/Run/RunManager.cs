@@ -26,6 +26,8 @@ namespace ryathom.RunTheNet.Run
 
         public int Credits {get; private set;}
 
+        public int ProgressLevel;
+
         // Unity Messages
         //---------------------------------------------------------------------------------------------------------
         private void Awake() 
@@ -38,6 +40,8 @@ namespace ryathom.RunTheNet.Run
             }
 
             DontDestroyOnLoad(gameObject);
+
+            ProgressLevel = 0;
         }
 
         private void Start()
@@ -45,6 +49,7 @@ namespace ryathom.RunTheNet.Run
             SetupCards();
 
             Credits = 0;
+            
         }
 
         // Game flow

@@ -20,13 +20,12 @@ MonoBehaviour:
   ServerList:
   - {fileID: 11400000, guid: a81b3d86c2c394cd4890337db79a0323, type: 2}
   - {fileID: 11400000, guid: b29e9cc49957f4388adca28d7bec25ae, type: 2}
-  - {fileID: 11400000, guid: dbabadab2d18446609ac2ac8389b1050, type: 2}
+  - {fileID: 11400000, guid: 1dced815f31254fbdbb8ac239af4aa98, type: 2}
   ReservesList:
   - {fileID: 11400000, guid: dbabadab2d18446609ac2ac8389b1050, type: 2}
   - {fileID: 11400000, guid: dbabadab2d18446609ac2ac8389b1050, type: 2}
   - {fileID: 11400000, guid: 99361471b6a574b1da153cf61e4826f6, type: 2}
   - {fileID: 11400000, guid: 99361471b6a574b1da153cf61e4826f6, type: 2}
-  - {fileID: 11400000, guid: ac03a27fad1d541d09c077bb9b5ec30f, type: 2}
-  - {fileID: 11400000, guid: ac03a27fad1d541d09c077bb9b5ec30f, type: 2}
   - {fileID: 11400000, guid: 660b9b003c7864f02a2256651b873045, type: 2}
+  - {fileID: 11400000, guid: 2f227a2060ad846c8929fea5e75a7993, type: 2}
   - {fileID: 11400000, guid: 2f227a2060ad846c8929fea5e75a7993, type: 2}
