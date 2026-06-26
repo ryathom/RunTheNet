@@ -10,7 +10,7 @@ namespace ryathom.RunTheNet.Encounters.Actions
         public Card Card {get; private set;}
         public int PC {get; private set;}
 
-        private float pointerDelay = 1f;
+        private float pointerDelay = 0.66f;
 
         public ExecuteSubroutines(int pc)
         {

@@ -152,5 +152,14 @@ namespace ryathom.RunTheNet.Encounters.Zones {
         {
             OnExitServerSlot?.Invoke(slot);
         }
+
+        protected override void EnterContainer(CardContainer container)
+        {
+            if (container.IsDragging) return;
+
+            container.transform.SetAsLastSibling();
+            container.SetScale(new Vector3(1.2f, 1.2f, 1f));
+            container.transform.eulerAngles = Vector3.zero;
+        }
     }
 }
