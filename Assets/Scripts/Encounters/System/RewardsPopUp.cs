@@ -17,10 +17,16 @@ namespace ryathom.RunTheNet.Encounters
             creditsText.text = "Credits: " + credits.ToString();
 
             List<ProgramSO> randomRewards = new();
+            List<int> selectedRewards = new();
 
             for (int i = 0; i < 3; i++)
             {
                 int x = Random.Range(0, cards.Count - 1);
+                while (selectedRewards.Contains(x))
+                {
+                    x = Random.Range(0, cards.Count - 1);
+                }
+                selectedRewards.Add(x);
                 ProgramSO selected = cards[x];
 
                 randomRewards.Add(selected);
