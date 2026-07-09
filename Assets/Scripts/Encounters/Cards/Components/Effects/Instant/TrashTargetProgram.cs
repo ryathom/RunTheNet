@@ -7,7 +7,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
     [System.Serializable]
     public class TrashTargetProgram : ITargetingEffect, IEffect
     {
-        public Card Target;
+        public Card Target {get; private set;}
         public string TargetPrompt;
 
         public TrashTargetProgram(string prompt)

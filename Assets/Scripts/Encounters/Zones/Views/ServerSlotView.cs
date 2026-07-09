@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace ryathom.RunTheNet.Encounters.Zones {
     public class ServerSlotView : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        public ServerSlot ServerSlot;
+        public ServerSlot ServerSlot {get; private set;}
         public Action<ServerSlot> OnClickSlot;
         public Action<ServerSlot> OnEnterSlot;
         public Action<ServerSlot> OnExitSlot;
@@ -45,6 +45,11 @@ namespace ryathom.RunTheNet.Encounters.Zones {
             RectTransform rect = GetComponent<RectTransform>();
 
             return RectTransformUtility.RectangleContainsScreenPoint(rect, position);
+        }
+
+        public void SetSlot(ServerSlot slot)
+        {
+            ServerSlot = slot;
         }
     }
 }

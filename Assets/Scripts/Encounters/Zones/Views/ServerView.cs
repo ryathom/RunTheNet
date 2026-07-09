@@ -78,7 +78,7 @@ namespace ryathom.RunTheNet.Encounters.Zones {
 
             for (int i = 0; i < server.Slots.Count; i++)
             {
-                ServerSlots[i].ServerSlot = server.Slots[i];
+                ServerSlots[i].SetSlot(server.Slots[i]);
                 ServerSlots[i].OnClickSlot += ClickServerSlot;
                 ServerSlots[i].OnEnterSlot += EnterServerSlot;
                 ServerSlots[i].OnExitSlot += ExitServerSlot;

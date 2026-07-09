@@ -14,7 +14,7 @@ namespace ryathom.RunTheNet.Encounters.Cards
 
         public Card Card {get; private set;}
 
-        public Zone Zone;
+        public Zone Zone {get; private set;}
 
         public bool IsDragging {get; private set;}
         public Vector2 TargetPosition {get; private set;}
