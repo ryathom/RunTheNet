@@ -2,3 +2,6 @@
 
 # IDE0130: Namespace does not match folder structure
 dotnet_style_namespace_match_folder = false
+
+# UAC1001: Public field skipped by serialization due to missing [Serializable]
+dotnet_diagnostic.UAC1001.severity = none
