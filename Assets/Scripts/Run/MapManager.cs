@@ -16,6 +16,9 @@ namespace ryathom.RunTheNet.Run
         private float xDist = 450;
         private float yDist = 350;
 
+        private Vector2 cachedPointInput;
+        private Vector2 cachedMapPosition;
+
         private List<List<Button>> map = new();
 
         // Unity Messages
@@ -23,6 +26,14 @@ namespace ryathom.RunTheNet.Run
         private void Start()
         {
             GenerateEmptyMap();
+
+            InputManager.Instance.OnMiddleClickAction += CachePointInput;
+        }
+
+
+        private void Update()
+        {
+            HandleMapMovement();
         }
 
 
@@ -31,6 +42,23 @@ namespace ryathom.RunTheNet.Run
         public void StartEncounter(EncounterSO encounter)
         {
             RunManager.Instance.StartEncounter(encounter);
+        }
+
+        public void HandleMapMovement()
+        {
+            if (InputManager.Instance.GetMiddleClick())
+            {
+                if (cachedPointInput != null)
+                {
+                    mapTransform.position = cachedMapPosition + InputManager.Instance.GetPointInput() - cachedPointInput;
+                }
+            }
+        }
+
+        public void CachePointInput()
+        {
+            cachedPointInput = InputManager.Instance.GetPointInput();
+            cachedMapPosition = mapTransform.position;
         }
 
 

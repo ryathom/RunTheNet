@@ -8,10 +8,12 @@ namespace ryathom.RunTheNet
     {
         private InputAction pointAction;
         private InputAction clickAction;
+        private InputAction middleClickAction;
         private InputAction scrollAction;
 
         // Events
         public Action OnClickAction;
+        public Action OnMiddleClickAction;
 
         public static InputManager Instance;
 
@@ -32,6 +34,7 @@ namespace ryathom.RunTheNet
         {
             pointAction = InputSystem.actions.FindAction("Point");
             clickAction = InputSystem.actions.FindAction("Click");
+            middleClickAction = InputSystem.actions.FindAction("MiddleClick");
             scrollAction = InputSystem.actions.FindAction("ScrollWheel");
         }
 
@@ -40,6 +43,11 @@ namespace ryathom.RunTheNet
             if (clickAction.WasPressedThisFrame())
             {
                 OnClickAction?.Invoke();
+            }
+
+            if (middleClickAction.WasPressedThisFrame())
+            {
+                OnMiddleClickAction?.Invoke();
             }
          }
 
@@ -53,6 +61,11 @@ namespace ryathom.RunTheNet
         public Vector2 GetScrollInput()
         {
             return scrollAction.ReadValue<Vector2>();
+        }
+
+        public bool GetMiddleClick()
+        {
+            return middleClickAction.IsPressed();
         }
     }
 }
