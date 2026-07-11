@@ -10,12 +10,17 @@ namespace ryathom.RunTheNet.Run
     {
         [SerializeField] private Button encounterButtonPrefab;
         [SerializeField] private Transform mapTransform;
+        [SerializeField] private Transform mapButtonsTransform;
+        [SerializeField] private Transform mapLinesTransform;
+
+        [SerializeField] private Sprite lineImage;
 
         private int mapWidth = 5;
         private int mapHeight = 10;
         private float xDist = 450;
         private float yDist = 350;
         private int numPaths = 3;
+        private float lineWidth = 50;
 
         private Vector2 cachedPointInput;
         private Vector2 cachedMapPosition;
@@ -84,13 +89,13 @@ namespace ryathom.RunTheNet.Run
 
                 for (int j = 0; j < mapWidth; j++)
                 {
-                    Button btn = Instantiate(encounterButtonPrefab, mapTransform);
+                    Button btn = Instantiate(encounterButtonPrefab, mapButtonsTransform);
                     btn.transform.SetLocalPositionAndRotation(new Vector2(j*xDist, i*yDist), Quaternion.identity);
                     btn.image.color = Color.grey;
                     TextMeshProUGUI tm = btn.GetComponentInChildren<TextMeshProUGUI>();
                     tm.text = "Empty";
 
-                    btn.gameObject.SetActive(true);
+                    btn.gameObject.SetActive(false);
                     floor.Add(btn);
                 }
 
@@ -114,6 +119,9 @@ namespace ryathom.RunTheNet.Run
             startBtn.image.color = Color.white;
             TextMeshProUGUI tm1 = startBtn.GetComponentInChildren<TextMeshProUGUI>();
             tm1.text = "Encounter";
+            startBtn.gameObject.SetActive(true);
+
+            Button prevBtn = startBtn;
 
             for (int i = 1; i < mapHeight; i++)
             {
@@ -131,7 +139,28 @@ namespace ryathom.RunTheNet.Run
                 btn.image.color = Color.white;
                 TextMeshProUGUI tm = btn.GetComponentInChildren<TextMeshProUGUI>();
                 tm.text = "Encounter";
+
+                btn.gameObject.SetActive(true);
+
+                MakeLine(prevBtn.transform.localPosition, btn.transform.localPosition, Color.grey);
+
+                prevBtn = btn;
             }
         }
+
+        void MakeLine(Vector3 a, Vector3 b, Color col) {
+            GameObject NewObj = new();
+            Image NewImage = NewObj.AddComponent<Image>();
+            NewImage.sprite = lineImage;
+            NewImage.color = col;
+            RectTransform rect = NewObj.GetComponent<RectTransform>();
+            rect.SetParent(mapLinesTransform);
+            rect.localScale = Vector3.one;
+
+            rect.localPosition = (a + b) / 2;
+            Vector3 dif = a - b;
+            rect.sizeDelta = new Vector3(dif.magnitude, lineWidth);
+            rect.rotation = Quaternion.Euler(new Vector3(0, 0, 180 * Mathf.Atan(dif.y / dif.x) / Mathf.PI));
+    }
     }
 }
