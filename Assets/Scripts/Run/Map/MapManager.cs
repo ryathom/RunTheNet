@@ -28,9 +28,10 @@ namespace ryathom.RunTheNet.Run
         private Vector2 cachedPointInput;
         private Vector2 cachedMapPosition;
 
-        private float scrollSpeed = -5f;
+        private float scrollSpeed = -10f;
 
         private List<List<EncounterButton>> map = new();
+        private List<List<EncounterButton>> paths = new();
 
         // Unity Messages
         //---------------------------------------------------------------------------------------------------------
@@ -125,13 +126,16 @@ namespace ryathom.RunTheNet.Run
 
         public void GeneratePath()
         {
+            List<EncounterButton> path = new();
+
             int x = Random.Range(0, mapWidth);
             EncounterButton startBtn = map[0][x];
 
-            startBtn.SetCoords(new Vector2(x, 0));
+            startBtn.SetCoords(new Vector2Int(x, 0));
             startBtn.SetAppearance("Encounter", Color.white);
             startBtn.SetEncounterSO(testEncounter);
             startBtn.gameObject.SetActive(true);
+            path.Add(startBtn);
 
             EncounterButton prevBtn = startBtn;
 
@@ -143,12 +147,33 @@ namespace ryathom.RunTheNet.Run
 
                 x += offset;
                 x = Mathf.Clamp(x, 0, mapWidth-1);
-
                 EncounterButton btn = floor[x];
-                btn.SetCoords(new Vector2(x, i));
+                btn.SetCoords(new Vector2Int(x, i));
+
+                int iterations = 0;
+
+                while(CheckForCrossover(prevBtn, btn, path))
+                {
+                    iterations += 1;
+
+                    if (iterations >= 1000)
+                    {
+                        Debug.LogError("Map generation failed");
+                        Debug.Log(prevBtn.Coords);
+                        return;
+                    }
+
+                    offset = Random.Range(-1, 2);
+                    x += offset;
+                    x = Mathf.Clamp(x, 0, mapWidth-1);
+                    btn = floor[x];
+                    btn.SetCoords(new Vector2Int(x, i));
+                }
+
                 btn.SetAppearance("Encounter", Color.grey);
                 btn.SetEncounterSO(testEncounter);
                 btn.gameObject.SetActive(true);
+                path.Add(btn);
 
                 if (prevBtn.Connections.Contains(btn) == false)
                 {
@@ -157,6 +182,29 @@ namespace ryathom.RunTheNet.Run
 
                 prevBtn = btn;
             }
+
+            paths.Add(path);
+        }
+
+        public bool CheckForCrossover(EncounterButton btn1, EncounterButton btn2, List<EncounterButton> currentPath)
+        {
+            foreach (List<EncounterButton> path in paths)
+            {
+                if (path == currentPath) continue;
+
+                EncounterButton pathBtn1 = path[btn1.Coords.y];
+                EncounterButton pathBtn2 = path[btn2.Coords.y];
+
+                if (pathBtn1.Coords.x > btn1.Coords.x && pathBtn2.Coords.x < btn2.Coords.x)
+                {
+                    return true;
+                } else if (pathBtn1.Coords.x < btn1.Coords.x && pathBtn2.Coords.x > btn2.Coords.x)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void GenerateConnections()

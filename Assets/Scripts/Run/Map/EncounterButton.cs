@@ -10,7 +10,7 @@ namespace ryathom.RunTheNet.Run
         [SerializeField] private Button button;
 
         public EncounterSO EncounterSO {get; private set;}
-        public Vector2 Coords {get; private set;}
+        public Vector2Int Coords {get; private set;}
 
         public List<EncounterButton> Connections {get; private set;}
 
@@ -31,7 +31,7 @@ namespace ryathom.RunTheNet.Run
             EncounterSO = encounterSO;
         }
 
-        public void SetCoords(Vector2 coords)
+        public void SetCoords(Vector2Int coords)
         {
             Coords = coords;
         }
