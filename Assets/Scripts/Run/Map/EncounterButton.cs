@@ -17,6 +17,7 @@ namespace ryathom.RunTheNet.Run
         public void Awake()
         {
             Connections = new();
+            button.onClick.AddListener(StartEncounter);
         }
 
         public void StartEncounter()

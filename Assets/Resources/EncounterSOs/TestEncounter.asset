@@ -19,7 +19,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f498f0b1c607048ef9132d1a02c86aeb, type: 2}
   ServerList:
   - {fileID: 11400000, guid: a81b3d86c2c394cd4890337db79a0323, type: 2}
-  - {fileID: 11400000, guid: 660b9b003c7864f02a2256651b873045, type: 2}
   ReservesList:
   - {fileID: 11400000, guid: c4453fc2898244d4e80d535f68492a8c, type: 2}
   - {fileID: 11400000, guid: c4453fc2898244d4e80d535f68492a8c, type: 2}

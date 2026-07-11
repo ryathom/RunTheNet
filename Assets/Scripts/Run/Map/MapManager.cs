@@ -28,7 +28,7 @@ namespace ryathom.RunTheNet.Run
         private Vector2 cachedPointInput;
         private Vector2 cachedMapPosition;
 
-        private float scrollSpeed = 0.01f;
+        private float scrollSpeed = -5f;
 
         private List<List<EncounterButton>> map = new();
 
@@ -46,6 +46,8 @@ namespace ryathom.RunTheNet.Run
             {
                 GenerateEmptyMap();
                 LoadMapData();
+                Debug.Log(RunManager.Instance);
+                UpdateMapAppearance(RunManager.Instance.CurrentPosition);
                 GenerateConnections();
             }
 
@@ -65,20 +67,22 @@ namespace ryathom.RunTheNet.Run
         //---------------------------------------------------------------------------------------------------------
         public void HandleMapMovement()
         {
-            if (InputManager.Instance.GetMiddleClick())
-            {
-                if (cachedPointInput != null)
-                {
-                    mapTransform.position = cachedMapPosition + InputManager.Instance.GetPointInput() - cachedPointInput;
-                }
-            }
+            // if (InputManager.Instance.GetMiddleClick())
+            // {
+            //     if (cachedPointInput != null)
+            //     {
+            //         mapTransform.position = cachedMapPosition + InputManager.Instance.GetPointInput() - cachedPointInput;
+            //     }
+            // }
 
-            float scrollOffset = 1 + InputManager.Instance.GetScrollInput().y * scrollSpeed;
+            // float scrollOffset = 1 + InputManager.Instance.GetScrollInput().y * scrollSpeed;
 
-            if (scrollOffset != 1)
-            {
-                mapTransform.localScale *= scrollOffset;
-            }
+            // if (scrollOffset != 1)
+            // {
+            //     mapTransform.localScale *= scrollOffset;
+            // }
+
+            mapTransform.Translate(InputManager.Instance.GetScrollInput() * scrollSpeed);
         }
 
         public void CachePointInput()
@@ -171,8 +175,10 @@ namespace ryathom.RunTheNet.Run
             }
         }
 
-        public void UpdateMapAppearance(EncounterButton currentPosition)
+        public void UpdateMapAppearance(Vector2 pos)
         {
+            EncounterButton btn = map[(int)pos.y][(int)pos.x];
+
             foreach (List<EncounterButton> floor in map)
             {
                 foreach (EncounterButton button in floor)
@@ -181,7 +187,9 @@ namespace ryathom.RunTheNet.Run
                 }
             }
 
-            foreach (EncounterButton connection in currentPosition.Connections)
+            btn.SetColor(Color.lightGray);
+
+            foreach (EncounterButton connection in btn.Connections)
             {
                 connection.SetColor(Color.white);
             }
@@ -244,15 +252,20 @@ namespace ryathom.RunTheNet.Run
 
         public void LoadMapData()
         {
-            Debug.Log("Loading map data, " + SaveData.Current.mapSaveData.map.Count + " nodes");
-
             foreach (MapNodeData node in SaveData.Current.mapSaveData.map)
             {
                 EncounterButton btn = map[node.yPosition][node.xPosition];
 
                 btn.SetAppearance("Encounter", Color.grey);
                 btn.SetEncounterSO(node.encounterSO);
+                btn.SetCoords(new (node.xPosition, node.yPosition));
                 btn.gameObject.SetActive(true);
+
+                foreach (MapNodeData connection in node.connections)
+                {
+                    EncounterButton btnConnection = map[connection.yPosition][connection.xPosition];
+                    btn.Connections.Add(btnConnection);
+                }
             }
         }
     }
