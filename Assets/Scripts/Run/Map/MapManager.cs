@@ -145,33 +145,46 @@ namespace ryathom.RunTheNet.Run
 
                 int offset = Random.Range(-1, 2);
 
-                x += offset;
-                x = Mathf.Clamp(x, 0, mapWidth-1);
-                EncounterButton btn = floor[x];
-                btn.SetCoords(new Vector2Int(x, i));
+                EncounterButton btn;
 
-                int iterations = 0;
-
-                while(CheckForCrossover(prevBtn, btn, path))
+                if (i == mapHeight - 1)
                 {
-                    iterations += 1;
-
-                    if (iterations >= 1000)
-                    {
-                        Debug.LogError("Map generation failed");
-                        Debug.Log(prevBtn.Coords);
-                        return;
-                    }
-
-                    offset = Random.Range(-1, 2);
+                    x = 2;
+                    btn = floor[x];
+                    btn.SetCoords(new Vector2Int(x, i));
+                    btn.SetAppearance("Boss Encounter", Color.grey);
+                    btn.SetEncounterSO(testEncounter);
+                } else
+                {
                     x += offset;
                     x = Mathf.Clamp(x, 0, mapWidth-1);
                     btn = floor[x];
                     btn.SetCoords(new Vector2Int(x, i));
+
+                    int iterations = 0;
+
+                    while(CheckForCrossover(prevBtn, btn, path))
+                    {
+                        iterations += 1;
+
+                        if (iterations >= 1000)
+                        {
+                            Debug.LogError("Map generation failed");
+                            Debug.Log(prevBtn.Coords);
+                            return;
+                        }
+
+                        offset = Random.Range(-1, 2);
+                        x += offset;
+                        x = Mathf.Clamp(x, 0, mapWidth-1);
+                        btn = floor[x];
+                        btn.SetCoords(new Vector2Int(x, i));
+                    }
+                    
+                    btn.SetAppearance("Encounter", Color.grey);
+                    btn.SetEncounterSO(testEncounter);
                 }
 
-                btn.SetAppearance("Encounter", Color.grey);
-                btn.SetEncounterSO(testEncounter);
                 btn.gameObject.SetActive(true);
                 path.Add(btn);
 
