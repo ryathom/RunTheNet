@@ -13,6 +13,8 @@ namespace ryathom.RunTheNet.Run
         [SerializeField] private Transform mapButtonsTransform;
         [SerializeField] private Transform mapLinesTransform;
 
+        [SerializeField] private EncounterSO testEncounter;
+
         [SerializeField] private Sprite lineImage;
 
         private int mapWidth = 5;
@@ -47,13 +49,8 @@ namespace ryathom.RunTheNet.Run
         }
 
 
-        // Game flow
+        // Navigation
         //---------------------------------------------------------------------------------------------------------
-        public void StartEncounter(EncounterSO encounter)
-        {
-            RunManager.Instance.StartEncounter(encounter);
-        }
-
         public void HandleMapMovement()
         {
             if (InputManager.Instance.GetMiddleClick())
@@ -116,6 +113,7 @@ namespace ryathom.RunTheNet.Run
             EncounterButton startBtn = map[0][x];
 
             startBtn.SetAppearance("Encounter", Color.white);
+            startBtn.SetEncounterSO(testEncounter);
             startBtn.gameObject.SetActive(true);
 
             EncounterButton prevBtn = startBtn;
@@ -130,7 +128,8 @@ namespace ryathom.RunTheNet.Run
                 x = Mathf.Clamp(x, 0, mapWidth-1);
 
                 EncounterButton btn = floor[x];
-                btn.SetAppearance("Encounter", Color.white);
+                btn.SetAppearance("Encounter", Color.grey);
+                btn.SetEncounterSO(testEncounter);
                 btn.gameObject.SetActive(true);
 
                 if (prevBtn.Connections.Contains(btn) == false)
@@ -158,7 +157,23 @@ namespace ryathom.RunTheNet.Run
             }
         }
 
-        void MakeLine(Vector3 a, Vector3 b, Color col) {
+        public void UpdateMapAppearance(EncounterButton currentPosition)
+        {
+            foreach (List<EncounterButton> floor in map)
+            {
+                foreach (EncounterButton button in floor)
+                {
+                    button.SetColor(Color.grey);
+                }
+            }
+
+            foreach (EncounterButton connection in currentPosition.Connections)
+            {
+                connection.SetColor(Color.white);
+            }
+        }
+
+        public void MakeLine(Vector3 a, Vector3 b, Color col) {
             GameObject NewObj = new();
             Image NewImage = NewObj.AddComponent<Image>();
             NewImage.sprite = lineImage;
@@ -171,6 +186,6 @@ namespace ryathom.RunTheNet.Run
             Vector3 dif = a - b;
             rect.sizeDelta = new Vector3(dif.magnitude, lineWidth);
             rect.rotation = Quaternion.Euler(new Vector3(0, 0, 180 * Mathf.Atan(dif.y / dif.x) / Mathf.PI));
-    }
+        }
     }
 }

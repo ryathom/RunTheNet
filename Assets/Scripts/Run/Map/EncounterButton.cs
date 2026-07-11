@@ -19,6 +19,11 @@ namespace ryathom.RunTheNet.Run
             Connections = new();
         }
 
+        public void StartEncounter()
+        {
+            RunManager.Instance.StartEncounter(EncounterSO, this);
+        }
+
 
         public void SetEncounterSO(EncounterSO encounterSO)
         {
@@ -40,6 +45,11 @@ namespace ryathom.RunTheNet.Run
             TextMeshProUGUI tm = button.GetComponentInChildren<TextMeshProUGUI>();
             tm.text = name;
 
+            button.image.color = color;
+        }
+
+        public void SetColor(Color color)
+        {
             button.image.color = color;
         }
     }

@@ -30,7 +30,6 @@ namespace ryathom.RunTheNet.Encounters.Actions
                 EncounterUIManager.Instance.RewardsPopUp.SetRewards(credits, programs);
 
                 RunManager.Instance.GiveRewards();
-                RunManager.Instance.ProgressLevel += 1;
             } else
             {
                 EncounterUIManager.Instance.ShowGameOverPopUp(true);

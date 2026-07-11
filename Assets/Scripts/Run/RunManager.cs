@@ -10,6 +10,8 @@ namespace ryathom.RunTheNet.Run
     {
         public static RunManager Instance {get; private set;}
 
+        [SerializeField] private MapManager mapManager;
+
         public EncounterSO CurrentEncounter {get; private set;}
         private bool rewardChosen;
 
@@ -26,7 +28,7 @@ namespace ryathom.RunTheNet.Run
 
         public int Credits {get; private set;}
 
-        public int ProgressLevel;
+        public EncounterButton CurrentPosition {get; private set;}
 
         // Unity Messages
         //---------------------------------------------------------------------------------------------------------
@@ -40,8 +42,6 @@ namespace ryathom.RunTheNet.Run
             }
 
             DontDestroyOnLoad(gameObject);
-
-            ProgressLevel = 0;
         }
 
         private void Start()
@@ -120,8 +120,9 @@ namespace ryathom.RunTheNet.Run
             }
         }
 
-        public void StartEncounter(EncounterSO encounter)
+        public void StartEncounter(EncounterSO encounter, EncounterButton button)
         {
+            CurrentPosition = button;
             CurrentEncounter = encounter;
             rewardChosen = false;
             SetupServer();
@@ -131,6 +132,7 @@ namespace ryathom.RunTheNet.Run
         // Rewards
         public void GiveRewards()
         {
+            mapManager.UpdateMapAppearance(CurrentPosition);
             Credits += CurrentEncounter.CreditsReward;
         }
 
