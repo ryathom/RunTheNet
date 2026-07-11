@@ -20,6 +20,8 @@ namespace ryathom.RunTheNet.Run
         private Vector2 cachedPointInput;
         private Vector2 cachedMapPosition;
 
+        private float scrollSpeed = 0.01f;
+
         private List<List<Button>> map = new();
 
         // Unity Messages
@@ -54,6 +56,13 @@ namespace ryathom.RunTheNet.Run
                 {
                     mapTransform.position = cachedMapPosition + InputManager.Instance.GetPointInput() - cachedPointInput;
                 }
+            }
+
+            float scrollOffset = 1 + InputManager.Instance.GetScrollInput().y * scrollSpeed;
+
+            if (scrollOffset != 1)
+            {
+                mapTransform.localScale *= scrollOffset;
             }
         }
 
