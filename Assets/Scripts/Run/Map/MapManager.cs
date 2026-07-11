@@ -8,7 +8,7 @@ namespace ryathom.RunTheNet.Run
 {
     public class MapManager : MonoBehaviour
     {
-        [SerializeField] private Button encounterButtonPrefab;
+        [SerializeField] private EncounterButton encounterButtonPrefab;
         [SerializeField] private Transform mapTransform;
         [SerializeField] private Transform mapButtonsTransform;
         [SerializeField] private Transform mapLinesTransform;
@@ -27,7 +27,7 @@ namespace ryathom.RunTheNet.Run
 
         private float scrollSpeed = 0.01f;
 
-        private List<List<Button>> map = new();
+        private List<List<EncounterButton>> map = new();
 
         // Unity Messages
         //---------------------------------------------------------------------------------------------------------
@@ -35,6 +35,7 @@ namespace ryathom.RunTheNet.Run
         {
             GenerateEmptyMap();
             GeneratePaths();
+            GenerateConnections();
 
             InputManager.Instance.OnMiddleClickAction += CachePointInput;
         }
@@ -85,15 +86,13 @@ namespace ryathom.RunTheNet.Run
         {
             for (int i = 0; i < mapHeight; i++)
             {
-                List<Button> floor = new();
+                List<EncounterButton> floor = new();
 
                 for (int j = 0; j < mapWidth; j++)
                 {
-                    Button btn = Instantiate(encounterButtonPrefab, mapButtonsTransform);
+                    EncounterButton btn = Instantiate(encounterButtonPrefab, mapButtonsTransform);
                     btn.transform.SetLocalPositionAndRotation(new Vector2(j*xDist, i*yDist), Quaternion.identity);
-                    btn.image.color = Color.grey;
-                    TextMeshProUGUI tm = btn.GetComponentInChildren<TextMeshProUGUI>();
-                    tm.text = "Empty";
+                    btn.SetAppearance("Empty", Color.grey);
 
                     btn.gameObject.SetActive(false);
                     floor.Add(btn);
@@ -114,37 +113,48 @@ namespace ryathom.RunTheNet.Run
         public void GeneratePath()
         {
             int x = Random.Range(0, mapWidth);
-            Button startBtn = map[0][x];
+            EncounterButton startBtn = map[0][x];
 
-            startBtn.image.color = Color.white;
-            TextMeshProUGUI tm1 = startBtn.GetComponentInChildren<TextMeshProUGUI>();
-            tm1.text = "Encounter";
+            startBtn.SetAppearance("Encounter", Color.white);
             startBtn.gameObject.SetActive(true);
 
-            Button prevBtn = startBtn;
+            EncounterButton prevBtn = startBtn;
 
             for (int i = 1; i < mapHeight; i++)
             {
-                List<Button> floor = map[i];
+                List<EncounterButton> floor = map[i];
 
                 int offset = Random.Range(-1, 2);
 
                 x += offset;
                 x = Mathf.Clamp(x, 0, mapWidth-1);
 
-                // Debug.Log("Floor " + i + ", room " + x);
-
-                Button btn = floor[x];
-
-                btn.image.color = Color.white;
-                TextMeshProUGUI tm = btn.GetComponentInChildren<TextMeshProUGUI>();
-                tm.text = "Encounter";
-
+                EncounterButton btn = floor[x];
+                btn.SetAppearance("Encounter", Color.white);
                 btn.gameObject.SetActive(true);
 
-                MakeLine(prevBtn.transform.localPosition, btn.transform.localPosition, Color.grey);
+                if (prevBtn.Connections.Contains(btn) == false)
+                {
+                    prevBtn.Connections.Add(btn);
+                }
 
                 prevBtn = btn;
+            }
+        }
+
+        public void GenerateConnections()
+        {
+            foreach (List<EncounterButton> floor in map)
+            {
+                foreach (EncounterButton button in floor)
+                {
+                    if (button.Connections == null) continue;
+
+                    foreach (EncounterButton connection in button.Connections)
+                    {
+                        MakeLine(button.transform.localPosition, connection.transform.localPosition, Color.grey);
+                    }
+                }
             }
         }
 

@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace ryathom.RunTheNet.Run
+{
+    public class EncounterButton : MonoBehaviour
+    {
+        [SerializeField] private Button button;
+
+        public EncounterSO EncounterSO {get; private set;}
+        public Vector2 Coords {get; private set;}
+
+        public List<EncounterButton> Connections {get; private set;}
+
+        public void Awake()
+        {
+            Connections = new();
+        }
+
+
+        public void SetEncounterSO(EncounterSO encounterSO)
+        {
+            EncounterSO = encounterSO;
+        }
+
+        public void SetCoords(Vector2 coords)
+        {
+            Coords = coords;
+        }
+
+        public void AddConnection(EncounterButton connection)
+        {
+            Connections.Add(connection);
+        }
+
+        public void SetAppearance(string name, Color color)
+        {
+            TextMeshProUGUI tm = button.GetComponentInChildren<TextMeshProUGUI>();
+            tm.text = name;
+
+            button.image.color = color;
+        }
+    }
+}
