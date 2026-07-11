@@ -12,9 +12,10 @@ namespace ryathom.RunTheNet.Run
         [SerializeField] private Transform mapTransform;
 
         private int mapWidth = 5;
-        private int mapHeight = 4;
+        private int mapHeight = 10;
         private float xDist = 450;
         private float yDist = 350;
+        private int numPaths = 3;
 
         private Vector2 cachedPointInput;
         private Vector2 cachedMapPosition;
@@ -26,6 +27,7 @@ namespace ryathom.RunTheNet.Run
         private void Start()
         {
             GenerateEmptyMap();
+            GeneratePaths();
 
             InputManager.Instance.OnMiddleClickAction += CachePointInput;
         }
@@ -84,6 +86,42 @@ namespace ryathom.RunTheNet.Run
                 }
 
                 map.Add(floor);
+            }
+        }
+
+        public void GeneratePaths()
+        {
+            for (int i = 0; i < numPaths; i++)
+            {
+                GeneratePath();
+            }
+        }
+
+        public void GeneratePath()
+        {
+            int x = Random.Range(0, mapWidth);
+            Button startBtn = map[0][x];
+
+            startBtn.image.color = Color.white;
+            TextMeshProUGUI tm1 = startBtn.GetComponentInChildren<TextMeshProUGUI>();
+            tm1.text = "Encounter";
+
+            for (int i = 1; i < mapHeight; i++)
+            {
+                List<Button> floor = map[i];
+
+                int offset = Random.Range(-1, 2);
+
+                x += offset;
+                x = Mathf.Clamp(x, 0, mapWidth-1);
+
+                // Debug.Log("Floor " + i + ", room " + x);
+
+                Button btn = floor[x];
+
+                btn.image.color = Color.white;
+                TextMeshProUGUI tm = btn.GetComponentInChildren<TextMeshProUGUI>();
+                tm.text = "Encounter";
             }
         }
     }
