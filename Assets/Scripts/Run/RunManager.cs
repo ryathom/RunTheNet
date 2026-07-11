@@ -132,7 +132,7 @@ namespace ryathom.RunTheNet.Run
         // Rewards
         public void GiveRewards()
         {
-            mapManager.UpdateMapAppearance(CurrentPosition);
+            // mapManager.UpdateMapAppearance(CurrentPosition);
             Credits += CurrentEncounter.CreditsReward;
         }
 

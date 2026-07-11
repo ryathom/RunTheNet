@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using ryathom.RunTheNet.Run.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,9 +36,20 @@ namespace ryathom.RunTheNet.Run
         //---------------------------------------------------------------------------------------------------------
         private void Start()
         {
-            GenerateEmptyMap();
-            GeneratePaths();
-            GenerateConnections();
+            if (SaveData.Current.mapSaveData == null)
+            {
+                GenerateEmptyMap();
+                GeneratePaths();
+                SaveMapData();
+                GenerateConnections();
+            } else
+            {
+                GenerateEmptyMap();
+                LoadMapData();
+                GenerateConnections();
+            }
+
+            
 
             InputManager.Instance.OnMiddleClickAction += CachePointInput;
         }
@@ -112,6 +124,7 @@ namespace ryathom.RunTheNet.Run
             int x = Random.Range(0, mapWidth);
             EncounterButton startBtn = map[0][x];
 
+            startBtn.SetCoords(new Vector2(x, 0));
             startBtn.SetAppearance("Encounter", Color.white);
             startBtn.SetEncounterSO(testEncounter);
             startBtn.gameObject.SetActive(true);
@@ -128,6 +141,7 @@ namespace ryathom.RunTheNet.Run
                 x = Mathf.Clamp(x, 0, mapWidth-1);
 
                 EncounterButton btn = floor[x];
+                btn.SetCoords(new Vector2(x, i));
                 btn.SetAppearance("Encounter", Color.grey);
                 btn.SetEncounterSO(testEncounter);
                 btn.gameObject.SetActive(true);
@@ -186,6 +200,60 @@ namespace ryathom.RunTheNet.Run
             Vector3 dif = a - b;
             rect.sizeDelta = new Vector3(dif.magnitude, lineWidth);
             rect.rotation = Quaternion.Euler(new Vector3(0, 0, 180 * Mathf.Atan(dif.y / dif.x) / Mathf.PI));
+        }
+
+        // Serialization
+        // -------------------------------------------------------------------------------------------
+        public void SaveMapData()
+        {
+            SaveData.Current.mapSaveData = new();
+
+            Dictionary<MapNodeData, EncounterButton> dict1 = new();
+            Dictionary<EncounterButton, MapNodeData> dict2 = new();
+
+            foreach (List<EncounterButton> floor in map)
+            {
+                foreach (EncounterButton button in floor)
+                {
+                    if (button.EncounterSO != null)
+                    {
+                        MapNodeData data = new()
+                        {
+                            xPosition = (int)button.Coords.x,
+                            yPosition = (int)button.Coords.y,
+                            encounterSO = button.EncounterSO
+                        };
+
+                        dict1.Add(data, button);
+                        dict2.Add(button, data);
+                        SaveData.Current.mapSaveData.map.Add(data);
+                    }
+                }
+            }
+
+            foreach (MapNodeData node in SaveData.Current.mapSaveData.map)
+            {
+                EncounterButton button = dict1[node];
+
+                foreach (EncounterButton connection in button.Connections)
+                {
+                    node.connections.Add(dict2[connection]);
+                }
+            }
+        }
+
+        public void LoadMapData()
+        {
+            Debug.Log("Loading map data, " + SaveData.Current.mapSaveData.map.Count + " nodes");
+
+            foreach (MapNodeData node in SaveData.Current.mapSaveData.map)
+            {
+                EncounterButton btn = map[node.yPosition][node.xPosition];
+
+                btn.SetAppearance("Encounter", Color.grey);
+                btn.SetEncounterSO(node.encounterSO);
+                btn.gameObject.SetActive(true);
+            }
         }
     }
 }
