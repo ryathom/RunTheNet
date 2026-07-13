@@ -24,7 +24,16 @@ namespace ryathom.RunTheNet.Run
 
         public void StartEncounter()
         {
-            RunManager.Instance.StartEncounter(EncounterSO, this);
+            if (EncounterType == EncounterType.Encounter)
+            {
+                RunManager.Instance.StartEncounter(EncounterSO, this);
+            } else if (EncounterType == EncounterType.Event)
+            {
+                Debug.Log("Event happens");
+            } else if (EncounterType == EncounterType.Shop)
+            {
+                Debug.Log("Open the shop");
+            }
         }
 
         public void SetEmpty(bool empty)

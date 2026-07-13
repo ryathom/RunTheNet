@@ -35,6 +35,7 @@ namespace ryathom.RunTheNet.Run.Serialization
         public int xPosition;
         public int yPosition;
 
+        public EncounterType encounterType;
         public EncounterSO encounterSO;
 
         public List<MapNodeData> connections = new();

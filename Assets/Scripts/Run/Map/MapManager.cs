@@ -323,12 +323,13 @@ namespace ryathom.RunTheNet.Run
             {
                 foreach (EncounterButton button in floor)
                 {
-                    if (button.EncounterSO != null)
+                    if (button.Empty == false)
                     {
                         MapNodeData data = new()
                         {
                             xPosition = (int)button.Coords.x,
                             yPosition = (int)button.Coords.y,
+                            encounterType = button.EncounterType,
                             encounterSO = button.EncounterSO
                         };
 
@@ -356,8 +357,9 @@ namespace ryathom.RunTheNet.Run
             {
                 EncounterButton btn = map[node.yPosition][node.xPosition];
 
-                btn.SetAppearance("Encounter", Color.grey);
+                btn.SetAppearance(node.encounterType.ToString(), Color.grey);
                 btn.SetEncounterSO(node.encounterSO);
+                btn.SetEncounterType(node.encounterType);
                 btn.SetCoords(new (node.xPosition, node.yPosition));
                 btn.gameObject.SetActive(true);
 
