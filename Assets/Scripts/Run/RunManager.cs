@@ -151,7 +151,15 @@ namespace ryathom.RunTheNet.Run
         public void EndEvent()
         {
             RunUIManager.Instance.ShowEventPopup(false);
+            RunUIManager.Instance.ShowShopPopup(false);
             MapManager.Instance.UpdateMapAppearance(CurrentPosition);
+        }
+
+        // Shop
+        public void OpenShop(EncounterButton button)
+        {
+            CurrentPosition = button.Coords;
+            RunUIManager.Instance.ShowShopPopup(true);
         }
     }
 }

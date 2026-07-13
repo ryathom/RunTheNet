@@ -13,6 +13,7 @@ namespace ryathom.RunTheNet.Run
         [SerializeField] private TextMeshProUGUI creditsText;
         [SerializeField] private RepoBrowser repoBrowser;
         [SerializeField] private EventPopUp eventPopUp;
+        [SerializeField] private EventPopUp shopPopUp;
 
         private void Awake() 
         {
@@ -28,6 +29,7 @@ namespace ryathom.RunTheNet.Run
         {
             ShowRepoBrowser(false);
             ShowEventPopup(false);
+            ShowShopPopup(false);
         }
 
         private void Update()
@@ -48,6 +50,11 @@ namespace ryathom.RunTheNet.Run
         public void ShowEventPopup(bool enabled)
         {
             eventPopUp.gameObject.SetActive(enabled);
+        }
+
+        public void ShowShopPopup(bool enabled)
+        {
+            shopPopUp.gameObject.SetActive(enabled);
         }
     }
 }

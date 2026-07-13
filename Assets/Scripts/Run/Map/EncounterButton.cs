@@ -32,7 +32,7 @@ namespace ryathom.RunTheNet.Run
                 RunManager.Instance.StartEvent(this);
             } else if (EncounterType == EncounterType.Shop)
             {
-                Debug.Log("Open the shop");
+                RunManager.Instance.OpenShop(this);
             }
         }
 
