@@ -305,6 +305,8 @@ namespace ryathom.RunTheNet.Run
             {
                 connection.SetColor(Color.white);
             }
+
+            mapTransform.SetLocalPositionAndRotation(new Vector2(mapTransform.localPosition.x, pos.y * -400f), Quaternion.identity);
         }
 
         public void MakeLine(Vector3 a, Vector3 b, Color col) {
