@@ -41,6 +41,7 @@ namespace ryathom.RunTheNet.Run
             {
                 GenerateEmptyMap();
                 GeneratePaths();
+                GenerateRooms();
                 SaveMapData();
                 GenerateConnections();
             } else
@@ -107,6 +108,7 @@ namespace ryathom.RunTheNet.Run
                     EncounterButton btn = Instantiate(encounterButtonPrefab, mapButtonsTransform);
                     btn.transform.SetLocalPositionAndRotation(new Vector2(j*xDist, i*yDist), Quaternion.identity);
                     btn.SetAppearance("Empty", Color.grey);
+                    btn.SetEmpty(true);
 
                     btn.gameObject.SetActive(false);
                     floor.Add(btn);
@@ -134,6 +136,7 @@ namespace ryathom.RunTheNet.Run
             startBtn.SetCoords(new Vector2Int(x, 0));
             startBtn.SetAppearance("Encounter", Color.white);
             startBtn.SetEncounterSO(testEncounter);
+            startBtn.SetEmpty(false);
             startBtn.gameObject.SetActive(true);
             path.Add(startBtn);
 
@@ -152,7 +155,6 @@ namespace ryathom.RunTheNet.Run
                     x = 2;
                     btn = floor[x];
                     btn.SetCoords(new Vector2Int(x, i));
-                    btn.SetAppearance("Boss Encounter", Color.grey);
                     btn.SetEncounterSO(testEncounter);
                 } else
                 {
@@ -186,6 +188,7 @@ namespace ryathom.RunTheNet.Run
                 }
 
                 btn.gameObject.SetActive(true);
+                btn.SetEmpty(false);
                 path.Add(btn);
 
                 if (prevBtn.Connections.Contains(btn) == false)
@@ -197,6 +200,42 @@ namespace ryathom.RunTheNet.Run
             }
 
             paths.Add(path);
+        }
+
+        public void GenerateRooms()
+        {
+            for (int y = 0; y < mapHeight; y++)
+            {
+                foreach(EncounterButton room in map[y])
+                {
+                    if (y == 0)
+                    {
+                        room.SetEncounterType(EncounterType.Encounter);
+                        room.SetAppearance("Encounter", Color.white);
+                    } else if (y < mapHeight - 1)
+                    {
+                        int rnd = Random.Range(0, 100);
+
+                        if (rnd <= 50)
+                        {
+                            room.SetEncounterType(EncounterType.Encounter);
+                            room.SetAppearance("Encounter", Color.grey);
+                        } else if (rnd <= 75)
+                        {
+                            room.SetEncounterType(EncounterType.Event);
+                            room.SetAppearance("Event", Color.grey);
+                        } else
+                        {
+                            room.SetEncounterType(EncounterType.Shop);
+                            room.SetAppearance("Shop", Color.grey);
+                        }
+                    } else
+                    {
+                        room.SetEncounterType(EncounterType.Boss);
+                        room.SetAppearance("Boss Encounter", Color.grey);
+                    }
+                }
+            }
         }
 
         public bool CheckForCrossover(EncounterButton btn1, EncounterButton btn2, List<EncounterButton> currentPath)

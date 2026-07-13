@@ -9,6 +9,8 @@ namespace ryathom.RunTheNet.Run
     {
         [SerializeField] private Button button;
 
+        public bool Empty {get; private set;}
+        public EncounterType EncounterType {get; private set;}
         public EncounterSO EncounterSO {get; private set;}
         public Vector2Int Coords {get; private set;}
 
@@ -25,6 +27,15 @@ namespace ryathom.RunTheNet.Run
             RunManager.Instance.StartEncounter(EncounterSO, this);
         }
 
+        public void SetEmpty(bool empty)
+        {
+            Empty = empty;
+        }
+
+        public void SetEncounterType(EncounterType type)
+        {
+            EncounterType = type;
+        }
 
         public void SetEncounterSO(EncounterSO encounterSO)
         {
@@ -53,5 +64,13 @@ namespace ryathom.RunTheNet.Run
         {
             button.image.color = color;
         }
+    }
+
+    public enum EncounterType
+    {
+        Encounter,
+        Boss,
+        Event,
+        Shop
     }
 }
