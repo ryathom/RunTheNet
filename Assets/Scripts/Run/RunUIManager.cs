@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ryathom.RunTheNet.Run.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,13 +8,26 @@ namespace ryathom.RunTheNet.Run
 {
     public class RunUIManager : MonoBehaviour
     {
+        public static RunUIManager Instance {get; private set;}
+
         [SerializeField] private TextMeshProUGUI creditsText;
         [SerializeField] private RepoBrowser repoBrowser;
+        [SerializeField] private EventPopUp eventPopUp;
 
+        private void Awake() 
+        {
+            if (Instance == null) {
+                Instance = this;
+            } else
+            {
+                Destroy(gameObject);
+            }
+        }
 
         private void Start()
         {
             ShowRepoBrowser(false);
+            ShowEventPopup(false);
         }
 
         private void Update()
@@ -29,6 +43,11 @@ namespace ryathom.RunTheNet.Run
             {
                 repoBrowser.ShowRepo();
             }
+        }
+
+        public void ShowEventPopup(bool enabled)
+        {
+            eventPopUp.gameObject.SetActive(enabled);
         }
     }
 }

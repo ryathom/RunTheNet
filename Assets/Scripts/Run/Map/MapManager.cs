@@ -9,6 +9,8 @@ namespace ryathom.RunTheNet.Run
 {
     public class MapManager : MonoBehaviour
     {
+        public static MapManager Instance {get; private set;}
+
         [SerializeField] private EncounterButton encounterButtonPrefab;
         [SerializeField] private Transform mapTransform;
         [SerializeField] private Transform mapButtonsTransform;
@@ -35,6 +37,16 @@ namespace ryathom.RunTheNet.Run
 
         // Unity Messages
         //---------------------------------------------------------------------------------------------------------
+        private void Awake() 
+        {
+            if (Instance == null) {
+                Instance = this;
+            } else
+            {
+                Destroy(gameObject);
+            }
+        }
+
         private void Start()
         {
             if (SaveData.Current.mapSaveData == null)

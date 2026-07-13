@@ -29,7 +29,7 @@ namespace ryathom.RunTheNet.Run
                 RunManager.Instance.StartEncounter(EncounterSO, this);
             } else if (EncounterType == EncounterType.Event)
             {
-                Debug.Log("Event happens");
+                RunManager.Instance.StartEvent(this);
             } else if (EncounterType == EncounterType.Shop)
             {
                 Debug.Log("Open the shop");

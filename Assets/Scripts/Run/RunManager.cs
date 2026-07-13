@@ -140,5 +140,18 @@ namespace ryathom.RunTheNet.Run
             Programs.Add(card);
             rewardChosen = true;
         }
+
+        // Events (need better name)
+        public void StartEvent(EncounterButton button)
+        {
+            CurrentPosition = button.Coords;
+            RunUIManager.Instance.ShowEventPopup(true);
+        }
+
+        public void EndEvent()
+        {
+            RunUIManager.Instance.ShowEventPopup(false);
+            MapManager.Instance.UpdateMapAppearance(CurrentPosition);
+        }
     }
 }
